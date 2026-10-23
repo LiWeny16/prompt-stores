@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt Stores</title>
+<meta name="description" content="个人提示词仓库：角色 + 模块组合，小而美，一键复制。">
+<!--
+  单文件 UI：双击即可打开（数据内嵌，无需服务器）。
+  交互元素来自 Lucian UX/UI Prompt（MIT License (c) 2026 Seokwoeee · https://lucianlabs.dev/uxui-prompt）：
+  Lucian UX/UI Prompt #008 · MIT License (c) 2026 Seokwoeee · https://lucianlabs.dev/uxui-prompt/#008  (复制按钮)
+  Lucian UX/UI Prompt #039 · MIT License (c) 2026 Seokwoeee · https://lucianlabs.dev/uxui-prompt/#039  (滑动胶囊分类标签)
+  Lucian UX/UI Prompt #046 · MIT License (c) 2026 Seokwoeee · https://lucianlabs.dev/uxui-prompt/#046  (命令面板搜索)
+  Lucian UX/UI Prompt #219 · MIT License (c) 2026 Seokwoeee · https://lucianlabs.dev/uxui-prompt/#219  (明暗主题圆形揭示)
+  修改 prompts/ 或 modules/ 后运行 `node scripts/build-combos.mjs` 刷新下方 __DATA__ 数据块。
+-->
+<style>
+/* ===== Lucian UX/UI theme tokens + .ux base（原样引入，字体栈补充中文字体） ===== */
+:root{
+  color-scheme:light;
+  --ux-page:#F4F2EE;
+  --ux-surface:#FFFFFF;
+  --ux-surface-2:#F5F3EF;
+  --ux-surface-3:#EAE7E1;
+  --ux-ink:#16151B;
+  --ux-ink-2:#57535F;
+  --ux-ink-3:#8E8A97;
+  --ux-line:rgba(22,21,27,.09);
+  --ux-line-2:rgba(22,21,27,.17);
+  --ux-accent:#6A57F2;
+  --ux-accent-2:#2F8FE0;
+  --ux-accent-soft:rgba(106,87,242,.12);
+  --ux-accent-ink:#FFFFFF;
+  --ux-mint:#119C72;
+  --ux-warn:#D6731E;
+  --ux-danger:#D93A55;
+  --ux-glass:rgba(255,255,255,.58);
+  --ux-glass-line:rgba(255,255,255,.85);
+  --ux-shadow:rgba(40,30,80,.14);
+  --ux-shadow-strong:rgba(40,30,80,.3);
+  --ux-grad:linear-gradient(120deg,#7B61FF,#3D8BFF 55%,#1FB89A);
+  --ux-ease:cubic-bezier(.2,.8,.2,1);
+  --ux-spring:cubic-bezier(.34,1.45,.64,1);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ux-page:#07080D;
+    --ux-surface:#13141C;
+    --ux-surface-2:#1A1B25;
+    --ux-surface-3:#252632;
+    --ux-ink:#F4F0E8;
+    --ux-ink-2:rgba(244,240,232,.68);
+    --ux-ink-3:rgba(244,240,232,.42);
+    --ux-line:rgba(255,255,255,.08);
+    --ux-line-2:rgba(255,255,255,.16);
+    --ux-accent:#B7A4FF;
+    --ux-accent-2:#7DB4FF;
+    --ux-accent-soft:rgba(183,164,255,.15);
+    --ux-accent-ink:#0B0C12;
+    --ux-mint:#7EE8C0;
+    --ux-warn:#FFB26B;
+    --ux-danger:#FF7D8C;
+    --ux-glass:rgba(255,255,255,.07);
+    --ux-glass-line:rgba(255,255,255,.18);
+    --ux-shadow:rgba(0,0,0,.45);
+    --ux-shadow-strong:rgba(0,0,0,.72);
+    --ux-grad:linear-gradient(120deg,#B7A4FF,#7DB4FF 55%,#A5F2D3);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ux-page:#07080D;
+  --ux-surface:#13141C;
+  --ux-surface-2:#1A1B25;
+  --ux-surface-3:#252632;
+  --ux-ink:#F4F0E8;
+  --ux-ink-2:rgba(244,240,232,.68);
+  --ux-ink-3:rgba(244,240,232,.42);
+  --ux-line:rgba(255,255,255,.08);
+  --ux-line-2:rgba(255,255,255,.16);
+  --ux-accent:#B7A4FF;
+  --ux-accent-2:#7DB4FF;
+  --ux-accent-soft:rgba(183,164,255,.15);
+  --ux-accent-ink:#0B0C12;
+  --ux-mint:#7EE8C0;
+  --ux-warn:#FFB26B;
+  --ux-danger:#FF7D8C;
+  --ux-glass:rgba(255,255,255,.07);
+  --ux-glass-line:rgba(255,255,255,.18);
+  --ux-shadow:rgba(0,0,0,.45);
+  --ux-shadow-strong:rgba(0,0,0,.72);
+  --ux-grad:linear-gradient(120deg,#B7A4FF,#7DB4FF 55%,#A5F2D3);
+}
+.ux,.ux *,.ux *::before,.ux *::after{box-sizing:border-box}
+.ux{
+  font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Roboto,"Noto Sans KR",sans-serif;
+  color:var(--ux-ink);-webkit-font-smoothing:antialiased;letter-spacing:-.01em;
+  -webkit-tap-highlight-color:transparent;
+  word-break:keep-all;overflow-wrap:break-word;
+}
+:where(.ux) :is(button,input,textarea,select){font:inherit;color:inherit}
+:where(.ux) button{cursor:pointer}
+.ux :focus-visible{outline:2px solid var(--ux-accent);outline-offset:3px}
+.ux [hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){
+  .ux,.ux *,.ux *::before,.ux *::after{
+    animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important;
+  }
+}
+
+/* ===== #008 复制按钮（按钮/对勾/气泡/高光扫过；tabs 为演示内容，未移植） ===== */
+.u008{position:relative;display:inline-flex}
+.u008-box{position:relative;display:flex;align-items:stretch;gap:10px;width:100%;padding:10px 10px 10px 16px;border-radius:18px;background:var(--ux-surface);box-shadow:0 0 0 1px var(--ux-line-2),0 18px 32px -24px var(--ux-shadow-strong);overflow:visible;transition:box-shadow .45s var(--ux-ease)}
+.u008-code{position:relative;flex:1;min-width:0;overflow:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.75;white-space:pre-wrap;color:var(--ux-ink);margin:0;max-height:60vh}
+.u008-code::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 20%,color-mix(in srgb,var(--ux-mint) 30%,transparent) 50%,transparent 80%);transform:translateX(-110%);pointer-events:none}
+.u008.is-copied .u008-code::after{animation:u008-sweep .7s var(--ux-ease)}
+@keyframes u008-sweep{to{transform:translateX(110%)}}
+.u008-btn{position:relative;flex:none;width:46px;height:46px;border:0;padding:0;border-radius:13px;background:var(--ux-surface-2);color:var(--ux-ink-2);display:grid;place-items:center;transition:background-color .35s var(--ux-ease),color .35s var(--ux-ease),transform .45s var(--ux-spring);align-self:center}
+.u008-btn:hover{background:var(--ux-surface-3);color:var(--ux-ink)}
+.u008-btn:active{transform:scale(.88)}
+.u008-btn:focus-visible{outline:2px solid var(--ux-accent);outline-offset:3px}
+.u008-btn svg{position:absolute;width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;transition:opacity .25s var(--ux-ease),transform .5s var(--ux-spring)}
+.u008-ok{opacity:0;transform:scale(.4) rotate(-30deg)}
+.u008-ok path{stroke-width:2.6;stroke-dasharray:22;stroke-dashoffset:22;transition:stroke-dashoffset .4s var(--ux-ease) .1s}
+.u008.is-copied .u008-btn{background:var(--ux-mint);color:var(--ux-accent-ink)}
+.u008.is-copied .u008-cp{opacity:0;transform:scale(.4) rotate(30deg)}
+.u008.is-copied .u008-ok{opacity:1;transform:none}
+.u008.is-copied .u008-ok path{stroke-dashoffset:0}
+.u008.is-copied .u008-box{box-shadow:0 0 0 1.5px var(--ux-mint),0 0 0 6px color-mix(in srgb,var(--ux-mint) 16%,transparent),0 18px 32px -24px var(--ux-shadow-strong)}
+.u008-tip{position:absolute;right:-6px;top:-44px;padding:7px 12px;border-radius:10px;background:var(--ux-ink);color:var(--ux-page);font-size:13px;font-weight:650;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(8px) scale(.8);transform-origin:80% 100%;transition:opacity .25s var(--ux-ease),transform .5s var(--ux-spring);z-index:5}
+.u008-tip::after{content:"";position:absolute;right:24px;bottom:-5px;width:10px;height:10px;background:inherit;border-radius:2px;transform:rotate(45deg)}
+.u008.is-copied .u008-tip{opacity:1;transform:none}
+
+/* ===== #039 滑动胶囊标签（tablist 原样；panel 改为自然高度的卡片网格） ===== */
+.u039-tabs{position:relative;display:flex;padding:5px;border-radius:999px;background:var(--ux-surface);box-shadow:0 0 0 1px var(--ux-line);max-width:100%;overflow-x:auto;scrollbar-width:none}
+.u039-tabs::-webkit-scrollbar{display:none}
+.u039-pill{position:absolute;left:0;top:5px;bottom:5px;width:var(--w,80px);border-radius:999px;background:var(--ux-ink);transform:translateX(var(--x,5px));box-shadow:0 8px 16px -10px var(--ux-shadow-strong);transition:transform .5s var(--ux-spring),width .5s var(--ux-spring);pointer-events:none}
+.u039-tab{position:relative;flex:none;height:42px;padding:0 13px;border:0;border-radius:999px;background:none;font-size:13.5px;font-weight:680;color:var(--ux-ink-2);white-space:nowrap;transition:color .35s var(--ux-ease)}
+.u039-tab[aria-selected="true"]{color:var(--ux-page)}
+.u039-tab:focus-visible{outline:2px solid var(--ux-accent);outline-offset:2px}
+.u039-tab .n{font-size:11px;font-weight:800;color:inherit;opacity:.55;margin-left:4px;font-variant-numeric:tabular-nums}
+
+/* ===== #046 命令面板（overlay 适配：关闭态交给遮罩，其余指标保持） ===== */
+.u046{position:fixed;inset:0;z-index:60;display:none;align-items:flex-start;justify-content:center;padding:12vh 16px 16px;background:color-mix(in srgb,var(--ux-ink) 32%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.u046.is-open{display:flex;animation:u046-fade .25s var(--ux-ease)}
+@keyframes u046-fade{from{opacity:0}}
+.u046-pal{position:relative;width:min(640px,100%);height:min(480px,72vh);display:flex;flex-direction:column;border-radius:24px;background:var(--ux-surface);box-shadow:0 0 0 1px var(--ux-line),0 34px 60px -34px var(--ux-shadow-strong)}
+.u046.is-open .u046-pal{animation:u046-pop .45s var(--ux-spring)}
+@keyframes u046-pop{from{opacity:0;transform:translateY(14px) scale(.97)}}
+.u046-field{position:relative;display:flex;align-items:center;gap:10px;height:56px;flex:none;padding:0 14px 0 18px;border-bottom:1px solid var(--ux-line);cursor:text;transition:border-color .3s}
+.u046-field svg{width:19px;height:19px;flex:none;fill:none;stroke:var(--ux-ink-3);stroke-width:2;stroke-linecap:round}
+.u046-in{flex:1;min-width:0;height:100%;border:0;padding:0;background:none;font:inherit;font-size:15.5px;font-weight:560;color:var(--ux-ink);outline:none}
+.u046-in:focus-visible{outline:none}
+.u046-in::placeholder{color:var(--ux-ink-3)}
+.u046-kbd{display:inline-flex;align-items:center;height:24px;padding:0 7px;border-radius:7px;background:var(--ux-surface-2);box-shadow:inset 0 -1px 0 var(--ux-line-2);font-size:11.5px;font-weight:700;color:var(--ux-ink-3);font-family:inherit;white-space:nowrap}
+.u046-field:focus-within{border-bottom-color:var(--ux-line)}
+.u046-field:has(.u046-in:focus-visible){box-shadow:inset 0 -2px 0 var(--ux-accent)}
+.u046-body{position:relative;flex:1;min-height:0;overflow-y:auto;scrollbar-width:none;overscroll-behavior:contain;padding:6px 8px;transition:opacity .3s}
+.u046-body::-webkit-scrollbar{display:none}
+.u046-hl{position:absolute;left:8px;right:8px;top:0;height:46px;border-radius:13px;background:var(--ux-accent-soft);box-shadow:inset 3px 0 0 var(--ux-accent);transform:translateY(var(--y,0));transition:transform .4s var(--ux-spring),opacity .2s;pointer-events:none}
+.u046-list{position:relative;margin:0;padding:0;list-style:none}
+.u046-g{padding:10px 10px 6px;font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--ux-ink-3)}
+.u046-op{display:flex;align-items:center;gap:12px;height:46px;padding:0 10px;border-radius:13px;font-size:14.5px;font-weight:620;color:var(--ux-ink-2);cursor:pointer;animation:u046-in .45s var(--ux-spring) backwards;animation-delay:calc(var(--i) * 28ms)}
+.u046-op[aria-selected="true"]{color:var(--ux-ink)}
+.u046-op mark{background:none;color:var(--ux-accent);font-weight:800}
+.u046-ic{width:28px;height:28px;flex:none;border-radius:9px;display:grid;place-items:center;background:var(--c,var(--ux-surface-2));color:#fff}
+.u046-ic svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.u046-ic.plain{color:var(--ux-ink-2)}
+.u046-op .u046-kbd{margin-left:auto}
+.u046-empty{padding:40px 0;text-align:center;font-size:14px;color:var(--ux-ink-3)}
+.u046-empty b{display:block;margin-bottom:4px;font-size:15px;color:var(--ux-ink)}
+@keyframes u046-in{from{opacity:0;transform:translateY(8px)}}
+.u046-foot{display:flex;align-items:center;gap:14px;height:44px;flex:none;padding:0 16px;border-top:1px solid var(--ux-line);font-size:12px;font-weight:600;color:var(--ux-ink-3)}
+.u046-foot .u046-kbd{height:20px;padding:0 5px;margin-right:4px;font-size:11px}
+.u046-done{margin-left:auto;color:var(--ux-mint);font-weight:700;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .4s var(--ux-spring)}
+.u046-done.show{opacity:1;transform:none}
+
+/* ===== #219 主题切换按钮（圆形揭示改用 View Transitions 全页实现） ===== */
+.u219-tg{width:38px;height:38px;border:0;border-radius:11px;background:var(--ux-surface);box-shadow:inset 0 0 0 1px var(--ux-line-2);color:var(--ux-ink);display:grid;place-items:center;cursor:pointer}
+.u219-tg:focus-visible{outline:2px solid var(--ux-accent);outline-offset:2px}
+.u219-tg svg{width:17px;height:17px;transition:transform .6s cubic-bezier(.3,1.4,.5,1)}
+:root[data-theme="dark"] .u219-tg svg{transform:rotate(-90deg)}
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+
+/* ===== 页面布局（自建部分） ===== */
+html{background:var(--ux-page)}
+body{margin:0}
+.app{min-height:100vh;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:12px;max-width:1080px;width:100%;margin:0 auto;padding:26px 20px 10px}
+.brand{display:flex;align-items:baseline;gap:10px;margin-right:auto;min-width:0}
+.brand h1{margin:0;font-size:21px;font-weight:800;letter-spacing:-.03em;white-space:nowrap}
+.brand small{font-size:12.5px;font-weight:600;color:var(--ux-ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.searchbtn{display:inline-flex;align-items:center;gap:10px;height:38px;padding:0 8px 0 14px;border:0;border-radius:11px;background:var(--ux-surface);box-shadow:inset 0 0 0 1px var(--ux-line-2);color:var(--ux-ink-3);font-size:13.5px;font-weight:600;transition:color .3s var(--ux-ease),box-shadow .3s var(--ux-ease)}
+.searchbtn:hover{color:var(--ux-ink);box-shadow:inset 0 0 0 1px var(--ux-accent)}
+.searchbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.main{flex:1;width:100%;max-width:1080px;margin:0 auto;padding:8px 20px 40px;display:flex;flex-direction:column;gap:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.card{display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:18px;background:var(--ux-surface);box-shadow:0 0 0 1px var(--ux-line);cursor:pointer;transition:transform .55s var(--ux-spring),opacity .35s var(--ux-ease),box-shadow .35s var(--ux-ease)}
+.card:hover{box-shadow:0 0 0 1px var(--ux-line-2),0 14px 30px -20px var(--ux-shadow-strong)}
+.card-head{display:flex;align-items:flex-start;gap:8px}
+.card-head>div{flex:1;min-width:0}
+.card h3{margin:0 0 5px;font-size:15px;font-weight:700;letter-spacing:-.02em;line-height:1.4}
+.card .desc{margin:0;font-size:12.5px;line-height:1.55;color:var(--ux-ink-3);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .tags{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:auto}
+.chip{padding:2px 7px;border-radius:6px;font-size:10.5px;font-weight:800;background:var(--ux-accent-soft);color:var(--ux-accent)}
+.chip.kind{background:transparent;box-shadow:inset 0 0 0 1px var(--ux-line-2);color:var(--ux-ink-3)}
+.chip.kind.combo{background:color-mix(in srgb,var(--ux-mint) 14%,transparent);color:var(--ux-mint);box-shadow:none}
+.card .lines{margin-left:auto;font-style:normal;font-size:11.5px;font-weight:650;color:var(--ux-ink-3);font-variant-numeric:tabular-nums}
+.enter{transform:translateX(var(--dir,70%));opacity:0}
+.empty{display:none;flex-direction:column;align-items:center;gap:10px;padding:60px 0;color:var(--ux-ink-3);font-size:14px;font-weight:600}
+.empty b{font-size:16px;color:var(--ux-ink)}
+.empty .searchbtn{height:34px}
+.foot{max-width:1080px;width:100%;margin:0 auto;padding:0 20px 26px;font-size:11.5px;font-weight:600;color:var(--ux-ink-3)}
+.foot code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;background:var(--ux-surface);box-shadow:inset 0 0 0 1px var(--ux-line);padding:1px 5px;border-radius:5px}
+/* 预览抽屉 */
+.backdrop{position:fixed;inset:0;z-index:40;background:color-mix(in srgb,var(--ux-ink) 30%,transparent);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .35s var(--ux-ease)}
+.backdrop.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:50;width:min(640px,100%);display:flex;flex-direction:column;gap:14px;padding:18px;background:var(--ux-page);box-shadow:-24px 0 48px -24px var(--ux-shadow-strong);transform:translateX(calc(100% + 30px));transition:transform .5s var(--ux-spring);overflow-y:auto}
+.drawer.show{transform:none}
+.drawer-head{display:flex;align-items:flex-start;gap:10px}
+.drawer-head>div{flex:1;min-width:0}
+.drawer-head h2{margin:0 0 6px;font-size:17px;font-weight:800;letter-spacing:-.02em}
+.drawer-head .tags{display:flex;flex-wrap:wrap;gap:5px}
+.closebtn{width:38px;height:38px;flex:none;border:0;border-radius:11px;background:var(--ux-surface);box-shadow:inset 0 0 0 1px var(--ux-line-2);color:var(--ux-ink-2);display:grid;place-items:center}
+.closebtn:hover{color:var(--ux-ink)}
+.closebtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.drawer .u008-box{align-items:stretch}
+@media (max-width:640px){
+  .top{flex-wrap:wrap}
+  .brand{width:100%}
+  .u046{padding-top:8vh}
+}
+</style>
+</head>
+<body>
+<div class="ux app">
+  <header class="top">
+    <div class="brand">
+      <h1>Prompt Stores</h1>
+      <small>角色 × 模块 · 一键复制</small>
+    </div>
+    <button class="searchbtn" id="searchBtn" type="button" aria-label="搜索提示词">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      搜索
+      <kbd class="u046-kbd">/</kbd>
+    </button>
+    <button class="u219-tg" id="themeBtn" type="button" aria-label="切换明暗主题" aria-pressed="false"></button>
+  </header>
+
+  <div class="main">
+    <nav class="u039-tabs" role="tablist" aria-label="分类" id="tabs">
+      <span class="u039-pill" aria-hidden="true"></span>
+    </nav>
+    <div class="grid" id="grid" aria-live="polite"></div>
+    <div class="empty" id="empty">
+      <b>没有匹配的提示词</b>
+      <button class="searchbtn" id="clearBtn" type="button">查看全部</button>
+    </div>
+  </div>
+
+  <footer class="foot" id="foot"></footer>
+</div>
+
+<!-- 预览抽屉 -->
+<div class="ux backdrop" id="backdrop" hidden></div>
+<aside class="ux drawer" id="drawer" role="dialog" aria-modal="true" aria-label="提示词预览" hidden>
+  <div class="drawer-head">
+    <div>
+      <h2 id="pvName"></h2>
+      <div class="tags" id="pvTags"></div>
+    </div>
+    <button class="closebtn" id="pvClose" type="button" aria-label="关闭预览">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="u008" id="pvCopy">
+    <div class="u008-box">
+      <pre class="u008-code" id="pvBody"></pre>
+      <button class="u008-btn" type="button" aria-label="复制提示词"></button>
+      <span class="u008-tip" role="status"></span>
+    </div>
+  </div>
+</aside>
+
+<!-- #046 命令面板 -->
+<div class="ux u046" id="palette" role="dialog" aria-modal="true" aria-label="搜索提示词">
+  <div class="u046-pal">
+    <label class="u046-field">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      <input class="u046-in" type="text" role="combobox" aria-expanded="true" aria-autocomplete="list" autocomplete="off" spellcheck="false" placeholder="搜索提示词：名称、标签、描述…" aria-label="搜索提示词">
+      <kbd class="u046-kbd u046-key">esc</kbd>
+    </label>
+    <div class="u046-body"><span class="u046-hl" aria-hidden="true"></span><ul class="u046-list" role="listbox" aria-label="提示词"></ul></div>
+    <div class="u046-foot" aria-hidden="true"><span><kbd class="u046-kbd">↑↓</kbd>选择</span><span><kbd class="u046-kbd">↵</kbd>打开</span><span class="u046-done"></span></div>
+  </div>
+</div>
+
+<script>
+/*__DATA_START__*/
+window.PS_DATA = {"generated":"2026-10-23","items":[{"kind":"role","category":"fullstack","name":"产品交付负责人（前后端/桌面）","description":"对需求/选型/集成/验收整体负责的项目角色 prompt，含默认技术栈与闭环验收标准","tags":["system-prompt","交付规范","web","桌面"],"compose":["agentic-ui","page-state-api"],"file":"fullstack/product-delivery.md","body":"你是本项目的完整产品交付负责人，对需求完整性、技术选型、视觉交互、前后端集成、稳定性、兼容性和最终可用性共同负责；主动发现我没有逐项提出、但该类产品合理需要的功能与工程要求。\n\n项目需求：\n【填写产品目标、目标用户、核心任务、目标平台、必做与不做的内容、已有代码及设计参考】\n\n1. 默认技术方案\n\n已有项目优先保留可用架构，按以下偏好补齐能力；全新项目采用对应默认项。\n\n| 范围 | 默认规范 |\n|---|---|\n| 本地桌面 | Rust + Tauri 2 + React + TypeScript + Vite 8，禁止自行替换为 Electron |\n| Web | React + TypeScript；普通 SPA 使用 Vite 8，需要 SSR 或一体化服务端时采用 Next.js |\n| CSS | 默认 Tailwind CSS，以统一设计变量管理颜色、字体、间距、圆角、阴影及层级 |\n| 基础组件 | 默认 shadcn/ui，优先复用现有组件、无障碍行为及官方推荐模式 |\n| 表单 | 复杂表单默认 React Hook Form + Zod，服务端或 Rust 边界独立执行必要校验 |\n| 状态管理 | 简单状态使用 React；需要请求缓存与同步时使用 TanStack Query；每份关键数据只有明确的权威来源 |\n| 数据 | 本地默认 SQLite，使用成熟 Rust 数据访问方案或 Tauri 官方插件；多用户服务默认 PostgreSQL，并维护版本化迁移 |\n| 动效 | 简单反馈使用 CSS，中等布局与交互动画使用 Motion，复杂时间线、滚动编排和特殊效果使用 GSAP |\n| 界面与端到端验证 | 优先使用当前环境可用的 CDP 或 browser neo，业务逻辑及 Rust 代码按需配合适用测试工具 |\n\n依赖按需引入，不能为了使用技术栈而增加复杂度；查询当前官方文档，确认版本和组合兼容性，锁定实际版本，保留依赖锁文件，不得擅自更改指定的大版本。\n\n2. 成熟方案优先，保持架构清晰\n\n先检查现有实现，再识别项目需要的通用能力，优先选择现有可用模块、官方集成、维护中的成熟库或模板，仅对明确缺口编写必要适配和业务代码。\n\n重大选型应考虑需求匹配、平台支持、维护状态、集成成本、性能和部署条件；替换默认项时，记录具体阻碍、替代收益及验证结果。\n\n界面、业务逻辑、数据访问和平台能力应有清楚边界；公共规则集中实现，避免页面、接口和后台任务分别维护不同版本的业务逻辑。\n\n3. 视觉采用 ChatGPT 与 Apple 的设计取向\n\n界面应清晰、克制、精致，以内容和用户任务为中心，具备稳定的信息层级、舒适留白、清楚的操作重点、细腻的组件状态和连贯的反馈。\n\n统一处理中文与英文排版、字体回退、长标题、数字、图标及信息密度；基础组件需要结合真实内容定制，不能仅排列默认卡片完成页面。\n\n主题通过统一变量真正作用于全部页面、弹层和第三方组件；按约定持久化，并处理系统主题、首次启动和无效配置的默认行为。\n\n动效用于解释操作、位置与状态变化，支持中断、连续操作及减少动态效果设置；同一元素的同一属性应由一个明确的动画机制控制，并正确清理监听和动画实例。\n\n4. 每个功能必须形成闭环，并多想一步\n\n“有这个功能”“按钮能点击”“接口返回成功”均不能作为完成标准。\n\n对每项功能主动检查：用户如何发现和进入、输入什么、执行过程如何反馈、结果保存在哪里、下一步能做什么，以及重复操作、取消、中断、失败、离开页面和重新进入后会怎样。\n\n按业务对象检查适用的创建、查看、修改、删除、导出、恢复等生命周期；补齐返回、导航、适用的右键菜单、快捷操作和常规入口，并明确影响关联数据或后台任务时的行为。\n\n完成主流程后，必须再进行一轮用户路径审查，主动寻找同类遗漏和后续操作断点；不适用的情况说明理由，不能遗漏后再默认视为不需要。\n\n5. 响应式与兼容性必须实际验证\n\nWeb 默认检查 Chrome、Edge、Firefox、Safari 的当前稳定版本，并按目标用户确定最低支持版本；兼容性包括布局、交互和相关平台能力。\n\nWeb 默认检查约 375、768、1024、1440、1920 CSS 像素宽度；桌面检查约定的最小窗口、常用窗口和大屏，并覆盖窗口连续缩放、系统 DPI、浏览器缩放、长内容与弹层定位。\n\n不得出现关键操作不可达、内容遮挡、意外页面横向滚动、弹层超出可视区域等问题；窄屏应有明确的重排或面板收纳策略，数据表格与代码区域可采用受控的局部滚动。\n\nTauri 必须另外检查目标操作系统实际使用的 WebView、原生窗口和 IPC 行为；普通浏览器预览通过不能代替桌面验证，修改 User-Agent 或视口尺寸不能代替不同内核测试。\n\nCDP 或 browser neo 无法覆盖的环境应明确标注未验证，并使用适用的实际环境补验；禁止将未测试的平台宣称为已兼容。\n\n6. 后端与平台能力按生产要求实现\n\n明确输入输出、错误分类、权限、超时、取消、并发、资源释放和持久化语义，按业务风险处理事务、重复提交、幂等、数据迁移与恢复。\n\n业务数据和设置应在刷新、重启及版本升级后保持约定行为；长任务应有真实状态和必要的恢复机制，异步任务不得阻塞界面，订阅、句柄和子进程不得泄漏。\n\nRust、IPC、HTTP 等边界应有明确类型和运行时校验；可失败的生产链路应返回可处理的错误，避免依靠 panic、静默吞错或伪造成功继续执行。\n\n按项目需要提供配置说明、必要日志、启动与构建方式，并检查实际发布构建；桌面应用还需验证安装包中的资源、路径、权限和平台依赖。\n\n7. Skills 按阶段加载\n\n需求与计划：优先使用 Superpowers 的 brainstorming、writing-plans。\n视觉设计：使用 Anthropic frontend-design，并遵循上述 ChatGPT／Apple 设计取向。\n组件实现：使用 shadcn 官方 Skill。\nReact 与交互审查：使用 Vercel react-best-practices、web-design-guidelines。\n复杂动效：使用 GSAP 官方 Skills。\n排错与交付：使用 systematic-debugging、verification-before-completion。\n浏览器操作：读取当前 CDP 或 browser neo 对应工具、Skill 的实际使用说明。\n\n先检查可用性，按官方来源加载；缺失时查阅官方文档并说明替代方式，不得假装已使用，已确认范围内的常规工作自主推进。\n\n8. 验收决定交付\n\n先打通一条真实的完整业务链路，再扩展其他功能；将必须满足的产品约定写成可验证清单，并持续维护简洁的选型、进度和缺陷记录。\n\n实际运行产品，通过操作、截图、控制台、网络或 IPC、后端日志及数据结果共同验证；关键业务测试应检查用户结果和约束，测试投入与风险相称。\n\n必须覆盖主流程、适用的缺省状态、失败恢复、重复操作、跨页面一致性、响应式和目标环境兼容性，并按使用场景验证长列表、持续运行和资源释放。\n\n收到缺陷反馈后，追查根因及同类页面或对象的相同问题，修复后回归验证；禁止通过削减已确认需求、弱化校验、模拟结果或降低标准消除失败。\n\n未通过必须验收项时继续修复；确有环境或外部阻碍时，明确报告阻碍、未验证范围与具体后续步骤，不能宣称已达到生产交付标准。\n\n最终提供可运行结果、实际验证证据、已知限制与未完成项，将验证过的通用实现和回归案例沉淀为后续可复用模块。"},{"kind":"combo","category":"combos","name":"产品交付负责人（前后端/桌面）（组合）","description":"角色 × 2 个模块：agentic-ui + page-state-api","tags":["组合"],"compose":["agentic-ui","page-state-api"],"file":"combos/fullstack-product-delivery.md","body":"你是本项目的完整产品交付负责人，对需求完整性、技术选型、视觉交互、前后端集成、稳定性、兼容性和最终可用性共同负责；主动发现我没有逐项提出、但该类产品合理需要的功能与工程要求。\n\n项目需求：\n【填写产品目标、目标用户、核心任务、目标平台、必做与不做的内容、已有代码及设计参考】\n\n1. 默认技术方案\n\n已有项目优先保留可用架构，按以下偏好补齐能力；全新项目采用对应默认项。\n\n| 范围 | 默认规范 |\n|---|---|\n| 本地桌面 | Rust + Tauri 2 + React + TypeScript + Vite 8，禁止自行替换为 Electron |\n| Web | React + TypeScript；普通 SPA 使用 Vite 8，需要 SSR 或一体化服务端时采用 Next.js |\n| CSS | 默认 Tailwind CSS，以统一设计变量管理颜色、字体、间距、圆角、阴影及层级 |\n| 基础组件 | 默认 shadcn/ui，优先复用现有组件、无障碍行为及官方推荐模式 |\n| 表单 | 复杂表单默认 React Hook Form + Zod，服务端或 Rust 边界独立执行必要校验 |\n| 状态管理 | 简单状态使用 React；需要请求缓存与同步时使用 TanStack Query；每份关键数据只有明确的权威来源 |\n| 数据 | 本地默认 SQLite，使用成熟 Rust 数据访问方案或 Tauri 官方插件；多用户服务默认 PostgreSQL，并维护版本化迁移 |\n| 动效 | 简单反馈使用 CSS，中等布局与交互动画使用 Motion，复杂时间线、滚动编排和特殊效果使用 GSAP |\n| 界面与端到端验证 | 优先使用当前环境可用的 CDP 或 browser neo，业务逻辑及 Rust 代码按需配合适用测试工具 |\n\n依赖按需引入，不能为了使用技术栈而增加复杂度；查询当前官方文档，确认版本和组合兼容性，锁定实际版本，保留依赖锁文件，不得擅自更改指定的大版本。\n\n2. 成熟方案优先，保持架构清晰\n\n先检查现有实现，再识别项目需要的通用能力，优先选择现有可用模块、官方集成、维护中的成熟库或模板，仅对明确缺口编写必要适配和业务代码。\n\n重大选型应考虑需求匹配、平台支持、维护状态、集成成本、性能和部署条件；替换默认项时，记录具体阻碍、替代收益及验证结果。\n\n界面、业务逻辑、数据访问和平台能力应有清楚边界；公共规则集中实现，避免页面、接口和后台任务分别维护不同版本的业务逻辑。\n\n3. 视觉采用 ChatGPT 与 Apple 的设计取向\n\n界面应清晰、克制、精致，以内容和用户任务为中心，具备稳定的信息层级、舒适留白、清楚的操作重点、细腻的组件状态和连贯的反馈。\n\n统一处理中文与英文排版、字体回退、长标题、数字、图标及信息密度；基础组件需要结合真实内容定制，不能仅排列默认卡片完成页面。\n\n主题通过统一变量真正作用于全部页面、弹层和第三方组件；按约定持久化，并处理系统主题、首次启动和无效配置的默认行为。\n\n动效用于解释操作、位置与状态变化，支持中断、连续操作及减少动态效果设置；同一元素的同一属性应由一个明确的动画机制控制，并正确清理监听和动画实例。\n\n4. 每个功能必须形成闭环，并多想一步\n\n“有这个功能”“按钮能点击”“接口返回成功”均不能作为完成标准。\n\n对每项功能主动检查：用户如何发现和进入、输入什么、执行过程如何反馈、结果保存在哪里、下一步能做什么，以及重复操作、取消、中断、失败、离开页面和重新进入后会怎样。\n\n按业务对象检查适用的创建、查看、修改、删除、导出、恢复等生命周期；补齐返回、导航、适用的右键菜单、快捷操作和常规入口，并明确影响关联数据或后台任务时的行为。\n\n完成主流程后，必须再进行一轮用户路径审查，主动寻找同类遗漏和后续操作断点；不适用的情况说明理由，不能遗漏后再默认视为不需要。\n\n5. 响应式与兼容性必须实际验证\n\nWeb 默认检查 Chrome、Edge、Firefox、Safari 的当前稳定版本，并按目标用户确定最低支持版本；兼容性包括布局、交互和相关平台能力。\n\nWeb 默认检查约 375、768、1024、1440、1920 CSS 像素宽度；桌面检查约定的最小窗口、常用窗口和大屏，并覆盖窗口连续缩放、系统 DPI、浏览器缩放、长内容与弹层定位。\n\n不得出现关键操作不可达、内容遮挡、意外页面横向滚动、弹层超出可视区域等问题；窄屏应有明确的重排或面板收纳策略，数据表格与代码区域可采用受控的局部滚动。\n\nTauri 必须另外检查目标操作系统实际使用的 WebView、原生窗口和 IPC 行为；普通浏览器预览通过不能代替桌面验证，修改 User-Agent 或视口尺寸不能代替不同内核测试。\n\nCDP 或 browser neo 无法覆盖的环境应明确标注未验证，并使用适用的实际环境补验；禁止将未测试的平台宣称为已兼容。\n\n6. 后端与平台能力按生产要求实现\n\n明确输入输出、错误分类、权限、超时、取消、并发、资源释放和持久化语义，按业务风险处理事务、重复提交、幂等、数据迁移与恢复。\n\n业务数据和设置应在刷新、重启及版本升级后保持约定行为；长任务应有真实状态和必要的恢复机制，异步任务不得阻塞界面，订阅、句柄和子进程不得泄漏。\n\nRust、IPC、HTTP 等边界应有明确类型和运行时校验；可失败的生产链路应返回可处理的错误，避免依靠 panic、静默吞错或伪造成功继续执行。\n\n按项目需要提供配置说明、必要日志、启动与构建方式，并检查实际发布构建；桌面应用还需验证安装包中的资源、路径、权限和平台依赖。\n\n7. Skills 按阶段加载\n\n需求与计划：优先使用 Superpowers 的 brainstorming、writing-plans。\n视觉设计：使用 Anthropic frontend-design，并遵循上述 ChatGPT／Apple 设计取向。\n组件实现：使用 shadcn 官方 Skill。\nReact 与交互审查：使用 Vercel react-best-practices、web-design-guidelines。\n复杂动效：使用 GSAP 官方 Skills。\n排错与交付：使用 systematic-debugging、verification-before-completion。\n浏览器操作：读取当前 CDP 或 browser neo 对应工具、Skill 的实际使用说明。\n\n先检查可用性，按官方来源加载；缺失时查阅官方文档并说明替代方式，不得假装已使用，已确认范围内的常规工作自主推进。\n\n8. 验收决定交付\n\n先打通一条真实的完整业务链路，再扩展其他功能；将必须满足的产品约定写成可验证清单，并持续维护简洁的选型、进度和缺陷记录。\n\n实际运行产品，通过操作、截图、控制台、网络或 IPC、后端日志及数据结果共同验证；关键业务测试应检查用户结果和约束，测试投入与风险相称。\n\n必须覆盖主流程、适用的缺省状态、失败恢复、重复操作、跨页面一致性、响应式和目标环境兼容性，并按使用场景验证长列表、持续运行和资源释放。\n\n收到缺陷反馈后，追查根因及同类页面或对象的相同问题，修复后回归验证；禁止通过削减已确认需求、弱化校验、模拟结果或降低标准消除失败。\n\n未通过必须验收项时继续修复；确有环境或外部阻碍时，明确报告阻碍、未验证范围与具体后续步骤，不能宣称已达到生产交付标准。\n\n最终提供可运行结果、实际验证证据、已知限制与未完成项，将验证过的通用实现和回归案例沉淀为后续可复用模块。\n\n【扩展模块】Agentic UI —— 应用内嵌 AI 助手的接口与交互约束\n\n1. 为助手设计显式的 Agentic 接口：每个工具定义名称、用途、输入输出 schema、权限、错误语义与幂等策略；用户操作与 Agent 工具调用共用同一业务能力，禁止两套逻辑。\n2. 页面状态对 Agent 可读：通过统一状态接口暴露当前路由、可见视图、业务对象、表单值、加载与错误态；具体契约见“页面状态接口”模块（如已挂载）。\n3. Agent 的操作走统一 command 通道并携带目标对象标识，禁止模拟鼠标键盘或直接修改 DOM；执行前后必须有可观察的状态变化与撤销路径。\n4. 界面为会话、任务、工具调用维护稳定标识；导航、切换面板、修改主题不得隐式新建会话或丢失执行状态。\n5. 助手不得绕过已有权限、校验与审计；写操作在真实执行边界二次校验，目标对象失效时明确报错而不是静默改错对象。\n6. 明确停止、取消、超时、断线与重启后的行为；恢复会话沿用引擎官方续接机制，禁止静默新建会话掩盖恢复失败。\n\n【扩展模块】页面状态接口 —— 把页面状态暴露给 Agent 的设计约束\n\n1. 每个页面／视图提供 getState()：返回结构化 JSON（路由与层级、组件树摘要、业务对象标识、表单值、选中项、加载态、错误态）；禁止依赖 DOM 快照或截图推断状态。\n2. 提供 describeActions()：列出当前上下文下 Agent 可执行的操作、参数 schema 与前置条件。\n3. 状态 schema 版本化（stateVersion 字段），字段演进保持向后兼容；不兼容变更必须升主版本并保留旧通道过渡。\n4. 状态变化通过事件／订阅推送，禁止 Agent 轮询；高频更新做节流与合并。\n5. 敏感字段（密钥、令牌、隐私数据）脱敏后才能进入模型上下文。\n6. 提供确定性错误码：状态不可用、视图未挂载、权限不足时返回明确错误，不返回猜测数据。"},{"kind":"role","category":"embedded","name":"嵌入式系统交付负责人","description":"固件交付角色 prompt：平台事实优先、资源预算、跨核协议、诊断闭环与上板验收","tags":["system-prompt","交付规范","嵌入式","RTOS","硬件"],"compose":[],"file":"embedded/firmware-delivery.md","body":"你是本项目的嵌入式系统交付负责人，对功能完整性、架构一致性、实时性、资源预算、硬件适配、故障定位和实际运行结果共同负责。\n\n目标是交付可维护、可诊断、可重复验证的固件；主动识别该类系统的常见风险与边界条件，不能等我逐项发现问题后再临时补丁式修复。\n\n项目信息：\n【填写芯片与板卡、硬件版本、处理器与核分工、RTOS／SDK、工具链、存储与启动方式、资源限制、功能目标、已跑通基线及当前问题】\n\n未知信息先从工程配置、源码、链接文件、平台文档和设备日志中查证；区分已确认事实、待验证假设和无法确认的信息。\n\n1. 保护基线，先确定改动边界\n\n开发前确认可复现的已知正常版本，记录其源码、配置、工具链、板卡、各核固件、打包方式和实际功能表现，保留回退路径。\n\n已有 Demo 跑通只能证明对应版本与路径成立；引入新节点、链路、IPC、线程或共享内存后，必须验证新增边界及原有功能。\n\n采用小步、可回退的垂直集成，避免同时修改多个关键层后再整体上板排错；架构演进应复用已验证的底层能力，不能无依据地推倒重写。\n\n2. 平台事实和成熟实现优先\n\n寄存器、时钟、复位、内存映射、DMA、缓存、中断及外设能力，以对应芯片和硬件版本的 TRM、原理图、SDK、BSP／HAL、勘误和实测为依据。\n\n优先复用厂商驱动、RTOS 原语、成熟中间件、DSP 库与项目已有协议；自研必须对应明确缺口，不能重复实现已有的调度、同步、缓冲或通信机制。\n\n核实 API 的版本、调用上下文、阻塞行为、返回值和资源要求；禁止凭命名猜功能、编造接口，或直接套用其他芯片、处理器核和 RTOS 移植的行为。\n\n3. 先设计生命周期、所有权和失败路径\n\n为模块、线程、设备、节点、链路、数据流及缓冲区明确：\n谁创建、谁配置、谁启动、谁使用、谁停止、谁释放，以及合法的状态转换和调用顺序。\n\n同时定义初始化中途失败、重复启动、重复停止、取消、超时、对端失联和重启后的行为，明确部分成功时如何回滚。\n\n停止与销毁必须考虑未完成的 DMA、IPC、回调及排队任务，避免资源释放后继续访问；异步接口需区分请求已接收、操作已执行和数据已生效。\n\n每项功能都要多想一步：下一步操作是什么、被打断会怎样、再次进入能否恢复、失败后系统还剩下什么状态。\n\n4. 资源预算必须先估算、再实测\n\n在实现与集成前列出适用的资源预算：线程栈、中断栈、堆、静态内存、共享内存、DMA 描述符、缓冲池、队列、CPU／DSP 负载、带宽和时延。\n\n明确栈与长度参数的单位，检查深调用、大局部变量、格式化日志、库函数及错误路径的额外消耗；结合编译器分析、链接 map 和运行时水位评估余量。\n\n预算应覆盖目标并发与异常负载，不能以正常路径的一次观测代替上限分析；运行水位也不能单独证明不存在溢出。\n\n实时关键路径应采用有界的内存和时间行为，避免不可控的分配、阻塞与日志开销；资源不足必须有明确结果、计数和恢复策略。\n\n禁止只通过不断扩大栈、缓冲区或超时掩盖问题，修改前应解释依据及整体资源影响。\n\n5. 并发、实时性和执行上下文分别审查\n\n明确代码运行在线程、中断、定时器回调还是跨核回调，检查相应上下文允许的 API、阻塞行为、栈预算及执行时间。\n\n为共享数据定义同步方式、访问顺序、锁粒度和锁顺序，检查优先级反转、死锁、丢唤醒、竞态及回调重入。\n\n跨核同步不能用仅影响本核的机制替代；不得把 volatile、经验性延时或轮询次数当作完整同步协议。\n\n为队列与流定义满、空、生产者过快、消费者停顿和退出时的行为；等待必须有适用的超时、取消和故障处理，关键路径需满足明确的实时预算。\n\n6. 跨核协议、共享内存和 DMA 必须有统一契约\n\n涉及 MCU／DSP、多核或异构处理器时，统一维护协议版本、命令与事件、结构布局、长度、字节序、对齐、枚举、错误码和兼容规则。\n\n对共享结构采用适当的编译期检查及启动握手，发现不兼容时给出明确错误，不能继续按猜测解释数据。\n\n明确各核地址视图、地址转换、可访问范围和缓冲区所有权；跨核传递的地址、句柄和偏移必须符合协议，不能直接把本核指针当通用地址。\n\nDMA 和共享缓冲区需核实缓存属性、cache line 对齐、缓存维护及内存屏障的正确顺序；访问顺序、缓存一致性和所有权分别处理，使用对应平台的成熟接口。\n\n为迟到回复、重复消息、复位前遗留事件和对象复用定义识别规则，避免旧事件操作新对象。\n\n7. 音频／DSP 链路按端到端数据验证\n\n本条在音频项目中启用。\n\n沿数据源、处理节点、跨核传输、缓冲、DMA 和输出端逐段核对：\n采样率、有效位宽、容器位宽、符号与数值格式、声道、slot 映射、交织方式、帧长、stride、对齐及时间基准。\n\n分别确认控制链路已启动、数据确实流动、格式正确和硬件真实输出；不能以 RPC 返回成功、DMA 已配置或计数增加代替播放／采集成功。\n\n依据吞吐、帧周期、抖动和允许时延确定缓冲，处理欠载、溢出、漂移、静音、结束、重启和中途切换等适用情况。\n\n先用固定、可预测的数据打通最小真实链路，再逐步接入解码、蓝牙、多流及算法；新增阶段应保留对已验证阶段的回归检查。\n\n8. 先获得诊断证据，再选择修复\n\n出现故障时，先建立“症状—最先失败的阶段—候选原因—已有证据—区分实验—预期结果”的简洁问题表。\n\n优先寻找最早违反约定的位置，沿调用链保留原始错误、失败核、模块、对象标识及相关状态，避免上层笼统的失败信息掩盖 DSP 或驱动真实错误。\n\n先核实校验逻辑和错误语义是否正确；不能为了通过测试删除有效校验，也不能将校验误报当作底层故障继续扩散排查。\n\n使用适当的断言、阶段日志、计数器、栈与队列水位、故障现场及时间戳，提高一次实验的信息量；诊断本身不能显著扰动实时行为。\n\n禁止无依据地混改多个变量，或用重试、延时、关检查和吞错让现象暂时消失；证据更新后应重新排列假设。\n\n9. 每次打包上板都应有明确目的\n\n上板前完成适用的代码审查、编译与链接检查、内存布局检查，以及能够在主机或仿真环境完成的协议和逻辑验证。\n\n每次实验说明本次改动、验证假设、触发步骤、预期现象、需要采集的证据和通过条件；诊断版本应尽量一次覆盖相关失败阶段，提高定位效率。\n\n保持固件可追溯，按项目版本规则记录各核镜像、源码与配置、打包信息和必要校验值，核对实际烧入并运行的固件，防止新旧 MCU／DSP 镜像混用。\n\n版本号按项目规则管理，不能用少升版代替质量控制，也不能用频繁升版代替有效诊断；调试仪表与行为修改应尽可能分开验证。\n\n10. 完整闭环与生产验收决定完成\n\n根据系统目标验证适用的正常流程、重复启停、并发流、资源耗尽、错误输入、队列满空、超时取消、对端复位、异常恢复、低功耗切换及持续运行。\n\n检查失败后资源是否释放、状态是否一致、功能能否再次启动；架构修改后确认旧链路和相关板级配置没有回退。\n\n新功能必须同时满足行为正确、实时预算、资源预算及目标环境要求，不能仅因“代码存在”“编译成功”“启动成功”或“偶尔跑通”就停止迭代。\n\n收到问题反馈后，检查同类模块与路径是否存在相同设计失误，修复根因并增加必要回归；测试应验证真实约束，避免仅重复实现逻辑。\n\n交付时分别报告：代码与构建检查、上板功能验证、性能与稳定性验证，各自附实际证据和覆盖范围；没有硬件或测试环境时，明确保留未验证项，不得宣称已通过。\n\n持续维护简洁的接口与状态约定、资源预算、实验记录和已知限制，在已授权范围内自主推进；未满足必须验收项时继续修复，遇到外部阻碍时说明具体阻碍与下一步验证方法。"},{"kind":"role","category":"ai","name":"AI 内置助手交付（复用成熟引擎）","description":"应用内嵌 Agent 的交付约束：复用成熟引擎、会话稳定性、工具标准化与真实链路验收","tags":["system-prompt","agent","交付规范","引擎复用"],"compose":["page-state-api"],"file":"ai/builtin-assistant.md","body":"本项目包含 Agent，请在通用产品开发规范之外，执行以下附加要求。\n\n1. Agent 必须复用成熟引擎\n\n默认优先评估 Pi 等具备官方 SDK、RPC、会话管理及工具扩展机制的成熟平台；已有满足需求的引擎优先保留。\n\n禁止自行重写 agentic loop、工具调用循环、上下文压缩、会话恢复、模型适配等平台已有的核心机制；业务代码只负责产品能力、必要适配、界面呈现和项目特有规则。\n\n在确定引擎前，读取当前官方文档，实际验证所需的模型、会话续接、工具注册、流式事件、取消与部署能力，确认适配后再扩大实现。\n\nPi 以当前官方 SDK、RPC 和扩展文档为准；Rust／Tauri 优先通过官方 RPC 等跨进程接口连接，需要 SDK 时使用受控的运行时或 sidecar，并验证打包、依赖、退出和异常恢复。\n\n2. 前后端按职责模块化\n\n分别组织 Agent 引擎适配、会话与任务、消息与事件、业务工具、应用上下文、持久化和 React 界面，模块间通过明确的类型与契约交互。\n\n对话界面默认优先评估 assistant-ui，加载其适用的官方 runtime、tools、thread-list、streaming 等 Skills；需要 CopilotKit 等方案时，应证明它解决了具体缺口，并保持引擎与状态归属清晰。\n\n优先使用成熟组件和官方适配器；没有现成适配器时，只实现必要的协议转换，不能在适配层中再写一套执行循环。\n\n界面保持第一段约定的 Tailwind CSS、设计语言和动效规范，将可复用的对话、输入、消息、工具卡片和会话操作组件集中维护。\n\n3. 会话稳定性是不可随意改变的产品约束\n\n明确区分页面位置、当前业务对象、应用对话、引擎会话、执行任务和工具调用，并维护稳定标识及映射关系。\n\n导航、切换会议、查看资料、展开收起面板和修改主题，均不得隐式新建或切换 Agent 会话；只有明确的会话操作才能改变活动会话。\n\n上下文变化通过独立机制提供给 Agent，不能通过重建会话实现；组件挂载、重新渲染、事件订阅和重连不得产生幽灵会话或重复任务。\n\n历史记录、执行状态和待处理交互应有明确的持久化及恢复归属，避免前端、适配层和底层引擎各自维护互相矛盾的状态。\n\n4. 应用能力标准化，用户与 Agent 共用业务规则\n\n建立统一能力注册机制，为每项工具定义名称、用途、输入输出、参数校验、目标对象、执行位置、权限、取消与错误语义，以及适用的幂等和确认策略。\n\n用户按钮和 Agent 工具应调用相同的业务能力，禁止分别实现保存、删除等逻辑；业务写入与权限必须在实际执行边界校验，不能只依靠界面限制。\n\n分别提供读取应用上下文、查询业务信息、控制界面和修改业务数据的适用工具；通过引擎官方扩展机制注册，按项目需要采用标准协议。\n\n写操作必须明确目标对象和必要版本信息，发起执行后不得因页面切换而改变目标；发现上下文失效或冲突时，采用明确的重新获取、提示或确认策略。\n\n5. 对话与工具执行必须形成完整交互\n\n文本、工具调用、工具结果、状态和错误分别建模，使用稳定的消息及调用标识更新和去重，不能通过解析展示文案判断执行状态。\n\n长工具参数与结果默认紧凑展示并允许展开；等待确认、执行中、成功、失败、拒绝和取消应清楚可辨，最终回答保持可读。\n\n处理流式内容、长对话、中文输入法、发送与停止、复制、滚动位置及加载历史；用户主动向上阅读时，不得被持续输出强制拉回底部。\n\n工具成功、业务保存成功、Agent 运行结束和最终回答完成分别判断；工具成功但回答失败时应准确保留成功结果，并提供适用的恢复入口。\n\n6. 验证异常和长期运行\n\n明确并验证停止、取消、超时、断线、重连、引擎退出、应用重启和待确认操作恢复后的行为；写操作应有适用的幂等与重复检测，不能仅依靠按钮禁用或防抖。\n\n恢复会话时沿用有效的引擎续接机制；保留真实错误和已完成结果，禁止静默创建新会话掩盖恢复失败。\n\n检查工具输出体积、长历史渲染、订阅清理、子进程生命周期及资源占用，按实际场景限制无界增长。\n\n7. 使用真实引擎和真实业务进行验收\n\n通过 CDP 或 browser neo 操作实际界面，并结合引擎事件、后端日志和数据结果验证；模拟回复只用于开发辅助，不能作为真实 Agent 接入完成的证据。\n\n至少验证：\n同一会话内切换页面与业务对象，历史和会话标识保持稳定；\n上下文能正确反映当前浏览位置，工具操作对象不发生串用；\n用户与 Agent 完成同一操作时结果一致，刷新或重启后数据正确；\n长工具内容可用，等待、成功、失败和最终回答不会混淆；\n取消、超时、重复事件、断线恢复和引擎异常不会造成重复写入或幽灵会话；\n长对话及响应式布局下，输入、滚动和关键操作仍正常。\n\n必须按“引擎接入—会话—工具—业务结果—界面反馈—持久化—异常恢复”完成整条链路，禁止因为 Agent 能回复一句话、能调用一个工具或界面看起来完整就停止开发。\n\n未达到约定验收标准时继续修复和回归，交付时说明实际使用的平台、组件、版本、适配边界、验证证据与剩余限制。"},{"kind":"combo","category":"combos","name":"AI 内置助手交付（复用成熟引擎）（组合）","description":"角色 × 1 个模块：page-state-api","tags":["组合"],"compose":["page-state-api"],"file":"combos/ai-builtin-assistant.md","body":"本项目包含 Agent，请在通用产品开发规范之外，执行以下附加要求。\n\n1. Agent 必须复用成熟引擎\n\n默认优先评估 Pi 等具备官方 SDK、RPC、会话管理及工具扩展机制的成熟平台；已有满足需求的引擎优先保留。\n\n禁止自行重写 agentic loop、工具调用循环、上下文压缩、会话恢复、模型适配等平台已有的核心机制；业务代码只负责产品能力、必要适配、界面呈现和项目特有规则。\n\n在确定引擎前，读取当前官方文档，实际验证所需的模型、会话续接、工具注册、流式事件、取消与部署能力，确认适配后再扩大实现。\n\nPi 以当前官方 SDK、RPC 和扩展文档为准；Rust／Tauri 优先通过官方 RPC 等跨进程接口连接，需要 SDK 时使用受控的运行时或 sidecar，并验证打包、依赖、退出和异常恢复。\n\n2. 前后端按职责模块化\n\n分别组织 Agent 引擎适配、会话与任务、消息与事件、业务工具、应用上下文、持久化和 React 界面，模块间通过明确的类型与契约交互。\n\n对话界面默认优先评估 assistant-ui，加载其适用的官方 runtime、tools、thread-list、streaming 等 Skills；需要 CopilotKit 等方案时，应证明它解决了具体缺口，并保持引擎与状态归属清晰。\n\n优先使用成熟组件和官方适配器；没有现成适配器时，只实现必要的协议转换，不能在适配层中再写一套执行循环。\n\n界面保持第一段约定的 Tailwind CSS、设计语言和动效规范，将可复用的对话、输入、消息、工具卡片和会话操作组件集中维护。\n\n3. 会话稳定性是不可随意改变的产品约束\n\n明确区分页面位置、当前业务对象、应用对话、引擎会话、执行任务和工具调用，并维护稳定标识及映射关系。\n\n导航、切换会议、查看资料、展开收起面板和修改主题，均不得隐式新建或切换 Agent 会话；只有明确的会话操作才能改变活动会话。\n\n上下文变化通过独立机制提供给 Agent，不能通过重建会话实现；组件挂载、重新渲染、事件订阅和重连不得产生幽灵会话或重复任务。\n\n历史记录、执行状态和待处理交互应有明确的持久化及恢复归属，避免前端、适配层和底层引擎各自维护互相矛盾的状态。\n\n4. 应用能力标准化，用户与 Agent 共用业务规则\n\n建立统一能力注册机制，为每项工具定义名称、用途、输入输出、参数校验、目标对象、执行位置、权限、取消与错误语义，以及适用的幂等和确认策略。\n\n用户按钮和 Agent 工具应调用相同的业务能力，禁止分别实现保存、删除等逻辑；业务写入与权限必须在实际执行边界校验，不能只依靠界面限制。\n\n分别提供读取应用上下文、查询业务信息、控制界面和修改业务数据的适用工具；通过引擎官方扩展机制注册，按项目需要采用标准协议。\n\n写操作必须明确目标对象和必要版本信息，发起执行后不得因页面切换而改变目标；发现上下文失效或冲突时，采用明确的重新获取、提示或确认策略。\n\n5. 对话与工具执行必须形成完整交互\n\n文本、工具调用、工具结果、状态和错误分别建模，使用稳定的消息及调用标识更新和去重，不能通过解析展示文案判断执行状态。\n\n长工具参数与结果默认紧凑展示并允许展开；等待确认、执行中、成功、失败、拒绝和取消应清楚可辨，最终回答保持可读。\n\n处理流式内容、长对话、中文输入法、发送与停止、复制、滚动位置及加载历史；用户主动向上阅读时，不得被持续输出强制拉回底部。\n\n工具成功、业务保存成功、Agent 运行结束和最终回答完成分别判断；工具成功但回答失败时应准确保留成功结果，并提供适用的恢复入口。\n\n6. 验证异常和长期运行\n\n明确并验证停止、取消、超时、断线、重连、引擎退出、应用重启和待确认操作恢复后的行为；写操作应有适用的幂等与重复检测，不能仅依靠按钮禁用或防抖。\n\n恢复会话时沿用有效的引擎续接机制；保留真实错误和已完成结果，禁止静默创建新会话掩盖恢复失败。\n\n检查工具输出体积、长历史渲染、订阅清理、子进程生命周期及资源占用，按实际场景限制无界增长。\n\n7. 使用真实引擎和真实业务进行验收\n\n通过 CDP 或 browser neo 操作实际界面，并结合引擎事件、后端日志和数据结果验证；模拟回复只用于开发辅助，不能作为真实 Agent 接入完成的证据。\n\n至少验证：\n同一会话内切换页面与业务对象，历史和会话标识保持稳定；\n上下文能正确反映当前浏览位置，工具操作对象不发生串用；\n用户与 Agent 完成同一操作时结果一致，刷新或重启后数据正确；\n长工具内容可用，等待、成功、失败和最终回答不会混淆；\n取消、超时、重复事件、断线恢复和引擎异常不会造成重复写入或幽灵会话；\n长对话及响应式布局下，输入、滚动和关键操作仍正常。\n\n必须按“引擎接入—会话—工具—业务结果—界面反馈—持久化—异常恢复”完成整条链路，禁止因为 Agent 能回复一句话、能调用一个工具或界面看起来完整就停止开发。\n\n未达到约定验收标准时继续修复和回归，交付时说明实际使用的平台、组件、版本、适配边界、验证证据与剩余限制。\n\n【扩展模块】页面状态接口 —— 把页面状态暴露给 Agent 的设计约束\n\n1. 每个页面／视图提供 getState()：返回结构化 JSON（路由与层级、组件树摘要、业务对象标识、表单值、选中项、加载态、错误态）；禁止依赖 DOM 快照或截图推断状态。\n2. 提供 describeActions()：列出当前上下文下 Agent 可执行的操作、参数 schema 与前置条件。\n3. 状态 schema 版本化（stateVersion 字段），字段演进保持向后兼容；不兼容变更必须升主版本并保留旧通道过渡。\n4. 状态变化通过事件／订阅推送，禁止 Agent 轮询；高频更新做节流与合并。\n5. 敏感字段（密钥、令牌、隐私数据）脱敏后才能进入模型上下文。\n6. 提供确定性错误码：状态不可用、视图未挂载、权限不足时返回明确错误，不返回猜测数据。"},{"kind":"role","category":"writing","name":"中文去AI味","description":"把 AI 生成的中文文本改写成自然、清楚、像真人写的表达","tags":["润色","去AI味","写作"],"compose":[],"file":"writing/de-ai-flavor.md","body":"你是中文润色编辑。把下面【原文】改写成自然、清楚、像真人写的表达。\n\n规则：\n1. 保留原意、事实与专业信息；不添加虚构经历、数据或观点\n2. 删除模板化表达：值得注意的是／综上所述／总的来说／赋能／旨在 等\n3. 长短句交错，打破机械排比与生硬过渡\n4. 抽象概念换成具体细节，弱动词换成准确动词\n5. 语气贴合【读者与场景】；不过度口语化，不硬造错别字或个人经历\n6. 原文含糊或缺乏依据之处，单独列出疑问，不擅自补写\n\n只输出改写后的文本；疑问清单（如有）附在最后，用“──”分隔。\n\n读者与场景：【如：技术博客读者／公众号订阅者／同事邮件】\n原文：\n【粘贴待改写文本】"},{"kind":"module","category":"modules","name":"Agentic UI（应用内嵌 AI 助手）","description":"应用内嵌 AI 助手时的接口与交互约束：Agentic 接口、权限边界、可观察操作","tags":["模块","agent","接口设计","前后端"],"compose":[],"file":"modules/agentic-ui.md","body":"【扩展模块】Agentic UI —— 应用内嵌 AI 助手的接口与交互约束\n\n1. 为助手设计显式的 Agentic 接口：每个工具定义名称、用途、输入输出 schema、权限、错误语义与幂等策略；用户操作与 Agent 工具调用共用同一业务能力，禁止两套逻辑。\n2. 页面状态对 Agent 可读：通过统一状态接口暴露当前路由、可见视图、业务对象、表单值、加载与错误态；具体契约见“页面状态接口”模块（如已挂载）。\n3. Agent 的操作走统一 command 通道并携带目标对象标识，禁止模拟鼠标键盘或直接修改 DOM；执行前后必须有可观察的状态变化与撤销路径。\n4. 界面为会话、任务、工具调用维护稳定标识；导航、切换面板、修改主题不得隐式新建会话或丢失执行状态。\n5. 助手不得绕过已有权限、校验与审计；写操作在真实执行边界二次校验，目标对象失效时明确报错而不是静默改错对象。\n6. 明确停止、取消、超时、断线与重启后的行为；恢复会话沿用引擎官方续接机制，禁止静默新建会话掩盖恢复失败。"},{"kind":"module","category":"modules","name":"页面状态接口","description":"把页面状态暴露给 Agent 的设计约束：结构化状态、可执行操作、版本化与脱敏","tags":["模块","agent","接口设计","前端"],"compose":[],"file":"modules/page-state-api.md","body":"【扩展模块】页面状态接口 —— 把页面状态暴露给 Agent 的设计约束\n\n1. 每个页面／视图提供 getState()：返回结构化 JSON（路由与层级、组件树摘要、业务对象标识、表单值、选中项、加载态、错误态）；禁止依赖 DOM 快照或截图推断状态。\n2. 提供 describeActions()：列出当前上下文下 Agent 可执行的操作、参数 schema 与前置条件。\n3. 状态 schema 版本化（stateVersion 字段），字段演进保持向后兼容；不兼容变更必须升主版本并保留旧通道过渡。\n4. 状态变化通过事件／订阅推送，禁止 Agent 轮询；高频更新做节流与合并。\n5. 敏感字段（密钥、令牌、隐私数据）脱敏后才能进入模型上下文。\n6. 提供确定性错误码：状态不可用、视图未挂载、权限不足时返回明确错误，不返回猜测数据。"}]};
+/*__DATA_END__*/
+</script>
+<script>
+(function () {
+  'use strict';
+  var DATA = window.PS_DATA || { generated: '', items: [] };
+  var ITEMS = DATA.items || [];
+  var CATS = [
+    { id: 'all', label: '全部' },
+    { id: 'fullstack', label: '全栈' },
+    { id: 'embedded', label: '嵌入式' },
+    { id: 'ai', label: 'AI' },
+    { id: 'writing', label: '写作' },
+    { id: 'devops', label: '运维' },
+    { id: 'data', label: '数据' },
+    { id: 'quality', label: '质量' },
+    { id: 'general', label: '通用' },
+    { id: 'modules', label: '模块' },
+    { id: 'combos', label: '组合' }
+  ];
+  var KIND = { role: '角色', module: '模块', combo: '组合' };
+  var GRAD = {
+    fullstack: 'linear-gradient(140deg,#8B6CFF,#5B8CFF)', embedded: 'linear-gradient(140deg,#FFB547,#FF7A45)',
+    ai: 'linear-gradient(140deg,#22C3A6,#3D8BFF)', writing: 'linear-gradient(140deg,#FF8A65,#FFC24B)',
+    devops: 'linear-gradient(140deg,#3D8BFF,#B04FD0)', data: 'linear-gradient(140deg,#0EA5E9,#22C3A6)',
+    quality: 'linear-gradient(140deg,#FF7A93,#8B6CFF)', general: 'linear-gradient(140deg,#5B8CFF,#22C3A6)',
+    modules: 'linear-gradient(140deg,#B04FD0,#FF6B8B)', combos: 'linear-gradient(140deg,#119C72,#3D8BFF)'
+  };
+  var CP_SVG = '<svg class="u008-cp" viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V6.5a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></svg>';
+  var OK_SVG = '<svg class="u008-ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2L18.5 8"/></svg>';
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function h(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function copyText(s, done) {
+    var fb = function () {
+      var ta = document.createElement('textarea');
+      ta.value = s; ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      ta.remove(); done();
+    };
+    try {
+      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(s).then(done, fb); return; }
+    } catch (e) {}
+    fb();
+  }
+  /* #008：可复用的复制按钮实例 */
+  function copyBtn(host, getText) {
+    var b = host.querySelector('.u008-btn');
+    b.innerHTML = CP_SVG + OK_SVG;
+    var tip = host.querySelector('.u008-tip'), t = 0;
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      copyText(getText(), function () {
+        clearTimeout(t);
+        host.classList.remove('is-copied');
+        void host.offsetWidth;
+        host.classList.add('is-copied');
+        tip.textContent = '已复制';
+        t = setTimeout(function () { if (host.isConnected) { host.classList.remove('is-copied'); tip.textContent = ''; } }, 1800);
+      });
+    });
+    return b;
+  }
+
+  /* ===== 主题（#219 适配：按钮 + View Transitions 圆形揭示） ===== */
+  var SUN = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="currentColor"/><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 1.5v1.4M8 13.1v1.4M1.5 8h1.4M13.1 8h1.4M3.4 3.4l1 1M11.6 11.6l1 1M3.4 12.6l1-1M11.6 4.4l1-1"/></g></svg>';
+  var MOON = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.8A5.6 5.6 0 0 1 6.2 2.5a5.6 5.6 0 1 0 7.3 7.3z" fill="currentColor"/></svg>';
+  var themeBtn = document.getElementById('themeBtn');
+  function curTheme() { return document.documentElement.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
+  function syncTheme() {
+    var dark = curTheme() === 'dark';
+    themeBtn.innerHTML = dark ? MOON : SUN;
+    themeBtn.setAttribute('aria-pressed', String(dark));
+    themeBtn.setAttribute('aria-label', dark ? '切换到亮色' : '切换到暗色');
+  }
+  themeBtn.addEventListener('click', function () {
+    var next = curTheme() === 'dark' ? 'light' : 'dark';
+    var apply = function () {
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('ps-theme', next); } catch (e) {}
+      syncTheme();
+    };
+    if (document.startViewTransition && !rm) {
+      var b = themeBtn.getBoundingClientRect();
+      var x = b.left + b.width / 2, y = b.top + b.height / 2;
+      var r = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+      var vt = document.startViewTransition(apply);
+      vt.ready.then(function () {
+        document.documentElement.animate(
+          { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + r + 'px at ' + x + 'px ' + y + 'px)'] },
+          { duration: 700, easing: 'cubic-bezier(.65,0,.35,1)', pseudoElement: '::view-transition-new(root)' }
+        );
+      }).catch(function () {});
+    } else apply();
+  });
+  try { var saved = localStorage.getItem('ps-theme'); if (saved) document.documentElement.dataset.theme = saved; } catch (e) {}
+  syncTheme();
+
+  /* ===== 分类标签（#039） ===== */
+  var tabsEl = document.getElementById('tabs'), pill = tabsEl.querySelector('.u039-pill');
+  var grid = document.getElementById('grid'), emptyEl = document.getElementById('empty');
+  var count = function (cat) { return cat === 'all' ? ITEMS.length : ITEMS.filter(function (it) { return it.category === cat; }).length; };
+  var curCat = 0;
+  CATS.forEach(function (c, i) {
+    var b = h('button', 'u039-tab', null);
+    b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', String(i === 0));
+    b.appendChild(document.createTextNode(c.label));
+    b.appendChild(h('span', 'n', String(count(c.id))));
+    b.addEventListener('click', function () { selectCat(i); });
+    b.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) { e.preventDefault(); var n = (i + d + CATS.length) % CATS.length; selectCat(n); tabsEl.querySelectorAll('.u039-tab')[n].focus(); }
+    });
+    tabsEl.appendChild(b);
+  });
+  function movePill(animate) {
+    var t = tabsEl.querySelectorAll('.u039-tab')[curCat];
+    if (!t) return;
+    if (!animate) pill.style.transition = 'none';
+    pill.style.setProperty('--x', t.offsetLeft + 'px');
+    pill.style.setProperty('--w', t.offsetWidth + 'px');
+    if (!animate) { void pill.offsetWidth; pill.style.transition = ''; }
+    tabsEl.scrollTo({ left: Math.max(0, t.offsetLeft - 8), behavior: animate ? 'smooth' : 'auto' });
+  }
+  function cardEl(it, idx, dir) {
+    var c = h('article', 'card' + (rm ? '' : ' enter'));
+    c.tabIndex = 0; c.setAttribute('role', 'button');
+    c.setAttribute('aria-label', '打开 ' + it.name);
+    c.style.transitionDelay = Math.min(idx, 12) * 45 + 'ms';
+    c.style.setProperty('--dir', dir * 70 + '%');
+    var head = h('div', 'card-head');
+    var meta = h('div');
+    var title = h('h3', null, it.name);
+    title.appendChild(h('span', 'chip kind' + (it.kind === 'combo' ? ' combo' : ''), KIND[it.kind] || it.kind));
+    meta.appendChild(title);
+    meta.appendChild(h('p', 'desc', it.description || ''));
+    head.appendChild(meta);
+    var cb = h('div', 'u008');
+    cb.appendChild(h('button', 'u008-btn', null));
+    cb.appendChild(h('span', 'u008-tip', null));
+    head.appendChild(cb);
+    c.appendChild(head);
+    var tags = h('div', 'tags');
+    (it.tags || []).forEach(function (t) { tags.appendChild(h('span', 'chip', t)); });
+    tags.appendChild(h('em', 'lines', (it.body.split('\n').length) + ' 行'));
+    c.appendChild(tags);
+    copyBtn(cb, function () { return it.body; });
+    var open = function () { openPreview(it); };
+    c.addEventListener('click', open);
+    c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    return c;
+  }
+  function selectCat(i, animate) {
+    var dir = i >= curCat ? 1 : -1;
+    curCat = i;
+    var tabs = tabsEl.querySelectorAll('.u039-tab');
+    tabs.forEach(function (t, k) { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+    movePill(animate !== false);
+    var cat = CATS[i].id;
+    var list = (cat === 'all' ? ITEMS : ITEMS.filter(function (it) { return it.category === cat; }));
+    grid.innerHTML = '';
+    list.forEach(function (it, k) { grid.appendChild(cardEl(it, k, dir)); });
+    emptyEl.style.display = list.length ? 'none' : 'flex';
+    if (!rm) {
+      void grid.offsetWidth;
+      Array.prototype.forEach.call(grid.children, function (el) { el.classList.remove('enter'); });
+    }
+  }
+  document.getElementById('clearBtn').addEventListener('click', function () { selectCat(0); });
+
+  /* ===== 预览抽屉 ===== */
+  var drawer = document.getElementById('drawer'), backdrop = document.getElementById('backdrop');
+  var pvBody = document.getElementById('pvBody'), pvName = document.getElementById('pvName'), pvTags = document.getElementById('pvTags');
+  copyBtn(document.getElementById('pvCopy'), function () { return pvBody.textContent; });
+  function openPreview(it) {
+    pvName.textContent = '';
+    pvName.appendChild(document.createTextNode(it.name + ' '));
+    var k = h('span', 'chip kind' + (it.kind === 'combo' ? ' combo' : ''), KIND[it.kind] || it.kind);
+    pvName.appendChild(k);
+    pvTags.innerHTML = '';
+    (it.tags || []).forEach(function (t) { pvTags.appendChild(h('span', 'chip', t)); });
+    if (it.compose && it.compose.length) pvTags.appendChild(h('span', 'chip', '× ' + it.compose.join(' + ')));
+    pvBody.textContent = it.body;
+    drawer.hidden = false; backdrop.hidden = false;
+    void drawer.offsetWidth;
+    drawer.classList.add('show'); backdrop.classList.add('show');
+    document.getElementById('pvClose').focus();
+  }
+  function closePreview() {
+    drawer.classList.remove('show'); backdrop.classList.remove('show');
+    setTimeout(function () { drawer.hidden = true; backdrop.hidden = true; }, rm ? 0 : 450);
+  }
+  document.getElementById('pvClose').addEventListener('click', closePreview);
+  backdrop.addEventListener('click', closePreview);
+
+  /* ===== 命令面板（#046） ===== */
+  var pal = document.getElementById('palette');
+  var input = pal.querySelector('.u046-in'), list = pal.querySelector('.u046-list');
+  var hlBar = pal.querySelector('.u046-hl'), done = pal.querySelector('.u046-done');
+  var pBody = pal.querySelector('.u046-body');
+  var uid = 'u046-' + Math.random().toString(36).slice(2, 7);
+  var IC = {
+    doc: '<path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20z"/><path d="M14 3.5v4h4"/>',
+    plus: '<path d="M12 5v14M5 12h14"/>',
+    out: '<path d="M12 15V4M8 8l4-4 4 4M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/>'
+  };
+  var palOpts = [], palAct = 0, palOpen = false, doneT = 0, closeT = 0;
+  function catLabel(it) {
+    var c = CATS.filter(function (c) { return c.id === it.category; })[0];
+    return c ? c.label : it.category;
+  }
+  function esc(s) { return s.replace(/[&<>"]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]; }); }
+  function hit(name, q) {
+    if (!q) return esc(name);
+    var i = name.toLowerCase().indexOf(q);
+    if (i < 0) return esc(name);
+    return esc(name.slice(0, i)) + '<mark>' + esc(name.slice(i, i + q.length)) + '</mark>' + esc(name.slice(i + q.length));
+  }
+  function palRender() {
+    var q = input.value.trim().toLowerCase();
+    var found = ITEMS.map(function (it, idx) { return { it: it, idx: idx }; }).filter(function (r) {
+      if (!q) return true;
+      var hay = (r.it.name + ' ' + (r.it.tags || []).join(' ') + ' ' + (r.it.description || '') + ' ' + (KIND[r.it.kind] || '')).toLowerCase();
+      return hay.indexOf(q) >= 0;
+    });
+    var html = '', g = '', n = 0;
+    found.forEach(function (r) {
+      var gl = catLabel(r.it);
+      if (gl !== g) { g = gl; html += '<li class="u046-g" role="presentation">' + esc(g) + '</li>'; }
+      var ic = r.it.kind === 'combo' ? 'out' : r.it.kind === 'module' ? 'plus' : 'doc';
+      html += '<li class="u046-op" role="option" id="' + uid + '-' + n + '" data-i="' + r.idx + '" style="--i:' + n + '" aria-selected="false"><span class="u046-ic" style="--c:' + (GRAD[r.it.category] || GRAD.general) + '" aria-hidden="true"><svg viewBox="0 0 24 24">' + IC[ic] + '</svg></span><span>' + hit(r.it.name, q) + '</span><span class="u046-kbd">' + (KIND[r.it.kind] || '') + '</span></li>';
+      n++;
+    });
+    if (!n) html = '<li class="u046-empty" role="presentation"><b>没有匹配 ‘' + esc(input.value.trim()) + '’</b>换个关键词试试</li>';
+    list.innerHTML = html;
+    palOpts = Array.prototype.slice.call(list.querySelectorAll('.u046-op'));
+    palOpts.forEach(function (o, i) {
+      o.addEventListener('pointermove', function () { if (palAct !== i) palMark(i); });
+      o.addEventListener('click', function () { palMark(i); palRun(); });
+    });
+    hlBar.style.opacity = n ? '1' : '0';
+    palMark(0, true);
+  }
+  function palMark(i, instant) {
+    if (!palOpts.length) { input.removeAttribute('aria-activedescendant'); return; }
+    palAct = (i + palOpts.length) % palOpts.length;
+    palOpts.forEach(function (o, k) { o.setAttribute('aria-selected', String(k === palAct)); });
+    input.setAttribute('aria-activedescendant', palOpts[palAct].id);
+    if (instant) hlBar.style.transition = 'none';
+    var o = palOpts[palAct], top = o.offsetTop + 6;
+    hlBar.style.setProperty('--y', top + 'px');
+    if (instant) { void hlBar.offsetWidth; hlBar.style.transition = ''; }
+    if (top + o.offsetHeight > pBody.scrollTop + pBody.clientHeight) pBody.scrollTo({ top: top + o.offsetHeight - pBody.clientHeight + 6, behavior: instant ? 'auto' : 'smooth' });
+    else if (top < pBody.scrollTop + 30) pBody.scrollTo({ top: palAct === 0 ? 0 : top - 30, behavior: instant ? 'auto' : 'smooth' });
+  }
+  function palRun() {
+    if (!palOpts[palAct]) return;
+    var it = ITEMS[+palOpts[palAct].getAttribute('data-i')];
+    palOpts[palAct].animate([{ transform: 'scale(.97)' }, { transform: 'none' }], { duration: 260, easing: 'ease-out' });
+    done.textContent = '已打开 ‘' + it.name + '’';
+    done.classList.add('show');
+    clearTimeout(doneT); clearTimeout(closeT);
+    doneT = setTimeout(function () { done.classList.remove('show'); }, 1600);
+    closeT = setTimeout(function () { palClose(); openPreview(it); }, rm ? 0 : 380);
+  }
+  function palOpenFn() {
+    palOpen = true;
+    pal.classList.add('is-open');
+    input.value = '';
+    done.classList.remove('show');
+    palRender();
+    setTimeout(function () { input.focus(); }, 30);
+  }
+  function palClose() {
+    palOpen = false;
+    pal.classList.remove('is-open');
+    input.blur();
+  }
+  input.addEventListener('input', palRender);
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); palMark(palAct + (e.key === 'ArrowDown' ? 1 : -1)); }
+    else if (e.key === 'Enter' && !e.isComposing && e.keyCode !== 229) { e.preventDefault(); palRun(); }
+    else if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); palClose(); }
+  });
+  pal.addEventListener('pointerdown', function (e) { if (e.target === pal) palClose(); });
+  document.getElementById('searchBtn').addEventListener('click', palOpenFn);
+  function inEditable(el) { return el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable); }
+  document.addEventListener('keydown', function (e) {
+    if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+      var a = document.activeElement;
+      if (a && a !== document.body && !pal.contains(a)) return;
+      e.preventDefault();
+      palOpen ? palClose() : palOpenFn();
+      return;
+    }
+    if (e.key === '/' && !palOpen && !inEditable(document.activeElement)) { e.preventDefault(); palOpenFn(); return; }
+    if (e.key === 'Escape') {
+      if (palOpen) palClose();
+      else if (!drawer.hidden) closePreview();
+    }
+  });
+
+  /* ===== 启动 ===== */
+  var ft = document.getElementById('foot');
+  ft.textContent = '';
+  ft.appendChild(document.createTextNode(DATA.generated ? '数据生成于 ' + DATA.generated + ' · 修改后运行 ' : '运行 '));
+  ft.appendChild(h('code', null, 'node scripts/build-combos.mjs'));
+  ft.appendChild(document.createTextNode(' 刷新'));
+  selectCat(0, false);
+  window.addEventListener('resize', function () { movePill(false); });
+})();
+</script>
+</body>
+</html>
