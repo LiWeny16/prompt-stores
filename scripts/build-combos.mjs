@@ -343,6 +343,15 @@ https://bigonion.cn/prompt-stores/
 );
 
 console.log(`✓ web/public/api  (${items.length} 个 json + index + recipes)`);
+// 指针式检查：自建 prompt 应当"只指路不展开"；vendor 导入内容豁免
+const POINTER_MAX = 12;
+const verbose = roles.filter((r) => r.origin !== 'vendor' && r.body.split(String.fromCharCode(10)).length > POINTER_MAX);
+if (verbose.length) {
+  console.warn(`
+⚠ 以下自建 prompt 超过 ${POINTER_MAX} 行，可能不是指针式写法（本库要求只列 skill/方法名，不展开内容）：`);
+  for (const r of verbose) console.warn(`   ${r.file}  ${r.body.split(String.fromCharCode(10)).length} 行`);
+}
+
 console.log(`✓ web/public/llms.txt`);
 console.log(
   `\n完成：角色 ${roles.length}（其中 vendor ${roles.filter((r) => r.origin === 'vendor').length}）｜模块 ${modules.size}｜组合 ${combos.length}`,

@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { CopyButton } from '@/components/CopyButton';
 import { Diagram } from '@/components/Diagram';
-import { KIND_LABEL, lineCount, type PromptItem } from '@/lib/data';
+import { KIND_LABEL, SHAPE_LABEL, lineCount, shapeOf, type PromptItem } from '@/lib/data';
 import { loadBody } from '@/lib/bodies';
 
 interface DetailProps {
@@ -77,7 +77,7 @@ export function Detail({ item, resolve, onClose, onEdit, onDelete }: DetailProps
               <h2 className="text-base leading-snug font-semibold">{item.name}</h2>
               <Badge variant="solid">{KIND_LABEL[item.kind]}</Badge>
               {item.origin === 'user' ? <Badge variant="outline">我的</Badge> : null}
-              {item.origin === 'vendor' ? <Badge variant="outline">导入</Badge> : null}
+              <Badge variant="outline">{SHAPE_LABEL[shapeOf(item)]}</Badge>
             </div>
             {item.description ? (
               <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground">{item.description}</p>

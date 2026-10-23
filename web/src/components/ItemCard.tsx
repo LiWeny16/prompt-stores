@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/CopyButton';
-import { KIND_LABEL, lineCount, type PromptItem } from '@/lib/data';
+import { KIND_LABEL, SHAPE_LABEL, lineCount, shapeOf, type PromptItem } from '@/lib/data';
 import { loadBody } from '@/lib/bodies';
 
 interface ItemCardProps {
@@ -9,7 +9,7 @@ interface ItemCardProps {
   onOpen: (item: PromptItem) => void;
 }
 
-const ORIGIN_LABEL: Record<string, string> = { user: '我的', vendor: '导入' };
+const ORIGIN_LABEL: Record<string, string> = { user: '我的' };
 
 export const ItemCard = memo(function ItemCard({ item, onOpen }: ItemCardProps) {
   return (
@@ -26,7 +26,11 @@ export const ItemCard = memo(function ItemCard({ item, onOpen }: ItemCardProps) 
           <Badge variant="solid" className="mt-0.5 shrink-0">
             {ORIGIN_LABEL[item.origin]}
           </Badge>
-        ) : null}
+        ) : (
+          <Badge variant="outline" className="mt-0.5 shrink-0">
+            {SHAPE_LABEL[shapeOf(item)]}
+          </Badge>
+        )}
         <Badge variant="outline" className="mt-0.5 shrink-0">
           {KIND_LABEL[item.kind]}
         </Badge>

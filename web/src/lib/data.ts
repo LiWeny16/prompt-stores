@@ -79,3 +79,17 @@ export function catLabel(id: string): string {
 export function lineCount(item: { lines?: number; body?: string }): number {
   return item.lines ?? (item.body ? item.body.split('\n').length : 0);
 }
+
+/** 形态：指针（只指路，≤6 行）/ 规范（重型交付约束）/ 导入（第三方原文） */
+export type Shape = 'pointer' | 'spec' | 'vendor';
+
+export function shapeOf(item: PromptItem): Shape {
+  if (item.origin === 'vendor') return 'vendor';
+  return lineCount(item) <= 6 ? 'pointer' : 'spec';
+}
+
+export const SHAPE_LABEL: Record<Shape, string> = {
+  pointer: '指针',
+  spec: '规范',
+  vendor: '导入',
+};
