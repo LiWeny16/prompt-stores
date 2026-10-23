@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="个人提示词仓库：角色 × 模块组合，分类浏览、搜索、一键复制。" />
+    <title>Prompt Stores</title>
+    <script>
+      // 主题在首帧前确定，避免闪白（localStorage 优先，其次跟随系统）
+      (function () {
+        try {
+          var t = localStorage.getItem('ps-theme');
+          var dark = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

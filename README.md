@@ -4,13 +4,17 @@
 
 ## 使用方式
 
-- **本地浏览 UI**：双击 `ui/index.html`（数据已内嵌，无需服务器）——分类切换、搜索（`/` 或 Ctrl/⌘+K）、预览、一键复制
-- **GitHub Pages**：仓库 Settings → Pages → 部署 main 分支 → `https://<user>.github.io/prompt-stores/ui/`
-- **复制单个 prompt / 模块**：打开对应文件，点代码块右上角的复制按钮（GitHub 自带）
-- **复制项目组合 prompt**（角色 + 模块已合并）：开 [`combos/`](combos/)，同样一键复制
+- **Web UI（黑白灰，React SPA）**：<https://liweny16.github.io/prompt-stores/>（首次部署见下方）
+- **本地开发**：`cd web && npm install && npm run dev`
+- **复制单个 prompt / 模块**：Web UI 内点卡片或 GitHub 上打开对应文件，点代码块右上角复制按钮
+- **复制项目组合 prompt**（角色 + 模块已合并）：`combos/` 或 Web UI 的「组合」分类，一键复制
 - **给 agent 用**：直接让 agent 读本仓库；角色挂载了哪些模块在 frontmatter `compose` 字段里，agent 会按需加载
 
-> UI 交互元素来自 [Lucian UX/UI Prompt](https://lucianlabs.dev/uxui-prompt)（#008 复制按钮 / #039 胶囊标签 / #046 命令面板 / #219 主题圆形揭示，MIT）
+### 部署到 GitHub Pages（一次性）
+
+1. GitHub 建仓 `prompt-stores`，`git remote add origin` 后 push main
+2. 仓库 Settings → Pages → Source 选 **GitHub Actions**
+3. 之后每次 push main 自动构建部署（`.github/workflows/deploy.yml`：重跑数据脚本 → 构建 → 发布）
 
 ## 结构
 
@@ -26,9 +30,10 @@ prompts/            角色 prompt（按领域分类）
   general/            通用工作流（任务分解 / 头脑风暴 / 日常）
 modules/            跨领域能力模块，可被任意角色挂载组合
 combos/             组合 prompt（脚本生成，随仓库提交）
-ui/index.html       单文件浏览 UI（双击即用，数据内嵌）
-scripts/            build-combos.mjs 组合生成器 + UI 数据注入
-docs/rawprompts/    原始 prompt 备份
+web/                React SPA（Vite + TS + Tailwind，部署 GitHub Pages）
+scripts/            build-combos.mjs 组合生成器 + web 数据包
+.github/workflows/  Pages 自动部署
+docs/               原始 prompt 备份、验证截图
 ```
 
 ## 索引
@@ -68,7 +73,7 @@ docs/rawprompts/    原始 prompt 备份
 ## 维护
 
 ```bash
-# 新增/修改角色或模块后，重新生成组合、刷新 UI 数据并提交
+# 新增/修改角色或模块后，重新生成组合与 web 数据包并提交
 node scripts/build-combos.mjs
 git add . && git commit -m "update prompts"
 ```

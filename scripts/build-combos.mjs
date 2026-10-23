@@ -16,7 +16,6 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PROMPTS_DIR = join(ROOT, 'prompts');
 const MODULES_DIR = join(ROOT, 'modules');
 const COMBOS_DIR = join(ROOT, 'combos');
-const UI_FILE = join(ROOT, 'ui', 'index.html');
 const CAT_ORDER = ['fullstack', 'embedded', 'ai', 'writing', 'devops', 'data', 'quality', 'general'];
 const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -138,16 +137,10 @@ for (const [, m] of modules) {
   });
 }
 
-// 3. 注入 ui/index.html
-if (existsSync(UI_FILE)) {
-  const html = readFileSync(UI_FILE, 'utf8');
-  const payload = JSON.stringify({ generated: TODAY, items: uiItems }).replace(/<\//g, '<\\/');
-  const marker = /(\/\*__DATA_START__\*\/[\s\S]*?\/\*__DATA_END__\*\/)/;
-  if (!marker.test(html)) throw new Error('ui/index.html 缺少 /*__DATA_START__*/ 标记');
-  writeFileSync(UI_FILE, html.replace(marker, `/*__DATA_START__*/\nwindow.PS_DATA = ${payload};\n/*__DATA_END__*/`));
-  console.log(`✓ ui/index.html 数据已刷新（${uiItems.length} 个条目）`);
-} else {
-  console.warn('⚠ 未找到 ui/index.html，跳过 UI 数据注入');
-}
+// 3. 注入 web 数据包（React SPA 构建时直接打进 bundle）
+const BUNDLE = join(ROOT, 'web', 'src', 'data', 'bundle.json');
+mkdirSync(dirname(BUNDLE), { recursive: true });
+writeFileSync(BUNDLE, JSON.stringify({ generated: TODAY, items: uiItems }, null, 2) + '\n');
+console.log(`✓ web/src/data/bundle.json（${uiItems.length} 个条目）`);
 
 console.log(`\n完成：${count} 个组合 ｜ 模块 ${modules.size} 个 ｜ UI 条目 ${uiItems.length} 个`);
