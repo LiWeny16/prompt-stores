@@ -1,0 +1,1103 @@
+{
+  "version": 1,
+  "generated": "2026-10-23",
+  "counts": {
+    "role": 60,
+    "module": 2,
+    "combo": 2
+  },
+  "items": [
+    {
+      "id": "vendor/fabric/fullstack/summarize_git_changes",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "变更总结（fabric）",
+      "description": "把一批提交总结成结构化的变更说明",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 21,
+      "url": "prompts/vendor__fabric__fullstack__summarize_git_changes.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_git_changes",
+      "license": "MIT"
+    },
+    {
+      "id": "prompts/fullstack/product-delivery",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "产品交付负责人（前后端/桌面）",
+      "description": "对需求/选型/集成/验收整体负责的项目角色 prompt，含默认技术栈与闭环验收标准",
+      "tags": [
+        "system-prompt",
+        "交付规范",
+        "web",
+        "桌面"
+      ],
+      "compose": [
+        "agentic-ui",
+        "page-state-api"
+      ],
+      "lines": 98,
+      "url": "prompts/prompts__fullstack__product-delivery.json"
+    },
+    {
+      "id": "vendor/fabric/fullstack/create_coding_project",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "从零搭项目（fabric）",
+      "description": "按需求产出项目骨架、文件结构与实现步骤",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 42,
+      "url": "prompts/vendor__fabric__fullstack__create_coding_project.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_coding_project",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/fullstack/explain_code",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "代码解释（fabric）",
+      "description": "逐层讲清一段代码的意图、结构与关键实现",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 23,
+      "url": "prompts/vendor__fabric__fullstack__explain_code.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_code",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/fullstack/create_coding_feature",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "功能实现（fabric）",
+      "description": "从需求到可运行代码的功能开发流程",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 117,
+      "url": "prompts/vendor__fabric__fullstack__create_coding_feature.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_coding_feature",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/fullstack/review_design",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "设计审查（fabric）",
+      "description": "审查架构设计的完整性、风险与替代方案",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 61,
+      "url": "prompts/vendor__fabric__fullstack__review_design.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/review_design",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/fullstack/create_design_document",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "设计文档（fabric）",
+      "description": "产出技术设计文档：目标、方案、边界与取舍",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 53,
+      "url": "prompts/vendor__fabric__fullstack__create_design_document.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_design_document",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/fullstack/refine_design_document",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "设计文档打磨（fabric）",
+      "description": "对已有设计文档查漏补缺、强化可执行性",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 25,
+      "url": "prompts/vendor__fabric__fullstack__refine_design_document.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/refine_design_document",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/fullstack/create_git_diff_commit",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "提交信息生成（fabric）",
+      "description": "依据 diff 产出规范提交信息",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 35,
+      "url": "prompts/vendor__fabric__fullstack__create_git_diff_commit.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_git_diff_commit",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/fullstack/explain_project",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "项目讲解（fabric）",
+      "description": "梳理项目结构、模块职责与主链路",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 37,
+      "url": "prompts/vendor__fabric__fullstack__explain_project.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_project",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/fullstack/create_user_story",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "用户故事（fabric）",
+      "description": "拆解为带验收标准的用户故事",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 49,
+      "url": "prompts/vendor__fabric__fullstack__create_user_story.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_user_story",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/fullstack/write_pull-request",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "PR 描述（fabric）",
+      "description": "生成含背景、改动、验证与风险的 PR 说明",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 98,
+      "url": "prompts/vendor__fabric__fullstack__write_pull-request.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_pull-request",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/fullstack/create_prd",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "PRD 撰写（fabric）",
+      "description": "把想法整理成可评审的产品需求文档",
+      "tags": [
+        "fabric",
+        "fullstack"
+      ],
+      "compose": [],
+      "lines": 41,
+      "url": "prompts/vendor__fabric__fullstack__create_prd.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_prd",
+      "license": "MIT"
+    },
+    {
+      "id": "prompts/embedded/firmware-delivery",
+      "kind": "role",
+      "category": "embedded",
+      "name": "嵌入式系统交付负责人",
+      "description": "固件交付角色 prompt：平台事实优先、资源预算、跨核协议、诊断闭环与上板验收",
+      "tags": [
+        "system-prompt",
+        "交付规范",
+        "嵌入式",
+        "RTOS",
+        "硬件"
+      ],
+      "compose": [],
+      "lines": 118,
+      "url": "prompts/prompts__embedded__firmware-delivery.json"
+    },
+    {
+      "id": "vendor/fabric/ai/extract_wisdom_agents",
+      "kind": "role",
+      "category": "ai",
+      "name": "多智能体洞见提取（fabric）",
+      "description": "以多角色协作方式从材料中抽取洞见与可行动项",
+      "tags": [
+        "fabric",
+        "ai"
+      ],
+      "compose": [],
+      "lines": 53,
+      "url": "prompts/vendor__fabric__ai__extract_wisdom_agents.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_wisdom_agents",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/ai/analyze_paper",
+      "kind": "role",
+      "category": "ai",
+      "name": "论文分析（fabric）",
+      "description": "拆解论文的问题、方法、证据与局限",
+      "tags": [
+        "fabric",
+        "ai"
+      ],
+      "compose": [],
+      "lines": 125,
+      "url": "prompts/vendor__fabric__ai__analyze_paper.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_paper",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/ai/explain_terms",
+      "kind": "role",
+      "category": "ai",
+      "name": "术语解释（fabric）",
+      "description": "把专业术语讲成可理解的定义、例子与边界",
+      "tags": [
+        "fabric",
+        "ai"
+      ],
+      "compose": [],
+      "lines": 41,
+      "url": "prompts/vendor__fabric__ai__explain_terms.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_terms",
+      "license": "MIT"
+    },
+    {
+      "id": "prompts/ai/builtin-assistant",
+      "kind": "role",
+      "category": "ai",
+      "name": "AI 内置助手交付（复用成熟引擎）",
+      "description": "应用内嵌 Agent 的交付约束：复用成熟引擎、会话稳定性、工具标准化与真实链路验收",
+      "tags": [
+        "system-prompt",
+        "agent",
+        "交付规范",
+        "引擎复用"
+      ],
+      "compose": [
+        "page-state-api"
+      ],
+      "lines": 75,
+      "url": "prompts/prompts__ai__builtin-assistant.json"
+    },
+    {
+      "id": "vendor/fabric/ai/create_ai_jobs_analysis",
+      "kind": "role",
+      "category": "ai",
+      "name": "AI 影响分析（fabric）",
+      "description": "分析某岗位/流程受 AI 影响的部分与应对",
+      "tags": [
+        "fabric",
+        "ai"
+      ],
+      "compose": [],
+      "lines": 31,
+      "url": "prompts/vendor__fabric__ai__create_ai_jobs_analysis.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_ai_jobs_analysis",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/ai/improve_prompt",
+      "kind": "role",
+      "category": "ai",
+      "name": "Prompt 改进（fabric）",
+      "description": "诊断 prompt 弱点并给出改写版本",
+      "tags": [
+        "fabric",
+        "ai"
+      ],
+      "compose": [],
+      "lines": 518,
+      "url": "prompts/vendor__fabric__ai__improve_prompt.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/improve_prompt",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/ai/summarize_prompt",
+      "kind": "role",
+      "category": "ai",
+      "name": "Prompt 摘要（fabric）",
+      "description": "把长 prompt 压缩成核心意图与约束",
+      "tags": [
+        "fabric",
+        "ai"
+      ],
+      "compose": [],
+      "lines": 29,
+      "url": "prompts/vendor__fabric__ai__summarize_prompt.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_prompt",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/fix_typos",
+      "kind": "role",
+      "category": "writing",
+      "name": "错字修正（fabric）",
+      "description": "只修拼写与明显笔误，不改写风格",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 25,
+      "url": "prompts/vendor__fabric__writing__fix_typos.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/fix_typos",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/extract_wisdom",
+      "kind": "role",
+      "category": "writing",
+      "name": "洞见提取（fabric）",
+      "description": "从文本中抽取观点、事实、引用与可行动项",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 59,
+      "url": "prompts/vendor__fabric__writing__extract_wisdom.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_wisdom",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/translate",
+      "kind": "role",
+      "category": "writing",
+      "name": "翻译（fabric）",
+      "description": "在保留语气与专业性的前提下翻译",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 26,
+      "url": "prompts/vendor__fabric__writing__translate.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/translate",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/create_aphorisms",
+      "kind": "role",
+      "category": "writing",
+      "name": "格言创作（fabric）",
+      "description": "围绕主题写出简洁有力的短句",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 17,
+      "url": "prompts/vendor__fabric__writing__create_aphorisms.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_aphorisms",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/humanize",
+      "kind": "role",
+      "category": "writing",
+      "name": "去AI味·人性化重写（fabric）",
+      "description": "把机器味文本改成自然口语表达，保留原意",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 132,
+      "url": "prompts/vendor__fabric__writing__humanize.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/humanize",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/clean_text",
+      "kind": "role",
+      "category": "writing",
+      "name": "文本清理（fabric）",
+      "description": "修复排版、断行、标点与格式噪声",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 19,
+      "url": "prompts/vendor__fabric__writing__clean_text.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/clean_text",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/create_5_sentence_summary",
+      "kind": "role",
+      "category": "writing",
+      "name": "五句摘要（fabric）",
+      "description": "用五句话讲清核心内容，层次由浅入深",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 39,
+      "url": "prompts/vendor__fabric__writing__create_5_sentence_summary.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_5_sentence_summary",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/improve_writing",
+      "kind": "role",
+      "category": "writing",
+      "name": "写作提升（fabric）",
+      "description": "在不改变事实的前提下改善清晰度与节奏",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 19,
+      "url": "prompts/vendor__fabric__writing__improve_writing.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/improve_writing",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/create_summary",
+      "kind": "role",
+      "category": "writing",
+      "name": "摘要生成（fabric）",
+      "description": "把长内容压成保留关键信息的摘要",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 26,
+      "url": "prompts/vendor__fabric__writing__create_summary.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_summary",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/write_essay",
+      "kind": "role",
+      "category": "writing",
+      "name": "长文写作（fabric）",
+      "description": "按主题与立场产出结构完整的长文",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 33,
+      "url": "prompts/vendor__fabric__writing__write_essay.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_essay",
+      "license": "MIT"
+    },
+    {
+      "id": "prompts/writing/de-ai-flavor",
+      "kind": "role",
+      "category": "writing",
+      "name": "中文去AI味",
+      "description": "把 AI 生成的中文文本改写成自然、清楚、像真人写的表达",
+      "tags": [
+        "润色",
+        "去AI味",
+        "写作"
+      ],
+      "compose": [],
+      "lines": 15,
+      "url": "prompts/prompts__writing__de-ai-flavor.json"
+    },
+    {
+      "id": "vendor/fabric/writing/chinese_poetry_analysis",
+      "kind": "role",
+      "category": "writing",
+      "name": "中文诗词分析（fabric）",
+      "description": "解析意象、格律与情感层次",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 26,
+      "url": "prompts/vendor__fabric__writing__chinese_poetry_analysis.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_poetry_analysis",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/chinese_article_summary",
+      "kind": "role",
+      "category": "writing",
+      "name": "中文文章总结（fabric）",
+      "description": "中文输出的文章总结，保留论据与结论",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 21,
+      "url": "prompts/vendor__fabric__writing__chinese_article_summary.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_article_summary",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/chinese_news_translate",
+      "kind": "role",
+      "category": "writing",
+      "name": "中文新闻翻译（fabric）",
+      "description": "新闻类文本的翻译与本地化改写",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 28,
+      "url": "prompts/vendor__fabric__writing__chinese_news_translate.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_news_translate",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/convert_to_markdown",
+      "kind": "role",
+      "category": "writing",
+      "name": "转 Markdown（fabric）",
+      "description": "把任意格式内容整理成规范 Markdown",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 42,
+      "url": "prompts/vendor__fabric__writing__convert_to_markdown.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/convert_to_markdown",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/create_excalidraw_visualization",
+      "kind": "role",
+      "category": "writing",
+      "name": "Excalidraw 图（fabric）",
+      "description": "生成可直接导入 Excalidraw 的元素描述",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 135,
+      "url": "prompts/vendor__fabric__writing__create_excalidraw_visualization.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_excalidraw_visualization",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/create_mermaid_visualization_for_github",
+      "kind": "role",
+      "category": "writing",
+      "name": "Mermaid 图·GitHub 版（fabric）",
+      "description": "针对 GitHub 渲染限制优化的 Mermaid 图生成",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 47,
+      "url": "prompts/vendor__fabric__writing__create_mermaid_visualization_for_github.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_mermaid_visualization_for_github",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/writing/create_mermaid_visualization",
+      "kind": "role",
+      "category": "writing",
+      "name": "Mermaid 图（fabric）",
+      "description": "把概念或数据转成 Mermaid 图，含语法校验要求",
+      "tags": [
+        "fabric",
+        "writing"
+      ],
+      "compose": [],
+      "lines": 39,
+      "url": "prompts/vendor__fabric__writing__create_mermaid_visualization.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_mermaid_visualization",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/data/export_data_as_csv",
+      "kind": "role",
+      "category": "data",
+      "name": "导出 CSV（fabric）",
+      "description": "把结构化内容整理成可直接使用的 CSV",
+      "tags": [
+        "fabric",
+        "data"
+      ],
+      "compose": [],
+      "lines": 21,
+      "url": "prompts/vendor__fabric__data__export_data_as_csv.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/export_data_as_csv",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/data/create_conceptmap",
+      "kind": "role",
+      "category": "data",
+      "name": "概念图（fabric）",
+      "description": "梳理概念之间的层级与依赖",
+      "tags": [
+        "fabric",
+        "data"
+      ],
+      "compose": [],
+      "lines": 155,
+      "url": "prompts/vendor__fabric__data__create_conceptmap.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_conceptmap",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/data/create_graph_from_input",
+      "kind": "role",
+      "category": "data",
+      "name": "关系图生成（fabric）",
+      "description": "从文本中提取实体与关系并输出图结构",
+      "tags": [
+        "fabric",
+        "data"
+      ],
+      "compose": [],
+      "lines": 38,
+      "url": "prompts/vendor__fabric__data__create_graph_from_input.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_graph_from_input",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/data/summarize_git_diff",
+      "kind": "role",
+      "category": "data",
+      "name": "Diff 总结（fabric）",
+      "description": "把代码 diff 归纳成可读的变更要点",
+      "tags": [
+        "fabric",
+        "data"
+      ],
+      "compose": [],
+      "lines": 31,
+      "url": "prompts/vendor__fabric__data__summarize_git_diff.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_git_diff",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/quality/analyze_mistakes",
+      "kind": "role",
+      "category": "quality",
+      "name": "错误复盘（fabric）",
+      "description": "拆解失误的成因链，给出下次可用的检查点",
+      "tags": [
+        "fabric",
+        "quality"
+      ],
+      "compose": [],
+      "lines": 32,
+      "url": "prompts/vendor__fabric__quality__analyze_mistakes.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_mistakes",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/quality/generate_code_rules",
+      "kind": "role",
+      "category": "quality",
+      "name": "代码规范生成（fabric）",
+      "description": "从现有代码库提炼可执行的编码规则",
+      "tags": [
+        "fabric",
+        "quality"
+      ],
+      "compose": [],
+      "lines": 11,
+      "url": "prompts/vendor__fabric__quality__generate_code_rules.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/generate_code_rules",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/quality/review_code",
+      "kind": "role",
+      "category": "quality",
+      "name": "代码评审（fabric）",
+      "description": "资深工程师视角的代码评审：问题定位、具体改法与原理说明",
+      "tags": [
+        "fabric",
+        "quality"
+      ],
+      "compose": [],
+      "lines": 140,
+      "url": "prompts/vendor__fabric__quality__review_code.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/review_code",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/quality/analyze_logs",
+      "kind": "role",
+      "category": "quality",
+      "name": "日志分析（fabric）",
+      "description": "从日志中提取异常模式、时间关联与可能根因",
+      "tags": [
+        "fabric",
+        "quality"
+      ],
+      "compose": [],
+      "lines": 19,
+      "url": "prompts/vendor__fabric__quality__analyze_logs.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_logs",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/quality/analyze_incident",
+      "kind": "role",
+      "category": "quality",
+      "name": "事故分析（fabric）",
+      "description": "把事故材料整理成时间线、影响范围、根因与改进项",
+      "tags": [
+        "fabric",
+        "quality"
+      ],
+      "compose": [],
+      "lines": 38,
+      "url": "prompts/vendor__fabric__quality__analyze_incident.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_incident",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/quality/judge_output",
+      "kind": "role",
+      "category": "quality",
+      "name": "输出质量评判（fabric）",
+      "description": "按明确维度给 AI 输出打分并指出短板",
+      "tags": [
+        "fabric",
+        "quality"
+      ],
+      "compose": [],
+      "lines": 93,
+      "url": "prompts/vendor__fabric__quality__judge_output.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/judge_output",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/quality/analyze_threat_report",
+      "kind": "role",
+      "category": "quality",
+      "name": "威胁报告分析（fabric）",
+      "description": "从威胁报告中提炼攻击面、趋势与可执行建议",
+      "tags": [
+        "fabric",
+        "quality"
+      ],
+      "compose": [],
+      "lines": 38,
+      "url": "prompts/vendor__fabric__quality__analyze_threat_report.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_threat_report",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/quality/chinese_code_review",
+      "kind": "role",
+      "category": "quality",
+      "name": "中文代码评审（fabric）",
+      "description": "中文输出的代码评审，含问题分级与修改建议",
+      "tags": [
+        "fabric",
+        "quality"
+      ],
+      "compose": [],
+      "lines": 42,
+      "url": "prompts/vendor__fabric__quality__chinese_code_review.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_code_review",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/quality/write_semgrep_rule",
+      "kind": "role",
+      "category": "quality",
+      "name": "Semgrep 规则编写（fabric）",
+      "description": "根据漏洞样本编写可用的 Semgrep 检测规则",
+      "tags": [
+        "fabric",
+        "quality"
+      ],
+      "compose": [],
+      "lines": 751,
+      "url": "prompts/vendor__fabric__quality__write_semgrep_rule.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_semgrep_rule",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/quality/create_stride_threat_model",
+      "kind": "role",
+      "category": "quality",
+      "name": "STRIDE 威胁建模（fabric）",
+      "description": "按 STRIDE 分类产出威胁清单与缓解措施",
+      "tags": [
+        "fabric",
+        "quality"
+      ],
+      "compose": [],
+      "lines": 66,
+      "url": "prompts/vendor__fabric__quality__create_stride_threat_model.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_stride_threat_model",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/quality/analyze_terraform_plan",
+      "kind": "role",
+      "category": "quality",
+      "name": "Terraform 计划审查（fabric）",
+      "description": "审查 terraform plan 的破坏性变更、安全与成本风险",
+      "tags": [
+        "fabric",
+        "quality"
+      ],
+      "compose": [],
+      "lines": 24,
+      "url": "prompts/vendor__fabric__quality__analyze_terraform_plan.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_terraform_plan",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/general/create_tags",
+      "kind": "role",
+      "category": "general",
+      "name": "标签生成（fabric）",
+      "description": "为内容产出稳定的分类标签",
+      "tags": [
+        "fabric",
+        "general"
+      ],
+      "compose": [],
+      "lines": 25,
+      "url": "prompts/vendor__fabric__general__create_tags.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_tags",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/general/create_quiz",
+      "kind": "role",
+      "category": "general",
+      "name": "测验生成（fabric）",
+      "description": "根据材料出题并附答案与解析",
+      "tags": [
+        "fabric",
+        "general"
+      ],
+      "compose": [],
+      "lines": 47,
+      "url": "prompts/vendor__fabric__general__create_quiz.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_quiz",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/general/extract_ideas",
+      "kind": "role",
+      "category": "general",
+      "name": "观点提取（fabric）",
+      "description": "从材料中抽取独立可用的想法清单",
+      "tags": [
+        "fabric",
+        "general"
+      ],
+      "compose": [],
+      "lines": 40,
+      "url": "prompts/vendor__fabric__general__extract_ideas.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_ideas",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/general/find_logical_fallacies",
+      "kind": "role",
+      "category": "general",
+      "name": "逻辑谬误识别（fabric）",
+      "description": "指出论证中的谬误类型与位置",
+      "tags": [
+        "fabric",
+        "general"
+      ],
+      "compose": [],
+      "lines": 222,
+      "url": "prompts/vendor__fabric__general__find_logical_fallacies.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/find_logical_fallacies",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/general/eisenhower_matrix",
+      "kind": "role",
+      "category": "general",
+      "name": "四象限排序（fabric）",
+      "description": "把任务按重要/紧急分到四象限并排序",
+      "tags": [
+        "fabric",
+        "general"
+      ],
+      "compose": [],
+      "lines": 49,
+      "url": "prompts/vendor__fabric__general__eisenhower_matrix.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/eisenhower_matrix",
+      "license": "MIT"
+    },
+    {
+      "id": "vendor/fabric/general/create_reading_plan",
+      "kind": "role",
+      "category": "general",
+      "name": "阅读计划（fabric）",
+      "description": "按目标与时间排出可执行的阅读路径",
+      "tags": [
+        "fabric",
+        "general"
+      ],
+      "compose": [],
+      "lines": 77,
+      "url": "prompts/vendor__fabric__general__create_reading_plan.json",
+      "origin": "vendor",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_reading_plan",
+      "license": "MIT"
+    },
+    {
+      "id": "combos/fullstack-product-delivery",
+      "kind": "combo",
+      "category": "combos",
+      "name": "产品交付负责人（前后端/桌面）",
+      "description": "角色 × 2 个模块：Agentic UI（应用内嵌 AI 助手） + 页面状态接口",
+      "tags": [
+        "system-prompt",
+        "交付规范",
+        "web",
+        "桌面",
+        "组合"
+      ],
+      "compose": [
+        "modules/agentic-ui",
+        "modules/page-state-api"
+      ],
+      "lines": 116,
+      "url": "prompts/combos__fullstack-product-delivery.json"
+    },
+    {
+      "id": "combos/ai-builtin-assistant",
+      "kind": "combo",
+      "category": "combos",
+      "name": "AI 内置助手交付（复用成熟引擎）",
+      "description": "角色 × 1 个模块：页面状态接口",
+      "tags": [
+        "system-prompt",
+        "agent",
+        "交付规范",
+        "引擎复用",
+        "组合"
+      ],
+      "compose": [
+        "modules/page-state-api"
+      ],
+      "lines": 84,
+      "url": "prompts/combos__ai-builtin-assistant.json"
+    },
+    {
+      "id": "modules/agentic-ui",
+      "kind": "module",
+      "category": "modules",
+      "name": "Agentic UI（应用内嵌 AI 助手）",
+      "description": "应用内嵌 AI 助手时的接口与交互约束：Agentic 接口、权限边界、可观察操作",
+      "tags": [
+        "模块",
+        "agent",
+        "接口设计",
+        "前后端"
+      ],
+      "compose": [],
+      "lines": 8,
+      "url": "prompts/modules__agentic-ui.json"
+    },
+    {
+      "id": "modules/page-state-api",
+      "kind": "module",
+      "category": "modules",
+      "name": "页面状态接口",
+      "description": "把页面状态暴露给 Agent 的设计约束：结构化状态、可执行操作、版本化与脱敏",
+      "tags": [
+        "模块",
+        "agent",
+        "接口设计",
+        "前端"
+      ],
+      "compose": [],
+      "lines": 8,
+      "url": "prompts/modules__page-state-api.json"
+    }
+  ]
+}

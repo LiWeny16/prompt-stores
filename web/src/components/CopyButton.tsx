@@ -1,46 +1,56 @@
 import { useEffect, useRef, useState, type ComponentProps, type MouseEvent } from 'react';
 import type { VariantProps } from 'class-variance-authority';
-import { Check, Copy } from 'lucide-react';
+import { Check, Copy, Loader2 } from 'lucide-react';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn, copyText } from '@/lib/utils';
 
 interface CopyButtonProps
-  extends ComponentProps<'button'>,
+  extends Omit<ComponentProps<'button'>, 'onClick'>,
     VariantProps<typeof buttonVariants> {
-  text: string;
-  /** 稳定文案（如「复制」）；图标按钮可留空 */
+  /** 直接给文本 */
+  text?: string;
+  /** 或给异步取文本（正文按需拉取时用） */
+  getText?: () => Promise<string> | string;
   label?: string;
 }
 
-/** 复制按钮：图标换对勾 + 文案变「已复制」，1.6s 后还原 */
-export function CopyButton({ text, label, variant = 'outline', size, className, ...props }: CopyButtonProps) {
-  const [copied, setCopied] = useState(false);
+/** 复制按钮：图标换对勾 + 文案变「已复制」；取文本期间显示加载态 */
+export function CopyButton({ text, getText, label, variant = 'outline', size, className, ...props }: CopyButtonProps) {
+  const [state, setState] = useState<'idle' | 'loading' | 'done'>('idle');
   const timer = useRef<number>(0);
 
   useEffect(() => () => window.clearTimeout(timer.current), []);
 
-  const onCopy = (e: MouseEvent) => {
+  const onCopy = async (e: MouseEvent) => {
     e.stopPropagation();
     e.preventDefault();
-    copyText(text).then(() => {
+    if (state === 'loading') return;
+    setState('loading');
+    try {
+      const value = text ?? (getText ? await getText() : '');
+      await copyText(value);
+      setState('done');
       window.clearTimeout(timer.current);
-      setCopied(true);
-      timer.current = window.setTimeout(() => setCopied(false), 1600);
-    });
+      timer.current = window.setTimeout(() => setState('idle'), 1600);
+    } catch {
+      setState('idle');
+    }
   };
 
+  const done = state === 'done';
   return (
     <Button
       variant={variant}
       size={size ?? (label ? 'default' : 'icon-sm')}
-      className={cn(copied && 'text-foreground', className)}
-      aria-label={copied ? '已复制' : `复制${label ? '' : '提示词'}`}
+      className={cn(done && 'text-foreground', className)}
+      aria-label={done ? '已复制' : `复制${label ? '' : '提示词'}`}
       aria-live="polite"
       onClick={onCopy}
+      disabled={state === 'loading'}
       {...props}
     >
-      {copied ? <Check data-testid="copy-check" /> : <Copy data-testid="copy-icon" />}
-      {label ? <span>{copied ? '已复制' : label}</span> : null}
+      {state === 'loading' ? <Loader2 className="animate-spin" /> : done ? <Check data-testid="copy-check" /> : <Copy data-testid="copy-icon" />}
+      {label ? <span>{done ? '已复制' : state === 'loading' ? '加载中…' : label}</span> : null}
     </Button>
   );
 }

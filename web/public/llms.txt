@@ -1,0 +1,24 @@
+# Prompt Stores
+
+个人提示词库：角色 prompt、可复用能力模块、以及两者的组合。全部内容为纯文本，可直接取用。
+
+## 给 agent 的入口
+
+- 索引（推荐先取）：https://bigonion.cn/prompt-stores/api/index.json
+- 单条全文：https://bigonion.cn/prompt-stores/api/prompts/<id>.json （id 中 "/" 换成 "__"）
+- 组合配方：https://bigonion.cn/prompt-stores/api/recipes.json
+- 接口契约：https://bigonion.cn/prompt-stores/api/README.md
+
+## 三类内容
+
+- **role**：可独立使用的完整角色 prompt
+- **module**：不能单独使用，是要追加到角色后面的能力约束片段
+- **combo**：role + 若干 module 的成品，已按顺序拼接好
+
+## 组合规则
+
+最终 prompt = 角色正文 + 空行 + 各模块正文（顺序见 recipes.json）。
+
+## 站点
+
+https://bigonion.cn/prompt-stores/

@@ -1,7 +1,26 @@
 # 组合：AI 内置助手交付（复用成熟引擎）
 
-> 角色：`ai/builtin-assistant.md` ｜ 模块：`modules/page-state-api.md`
+> 角色：`prompts/ai/builtin-assistant.md` ｜ 模块：`modules/page-state-api.md`
 > 由 `node scripts/build-combos.mjs` 生成于 2026-10-23；点下方代码块右上角按钮一键复制。
+
+## 架构
+
+```mermaid
+flowchart TD
+  R["角色 · AI 内置助手交付（复用成熟引擎）"]
+  M1["模块 · 页面状态接口"]
+  C(["组合 Prompt<br/>83 行"])
+  R --> C
+  M1 --> C
+  classDef role fill:#18181b,stroke:#18181b,color:#fafafa
+  classDef mod fill:#f4f4f5,stroke:#a1a1aa,color:#18181b
+  classDef combo fill:#e4e4e7,stroke:#52525b,color:#18181b
+  class R role
+  class M1 mod
+  class C combo
+```
+
+## 组合 prompt
 
 ```text
 本项目包含 Agent，请在通用产品开发规范之外，执行以下附加要求。

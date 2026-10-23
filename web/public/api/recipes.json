@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "generated": "2026-10-23",
+  "composeRule": "按顺序拼接：角色正文 → 各模块正文，用空行分隔",
+  "recipes": [
+    {
+      "id": "combos/fullstack-product-delivery",
+      "name": "产品交付负责人（前后端/桌面）",
+      "role": "prompts/fullstack/product-delivery",
+      "modules": [
+        "modules/agentic-ui",
+        "modules/page-state-api"
+      ],
+      "url": "prompts/combos__fullstack-product-delivery.json"
+    },
+    {
+      "id": "combos/ai-builtin-assistant",
+      "name": "AI 内置助手交付（复用成熟引擎）",
+      "role": "prompts/ai/builtin-assistant",
+      "modules": [
+        "modules/page-state-api"
+      ],
+      "url": "prompts/combos__ai-builtin-assistant.json"
+    }
+  ]
+}

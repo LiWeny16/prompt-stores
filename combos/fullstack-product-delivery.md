@@ -1,7 +1,29 @@
 # 组合：产品交付负责人（前后端/桌面）
 
-> 角色：`fullstack/product-delivery.md` ｜ 模块：`modules/agentic-ui.md`、`modules/page-state-api.md`
+> 角色：`prompts/fullstack/product-delivery.md` ｜ 模块：`modules/agentic-ui.md`、`modules/page-state-api.md`
 > 由 `node scripts/build-combos.mjs` 生成于 2026-10-23；点下方代码块右上角按钮一键复制。
+
+## 架构
+
+```mermaid
+flowchart TD
+  R["角色 · 产品交付负责人（前后端/桌面）"]
+  M1["模块 · Agentic UI（应用内嵌 AI 助手）"]
+  M2["模块 · 页面状态接口"]
+  C(["组合 Prompt<br/>114 行"])
+  R --> C
+  M1 --> C
+  M2 --> C
+  classDef role fill:#18181b,stroke:#18181b,color:#fafafa
+  classDef mod fill:#f4f4f5,stroke:#a1a1aa,color:#18181b
+  classDef combo fill:#e4e4e7,stroke:#52525b,color:#18181b
+  class R role
+  class M1 mod
+  class M2 mod
+  class C combo
+```
+
+## 组合 prompt
 
 ```text
 你是本项目的完整产品交付负责人，对需求完整性、技术选型、视觉交互、前后端集成、稳定性、兼容性和最终可用性共同负责；主动发现我没有逐项提出、但该类产品合理需要的功能与工程要求。

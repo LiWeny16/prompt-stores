@@ -1,81 +1,123 @@
 # Prompt Stores
 
-个人提示词仓库：**角色 + 模块** 组合式结构，小而美，一键复制。
+个人提示词库：**角色（role）+ 可复用模块（module）+ 组合（combo）**，浏览器里可搜索、一键复制，也能被 agent 直接读取。
 
-## 使用方式
+- 站点：<https://bigonion.cn/prompt-stores/>
+- Agent 索引：<https://bigonion.cn/prompt-stores/api/index.json>
+- 给 LLM 的入口说明：<https://bigonion.cn/prompt-stores/llms.txt>
 
-- **Web UI（黑白灰，React SPA）**：<https://liweny16.github.io/prompt-stores/>（首次部署见下方）
-- **本地开发**：`cd web && npm install && npm run dev`
-- **复制单个 prompt / 模块**：Web UI 内点卡片或 GitHub 上打开对应文件，点代码块右上角复制按钮
-- **复制项目组合 prompt**（角色 + 模块已合并）：`combos/` 或 Web UI 的「组合」分类，一键复制
-- **给 agent 用**：直接让 agent 读本仓库；角色挂载了哪些模块在 frontmatter `compose` 字段里，agent 会按需加载
+## 三类内容
 
-### 部署到 GitHub Pages（一次性）
+| 类型 | 说明 | 能否单独用 |
+|---|---|---|
+| **role** | 完整角色 prompt，直接贴进项目 | ✅ |
+| **module** | 能力片段，必须追加在角色后面 | ❌ |
+| **combo** | role + N 个 module 的成品，自带架构图 | ✅ |
 
-1. GitHub 建仓 `prompt-stores`，`git remote add origin` 后 push main
-2. 仓库 Settings → Pages → Source 选 **GitHub Actions**
-3. 之后每次 push main 自动构建部署（`.github/workflows/deploy.yml`：重跑数据脚本 → 构建 → 发布）
+组合由 frontmatter 的 `compose` 字段驱动，构建期自动生成：正文拼接 + Mermaid 架构图。
 
 ## 结构
 
 ```
-prompts/            角色 prompt（按领域分类）
-  fullstack/          前后端全栈（Web / 桌面 / 小程序）
-  embedded/           嵌入式（MCU / RTOS / 硬件）
-  ai/                 AI 应用（Agent / LLM / RAG）
-  writing/            文档写作（去AI味 / 技术文档 / mermaid / docx）
-  devops/             运维部署（Docker / CI/CD / 脚本）
-  data/               数据处理（SQL / 爬虫 / 清洗）
-  quality/            质量审查（Code Review / 调试 / 安全）
-  general/            通用工作流（任务分解 / 头脑风暴 / 日常）
-modules/            跨领域能力模块，可被任意角色挂载组合
-combos/             组合 prompt（脚本生成，随仓库提交）
-web/                React SPA（Vite + TS + Tailwind，部署 GitHub Pages）
-scripts/            build-combos.mjs 组合生成器 + web 数据包
-.github/workflows/  Pages 自动部署
-docs/               原始 prompt 备份、验证截图
+prompts/<分类>/        自己写的角色 prompt
+vendor/fabric/         第三方导入（MIT，保留原文 + 署名见 NOTICE.md）
+modules/               跨领域能力模块
+combos/                自动生成的组合（含 mermaid 图）
+web/                   React SPA（Vite + TS + Tailwind + Preact）
+web/public/api/        构建期生成的静态 Agent API
+tools/mcp-server.mjs   MCP 服务（stdio，零依赖）
+scripts/               build-combos.mjs / import-fabric.mjs
 ```
 
-## 索引
+## 站点功能
 
-### 角色 prompts
+- **Prompts / Modules / Combos / 我的** 四个分区，各用各的展示逻辑
+- 组合详情：架构图（自绘 SVG）+ Mermaid 源码（可复制）+ 成分清单 + 一次复制完整组合
+- **用户自建提示词**：新建 / 编辑 / 删除，存在浏览器 IndexedDB，仅本机可见
+- **导出**：JSON（可再导入）、ZIP（每条一个可直接提交进仓库的 `.md`）；支持导入还原
+- 明暗主题、`/` 或 `⌘K` 聚焦搜索、URL 可分享（`?q=` / `?item=`）
 
-| 分类 | 文件 | 说明 |
-|---|---|---|
-| fullstack | [product-delivery.md](prompts/fullstack/product-delivery.md) | 产品交付负责人：默认技术栈（Tauri/React）、闭环验收、兼容性验证 |
-| embedded | [firmware-delivery.md](prompts/embedded/firmware-delivery.md) | 嵌入式交付负责人：资源预算、跨核协议、诊断闭环、上板验收 |
-| ai | [builtin-assistant.md](prompts/ai/builtin-assistant.md) | AI 内置助手交付：复用成熟引擎、会话稳定、工具标准化 |
-| writing | [de-ai-flavor.md](prompts/writing/de-ai-flavor.md) | 中文去AI味：改写成自然的人类表达 |
+## Agent 接入（无后端）
 
-### 模块
+三种方式，任选：
 
-| 模块 | 说明 |
+**1. 静态 API**
+
+| 端点 | 用途 |
 |---|---|
-| [agentic-ui](modules/agentic-ui.md) | 应用内嵌 AI 助手的接口与交互约束（Agentic 接口、权限、可观察操作） |
-| [page-state-api](modules/page-state-api.md) | 把页面状态暴露给 Agent 的接口设计（getState / describeActions / 版本化 / 脱敏） |
+| `/api/index.json` | 全部元数据（不含正文） |
+| `/api/prompts/<id>.json` | 单条全文，`id` 中 `/` 换成 `__` |
+| `/api/recipes.json` | 组合清单与模块依赖 |
 
-### 组合（一键复制整块）
+拼接规则：`角色正文 + 空行 + 各模块正文`。
 
-| 组合 | 内容 |
-|---|---|
-| [fullstack-product-delivery](combos/fullstack-product-delivery.md) | 前后端交付负责人 × agentic-ui + page-state-api（内嵌 AI 助手的全栈项目） |
-| [ai-builtin-assistant](combos/ai-builtin-assistant.md) | AI 内置助手 × page-state-api |
+**2. MCP 服务**（本地 stdio，读仓库文件）
+
+```json
+{
+  "mcpServers": {
+    "prompt-stores": {
+      "command": "node",
+      "args": ["<仓库绝对路径>/tools/mcp-server.mjs"]
+    }
+  }
+}
+```
+
+工具：`search_prompts` / `get_prompt` / `compose_prompt` / `list_categories`
+
+**3. 直接读仓库**：`prompts/` `modules/` `combos/` 都是纯 Markdown，代码块可直接复制。
+
+## 本地开发
+
+```bash
+cd web && npm install && npm run dev     # 开发
+node scripts/build-combos.mjs            # 重新生成组合 + API + 数据
+cd web && npm run build                  # 生产构建
+```
+
+## 加内容
+
+```bash
+# 自己写：放 prompts/<分类>/xxx.md，格式见下
+# 从 fabric 导入更多：
+node scripts/import-fabric.mjs --dry     # 看清单
+# 改 scripts/import-fabric.mjs 的 SELECTION 后：
+node scripts/import-fabric.mjs
+
+node scripts/build-combos.mjs && git add -A && git commit -m "add: xxx" && git push
+```
+
+文件格式：
+
+```markdown
+---
+name: 名称
+category: fullstack
+tags: [标签1, 标签2]
+description: 一句话说明
+compose: [agentic-ui]        # 可选：声明模块即自动生成组合
+---
+
+```text
+（prompt 本体，包在 text 围栏里；正文含 ``` 时用更长的围栏）
+```
+```
 
 ## 写作规范（小而美）
 
-1. **正文 ≤ 50 行**：角色 1 句话说清，规则全部条目化，每条一句话
-2. **技能/规范只列名，不展开**：如"需要 mermaid → 加载 mermaid skill，按其规范输出"；展开内容放 skill 或官方文档，agent 自己查
-3. **占位符统一用【】**：`【填写产品目标…】`
-4. **跨领域能力写成模块**（`modules/`），不塞进角色 prompt；角色只声明何时挂载
-5. **正文包在 \`\`\`text 围栏里**：GitHub 渲染后自带一键复制按钮
-6. 每个 prompt 必须有 frontmatter：`name` / `category` / `tags` / `description` / `updated`，按需 `compose`
+1. 正文 ≤ 50 行；角色一句话说清，规则全部条目化
+2. 技能/规范只列名，不展开（展开内容放 skill 或官方文档，agent 自己去查）
+3. 占位符统一用【】
+4. 跨领域能力写成 `modules/`，不塞进角色 prompt
+5. 正文包在 ```` ```text ```` 围栏里 —— GitHub 和站点都能一键复制
 
-## 维护
+## 第三方内容
 
-```bash
-# 新增/修改角色或模块后，重新生成组合与 web 数据包并提交
-node scripts/build-combos.mjs
-git add . && git commit -m "update prompts"
-```
+`vendor/fabric/` 来自 [fabric](https://github.com/danielmiessler/fabric)（**MIT**），原文未改动，署名见 [`vendor/fabric/NOTICE.md`](vendor/fabric/NOTICE.md)。
 
-新增角色：拷贝任一现有文件格式 → 填 frontmatter 与正文 → 需要组合时加 `compose: [模块id, ...]` → 跑脚本。
+收录原则：**只导入 MIT / Apache / CC0 等许可明确的内容**；GPL 传染性许可与泄露的专有 prompt 一律不收。
+
+## 性能记录
+
+见 [`docs/perf-notes.md`](docs/perf-notes.md)：首屏 JS 37KB gzip，正文按需拉取，详见文中数据。
