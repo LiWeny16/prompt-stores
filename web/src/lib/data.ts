@@ -21,6 +21,8 @@ export interface PromptItem {
   origin: Origin;
   /** 行数（构建期算好，用于卡片展示，无需拉正文） */
   lines?: number;
+  /** 最近更新（取自 git 提交日期） */
+  updated?: string;
   /** 仓库内路径 */
   file?: string;
   roleId?: string;
@@ -93,3 +95,22 @@ export const SHAPE_LABEL: Record<Shape, string> = {
   spec: '规范',
   vendor: '导入',
 };
+
+/** 场景入口：先想"我要做什么"，再落到筛选 */
+export const TASKS: { label: string; q?: string; cat?: string }[] = [
+  { label: '初始化新项目', q: '初始化' },
+  { label: '写功能', q: 'TDD' },
+  { label: '排查 bug', q: '调试' },
+  { label: '审查代码', q: '审查' },
+  { label: '做计划/拆任务', q: '计划' },
+  { label: '写文档', cat: 'writing' },
+  { label: '上板调试', cat: 'embedded' },
+  { label: '总结提炼', q: '总结' },
+];
+
+/** 来源显示成简短域名/路径 */
+export function sourceLabel(src?: string): string {
+  if (!src) return '';
+  if (src === '原创') return '原创';
+  return src.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '').slice(0, 46);
+}

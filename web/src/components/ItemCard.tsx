@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { CopyButton } from '@/components/CopyButton';
-import { KIND_LABEL, SHAPE_LABEL, lineCount, shapeOf, type PromptItem } from '@/lib/data';
+import { KIND_LABEL, SHAPE_LABEL, lineCount, shapeOf, sourceLabel, type PromptItem } from '@/lib/data';
 import { loadBody } from '@/lib/bodies';
 
 interface ItemCardProps {
@@ -51,6 +51,18 @@ export const ItemCard = memo(function ItemCard({ item, onOpen }: ItemCardProps) 
           ))}
         </div>
       ) : null}
+
+      {(item.source || item.updated) && (
+        <div className="pointer-events-none relative z-10 flex min-w-0 items-center gap-1 text-[10.5px] text-muted-foreground/70">
+          {item.source ? <span className="truncate" title={item.source}>{sourceLabel(item.source)}</span> : null}
+          {item.updated ? (
+            <>
+              {item.source ? <span aria-hidden="true">·</span> : null}
+              <span className="shrink-0 tabular-nums">{item.updated.slice(5)}</span>
+            </>
+          ) : null}
+        </div>
+      )}
 
       <div className="relative z-10 mt-auto flex items-end gap-1.5">
         <div className="pointer-events-none flex min-w-0 flex-wrap gap-1">

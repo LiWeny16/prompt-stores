@@ -14,6 +14,7 @@ import {
   DATA,
   KIND_LABEL,
   SECTIONS,
+  TASKS,
   catLabel,
   type PromptItem,
   type Section,
@@ -189,6 +190,28 @@ export default function App() {
           ))}
         </nav>
       </header>
+
+      {section === 'prompts' && route.cat === 'all' && !q ? (
+        <div className="mx-auto w-full max-w-6xl px-4 pt-3">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="mr-1 text-[11px] text-muted-foreground">我要做什么</span>
+            {TASKS.map((t) => (
+              <button
+                key={t.label}
+                type="button"
+                onClick={() => {
+                  if (t.cat) navigate({ section: 'prompts', cat: t.cat, q: '' });
+                  else navigate({ section: 'prompts', cat: 'all', q: t.q ?? '' });
+                  onSearch(t.q ?? '');
+                }}
+                className="rounded-full border px-2.5 py-1 text-[11.5px] text-muted-foreground transition-colors hover:border-ring hover:bg-accent hover:text-foreground"
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : null}
 
       <div className="mx-auto flex w-full max-w-6xl flex-1 px-4">
         {showSidebar ? <Sidebar current={route.cat} /> : null}

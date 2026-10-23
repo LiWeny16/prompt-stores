@@ -14,6 +14,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 21,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/summarize_git_changes.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_git_changes"
@@ -36,6 +37,7 @@
       ],
       "origin": "builtin",
       "lines": 98,
+      "updated": "2026-10-23",
       "file": "prompts/fullstack/product-delivery.md"
     },
     {
@@ -51,6 +53,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 42,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/create_coding_project.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_coding_project"
@@ -68,6 +71,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 23,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/explain_code.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_code"
@@ -85,6 +89,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 117,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/create_coding_feature.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_coding_feature"
@@ -102,6 +107,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 3,
+      "updated": "2026-10-23",
       "file": "prompts/fullstack/improve-architecture.md",
       "license": "MIT",
       "source": "https://github.com/mattpocock/skills"
@@ -120,6 +126,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 2,
+      "updated": "2026-10-23",
       "file": "prompts/fullstack/karpathy-tight-loop.md",
       "license": "仅指路，未复制内容",
       "source": "https://x.com/karpathy/status/1915581920022585597"
@@ -138,6 +145,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 2,
+      "updated": "2026-10-23",
       "file": "prompts/fullstack/matt-skills-init.md",
       "license": "MIT",
       "source": "https://github.com/mattpocock/skills"
@@ -155,6 +163,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 61,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/review_design.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/review_design"
@@ -172,6 +181,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 53,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/create_design_document.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_design_document"
@@ -189,6 +199,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 25,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/refine_design_document.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/refine_design_document"
@@ -206,6 +217,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 35,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/create_git_diff_commit.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_git_diff_commit"
@@ -223,6 +235,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 37,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/explain_project.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_project"
@@ -240,6 +253,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 49,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/create_user_story.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_user_story"
@@ -257,6 +271,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 3,
+      "updated": "2026-10-23",
       "file": "prompts/fullstack/init-project-with-skills.md",
       "license": "MIT",
       "source": "https://github.com/vercel-labs/skills"
@@ -275,6 +290,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/fullstack/kiro-specs.md",
       "license": "仅指路，未复制内容",
       "source": "https://github.com/kirodotdev/Kiro"
@@ -292,6 +308,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 98,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/write_pull-request.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_pull-request"
@@ -309,6 +326,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 41,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/fullstack/create_prd.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_prd"
@@ -326,6 +344,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/fullstack/spec-kit-sdd.md",
       "license": "MIT",
       "source": "https://github.com/github/spec-kit"
@@ -344,6 +363,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/fullstack/superpowers-approval-gates.md",
       "license": "MIT",
       "source": "https://github.com/obra/superpowers"
@@ -361,6 +381,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 3,
+      "updated": "2026-10-23",
       "file": "prompts/fullstack/tdd-loop.md",
       "license": "MIT",
       "source": "https://github.com/mattpocock/skills"
@@ -380,6 +401,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/embedded/bringup-fact-check.md",
       "license": "原创（未引用第三方正文）",
       "source": "原创"
@@ -399,6 +421,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/embedded/cross-core-ipc-contract.md",
       "license": "原创（未引用第三方正文）",
       "source": "原创"
@@ -419,6 +442,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 118,
+      "updated": "2026-10-23",
       "file": "prompts/embedded/firmware-delivery.md"
     },
     {
@@ -437,6 +461,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/embedded/audio-chain-budget.md",
       "license": "原创（未引用第三方正文）",
       "source": "原创"
@@ -456,6 +481,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/embedded/dma-cache-consistency.md",
       "license": "原创（未引用第三方正文）",
       "source": "原创"
@@ -475,6 +501,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/embedded/emc-power-debug.md",
       "license": "原创（未引用第三方正文）",
       "source": "原创"
@@ -494,6 +521,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/embedded/ota-ab-rollback.md",
       "license": "原创（未引用第三方正文）",
       "source": "原创"
@@ -513,6 +541,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/embedded/rtos-realtime-budget.md",
       "license": "原创（未引用第三方正文）",
       "source": "原创"
@@ -532,6 +561,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/embedded/rtt-jtag-debug.md",
       "license": "原创（未引用第三方正文）",
       "source": "原创"
@@ -549,6 +579,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 53,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/ai/extract_wisdom_agents.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_wisdom_agents"
@@ -566,6 +597,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 3,
+      "updated": "2026-10-23",
       "file": "prompts/ai/skill-router.md",
       "license": "MIT",
       "source": "https://github.com/mattpocock/skills"
@@ -585,6 +617,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/ai/structured-task-contract.md",
       "license": "Apache-2.0",
       "source": "https://github.com/langgptai/LangGPT"
@@ -602,6 +635,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 125,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/ai/analyze_paper.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_paper"
@@ -619,6 +653,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 41,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/ai/explain_terms.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_terms"
@@ -637,6 +672,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 2,
+      "updated": "2026-10-23",
       "file": "prompts/ai/willison-context-first.md",
       "license": "仅指路，未复制内容",
       "source": "https://simonwillison.net/2025/Mar/11/using-llms-for-code/"
@@ -658,6 +694,7 @@
       ],
       "origin": "builtin",
       "lines": 75,
+      "updated": "2026-10-23",
       "file": "prompts/ai/builtin-assistant.md"
     },
     {
@@ -673,6 +710,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 31,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/ai/create_ai_jobs_analysis.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_ai_jobs_analysis"
@@ -690,6 +728,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/ai/langgpt-structure.md",
       "license": "Apache-2.0",
       "source": "https://github.com/langgptai/LangGPT"
@@ -707,6 +746,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 518,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/ai/improve_prompt.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/improve_prompt"
@@ -724,6 +764,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/ai/copilot-prompt-file.md",
       "license": "MIT",
       "source": "https://github.com/github/awesome-copilot"
@@ -741,6 +782,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 29,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/ai/summarize_prompt.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_prompt"
@@ -758,6 +800,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/ai/prompt-chaining.md",
       "license": "MIT",
       "source": "https://github.com/dair-ai/Prompt-Engineering-Guide"
@@ -775,6 +818,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/ai/react-tool-task.md",
       "license": "MIT",
       "source": "https://github.com/ysymyth/ReAct"
@@ -792,6 +836,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/ai/reflexion.md",
       "license": "MIT",
       "source": "https://github.com/dair-ai/Prompt-Engineering-Guide"
@@ -809,6 +854,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/ai/schema-first.md",
       "license": "Apache-2.0",
       "source": "https://github.com/promptslab/Promptify"
@@ -827,6 +873,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/ai/subagent-dispatch.md",
       "license": "MIT",
       "source": "https://github.com/obra/superpowers"
@@ -844,6 +891,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/ai/tree-of-thoughts.md",
       "license": "MIT",
       "source": "https://github.com/princeton-nlp/tree-of-thought-llm"
@@ -861,6 +909,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 25,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/fix_typos.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/fix_typos"
@@ -878,6 +927,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 59,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/extract_wisdom.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_wisdom"
@@ -895,6 +945,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 26,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/translate.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/translate"
@@ -912,6 +963,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 17,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/create_aphorisms.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_aphorisms"
@@ -929,6 +981,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 132,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/humanize.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/humanize"
@@ -946,6 +999,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 19,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/clean_text.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/clean_text"
@@ -963,6 +1017,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 3,
+      "updated": "2026-10-23",
       "file": "prompts/writing/docx-authoring.md",
       "license": "仅指路，未复制内容",
       "source": "https://github.com/anthropics/skills"
@@ -980,6 +1035,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 39,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/create_5_sentence_summary.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_5_sentence_summary"
@@ -997,6 +1053,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 19,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/improve_writing.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/improve_writing"
@@ -1014,6 +1071,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 26,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/create_summary.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_summary"
@@ -1031,6 +1089,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 33,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/write_essay.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_essay"
@@ -1049,6 +1108,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 15,
+      "updated": "2026-10-23",
       "file": "prompts/writing/de-ai-flavor.md"
     },
     {
@@ -1064,6 +1124,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 26,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/chinese_poetry_analysis.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_poetry_analysis"
@@ -1081,6 +1142,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 21,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/chinese_article_summary.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_article_summary"
@@ -1098,6 +1160,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 28,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/chinese_news_translate.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_news_translate"
@@ -1115,6 +1178,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 42,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/convert_to_markdown.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/convert_to_markdown"
@@ -1132,6 +1196,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 135,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/create_excalidraw_visualization.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_excalidraw_visualization"
@@ -1149,6 +1214,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 47,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/create_mermaid_visualization_for_github.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_mermaid_visualization_for_github"
@@ -1166,6 +1232,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 39,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/writing/create_mermaid_visualization.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_mermaid_visualization"
@@ -1184,6 +1251,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/devops/git-worktree-parallel.md",
       "license": "MIT",
       "source": "https://github.com/obra/superpowers"
@@ -1201,6 +1269,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 3,
+      "updated": "2026-10-23",
       "file": "prompts/data/spreadsheet-analysis.md",
       "license": "仅指路，未复制内容",
       "source": "https://github.com/anthropics/skills"
@@ -1218,6 +1287,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 21,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/data/export_data_as_csv.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/export_data_as_csv"
@@ -1235,6 +1305,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 155,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/data/create_conceptmap.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_conceptmap"
@@ -1252,6 +1323,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 38,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/data/create_graph_from_input.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_graph_from_input"
@@ -1269,6 +1341,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 31,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/data/summarize_git_diff.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_git_diff"
@@ -1286,6 +1359,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 32,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/quality/analyze_mistakes.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_mistakes"
@@ -1303,6 +1377,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 11,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/quality/generate_code_rules.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/generate_code_rules"
@@ -1320,6 +1395,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 140,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/quality/review_code.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/review_code"
@@ -1337,6 +1413,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 3,
+      "updated": "2026-10-23",
       "file": "prompts/quality/code-review-matt.md",
       "license": "MIT",
       "source": "https://github.com/mattpocock/skills"
@@ -1354,6 +1431,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/quality/prompt-optimizer.md",
       "license": "MIT",
       "source": "https://github.com/openai/openai-cookbook"
@@ -1372,6 +1450,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 2,
+      "updated": "2026-10-23",
       "file": "prompts/quality/karpathy-tight-leash.md",
       "license": "仅指路，未复制内容",
       "source": "https://www.youtube.com/watch?v=96jN2OCOfLs"
@@ -1389,6 +1468,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 19,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/quality/analyze_logs.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_logs"
@@ -1406,6 +1486,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 38,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/quality/analyze_incident.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_incident"
@@ -1423,6 +1504,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 93,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/quality/judge_output.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/judge_output"
@@ -1441,6 +1523,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/quality/verification-evidence.md",
       "license": "MIT",
       "source": "https://github.com/obra/superpowers"
@@ -1458,6 +1541,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 38,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/quality/analyze_threat_report.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_threat_report"
@@ -1476,6 +1560,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 2,
+      "updated": "2026-10-23",
       "file": "prompts/quality/willison-agentic-patterns.md",
       "license": "仅指路，未复制内容",
       "source": "https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/"
@@ -1493,6 +1578,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 3,
+      "updated": "2026-10-23",
       "file": "prompts/quality/systematic-debugging.md",
       "license": "MIT",
       "source": "https://github.com/obra/superpowers"
@@ -1510,6 +1596,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 42,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/quality/chinese_code_review.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_code_review"
@@ -1528,6 +1615,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/quality/pr-self-review.md",
       "license": "MIT",
       "source": "https://github.com/obra/superpowers"
@@ -1546,6 +1634,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/quality/promptfoo-eval.md",
       "license": "MIT",
       "source": "https://github.com/promptfoo/promptfoo"
@@ -1563,6 +1652,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/quality/self-consistency.md",
       "license": "MIT",
       "source": "https://github.com/dair-ai/Prompt-Engineering-Guide"
@@ -1580,6 +1670,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 751,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/quality/write_semgrep_rule.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_semgrep_rule"
@@ -1597,6 +1688,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 66,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/quality/create_stride_threat_model.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_stride_threat_model"
@@ -1616,6 +1708,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 2,
+      "updated": "2026-10-23",
       "file": "prompts/quality/superpowers-flow.md",
       "license": "MIT",
       "source": "https://github.com/obra/superpowers"
@@ -1633,6 +1726,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 24,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/quality/analyze_terraform_plan.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_terraform_plan"
@@ -1650,6 +1744,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 25,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/general/create_tags.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_tags"
@@ -1667,6 +1762,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 47,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/general/create_quiz.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_quiz"
@@ -1684,6 +1780,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 3,
+      "updated": "2026-10-23",
       "file": "prompts/general/find-and-install-skill.md",
       "license": "MIT",
       "source": "https://github.com/vercel-labs/skills"
@@ -1701,6 +1798,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 40,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/general/extract_ideas.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_ideas"
@@ -1719,6 +1817,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 1,
+      "updated": "2026-10-23",
       "file": "prompts/general/agents-md-minimal.md",
       "license": "MIT",
       "source": "https://github.com/agentsmd/agents.md"
@@ -1736,6 +1835,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 222,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/general/find_logical_fallacies.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/find_logical_fallacies"
@@ -1753,6 +1853,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 49,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/general/eisenhower_matrix.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/eisenhower_matrix"
@@ -1770,6 +1871,7 @@
       "compose": [],
       "origin": "vendor",
       "lines": 77,
+      "updated": "2026-10-23",
       "file": "vendor/fabric/general/create_reading_plan.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_reading_plan"
@@ -1793,6 +1895,7 @@
       ],
       "origin": "builtin",
       "lines": 116,
+      "updated": "2026-10-23",
       "file": "combos/fullstack-product-delivery.md",
       "roleId": "prompts/fullstack/product-delivery",
       "graph": {
@@ -1834,6 +1937,7 @@
       ],
       "origin": "builtin",
       "lines": 84,
+      "updated": "2026-10-23",
       "file": "combos/ai-builtin-assistant.md",
       "roleId": "prompts/ai/builtin-assistant",
       "graph": {
@@ -1868,6 +1972,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 8,
+      "updated": "2026-10-23",
       "file": "modules/agentic-ui.md"
     },
     {
@@ -1885,6 +1990,7 @@
       "compose": [],
       "origin": "builtin",
       "lines": 8,
+      "updated": "2026-10-23",
       "file": "modules/page-state-api.md"
     }
   ]

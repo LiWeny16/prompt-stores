@@ -16,6 +16,7 @@
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { join, basename, resolve, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const P = {
@@ -28,6 +29,34 @@ const P = {
   llms: join(ROOT, 'web', 'public', 'llms.txt'),
 };
 const CAT_ORDER = ['fullstack', 'embedded', 'ai', 'writing', 'devops', 'data', 'quality', 'general'];
+
+/** 每个源文件的最近提交日期（一次 git log，避免逐文件调用） */
+function gitDates() {
+  try {
+    const out = execFileSync(
+      'git',
+      ['log', '--pretty=format:__C__%ct', '--name-only', '--', 'prompts', 'vendor', 'modules'],
+      { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 },
+    );
+    const map = new Map();
+    let cur = null;
+    for (const line of out.split(String.fromCharCode(10))) {
+      if (line.startsWith('__C__')) {
+        cur = Number(line.slice(5)) * 1000;
+      } else {
+        const f = line.trim();
+        // git log 从新到旧，首次出现即最近一次提交
+        if (f && cur && !map.has(f)) map.set(f, cur);
+      }
+    }
+    return map;
+  } catch {
+    return new Map();
+  }
+}
+
+const GIT_DATES = gitDates();
+const dayOf = (ts) => (ts ? new Date(ts).toISOString().slice(0, 10) : TODAY);
 const TODAY = new Date().toISOString().slice(0, 10);
 
 /* ---------------- frontmatter / 正文 ---------------- */
@@ -227,6 +256,7 @@ const metaOf = (it) => ({
   compose: it.compose,
   origin: it.origin,
   lines: it.body.split('\n').length,
+  updated: it.kind === 'combo' ? TODAY : dayOf(GIT_DATES.get(it.file)),
   ...(it.file ? { file: it.file } : {}),
   ...(it.roleId ? { roleId: it.roleId } : {}),
   ...(it.graph ? { graph: it.graph } : {}),
