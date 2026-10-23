@@ -19,6 +19,10 @@
 | [princeton-nlp/tree-of-thought-llm](https://github.com/princeton-nlp/tree-of-thought-llm) | 6k | MIT | 仅指路 |
 | [ysymyth/ReAct](https://github.com/ysymyth/ReAct) | 4.2k | MIT | 仅指路 |
 | [promptslab/Promptify](https://github.com/promptslab/Promptify) | 4.6k | Apache-2.0 | 仅指路 |
+| [github/spec-kit](https://github.com/github/spec-kit) | 142k | MIT | 仅指路（Specify→Converge） |
+| [agentsmd/agents.md](https://github.com/agentsmd/agents.md) | 25k | MIT | 仅指路（AGENTS.md 约定） |
+| [kirodotdev/Kiro](https://github.com/kirodotdev/Kiro) | 4.4k | **无 LICENSE** | 仅指路，未复制内容 |
+| [tintinweb/pi-subagents](https://github.com/tintinweb/pi-subagents) | 1.4k | MIT | 仅指路（worktree 并行） |
 | Karpathy / Simon Willison 公开文章 | — | n/a | 仅指路（不复制正文） |
 
 ## 明确排除

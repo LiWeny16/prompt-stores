@@ -1,0 +1,16 @@
+{
+  "id": "prompts/fullstack/kiro-specs",
+  "kind": "role",
+  "category": "fullstack",
+  "name": "Kiro Specs 三件套",
+  "description": "用 requirements/design/tasks 组织复杂功能并保留审阅点",
+  "tags": [
+    "workflow",
+    "requirements",
+    "design"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__fullstack__kiro-specs.json",
+  "body": "按 Kiro Specs 的 requirements → design → tasks；约束明确走 Design-First，不明确先 Requirements-First，逐阶段审阅。"
+}

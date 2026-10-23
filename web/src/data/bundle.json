@@ -262,6 +262,24 @@
       "source": "https://github.com/vercel-labs/skills"
     },
     {
+      "id": "prompts/fullstack/kiro-specs",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "Kiro Specs 三件套",
+      "description": "用 requirements/design/tasks 组织复杂功能并保留审阅点",
+      "tags": [
+        "workflow",
+        "requirements",
+        "design"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/fullstack/kiro-specs.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://github.com/kirodotdev/Kiro"
+    },
+    {
       "id": "vendor/fabric/fullstack/write_pull-request",
       "kind": "role",
       "category": "fullstack",
@@ -294,6 +312,41 @@
       "file": "vendor/fabric/fullstack/create_prd.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_prd"
+    },
+    {
+      "id": "prompts/fullstack/spec-kit-sdd",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "Spec Kit 规格驱动开发",
+      "description": "需要可追踪规格工件的功能开发",
+      "tags": [
+        "workflow",
+        "sdd"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/fullstack/spec-kit-sdd.md",
+      "license": "MIT",
+      "source": "https://github.com/github/spec-kit"
+    },
+    {
+      "id": "prompts/fullstack/superpowers-approval-gates",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "Superpowers 审批门流程",
+      "description": "需求澄清→方案对比→设计获批→计划→实施，不许跳门",
+      "tags": [
+        "workflow",
+        "审批",
+        "planning"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/fullstack/superpowers-approval-gates.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "prompts/fullstack/tdd-loop",
@@ -761,6 +814,24 @@
       "source": "https://github.com/promptslab/Promptify"
     },
     {
+      "id": "prompts/ai/subagent-dispatch",
+      "kind": "role",
+      "category": "ai",
+      "name": "Subagent 派发与双重验收",
+      "description": "把多 agent 协作限定为边界清楚可验收的委派",
+      "tags": [
+        "subagent",
+        "委派",
+        "验收"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/ai/subagent-dispatch.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
+    },
+    {
       "id": "prompts/ai/tree-of-thoughts",
       "kind": "role",
       "category": "ai",
@@ -1100,6 +1171,24 @@
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_mermaid_visualization"
     },
     {
+      "id": "prompts/devops/git-worktree-parallel",
+      "kind": "role",
+      "category": "devops",
+      "name": "隔离 worktree 并行开发",
+      "description": "独立任务并行而不污染主工作区",
+      "tags": [
+        "worktree",
+        "并行",
+        "subagent"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/devops/git-worktree-parallel.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
+    },
+    {
       "id": "prompts/data/spreadsheet-analysis",
       "kind": "role",
       "category": "data",
@@ -1339,6 +1428,24 @@
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/judge_output"
     },
     {
+      "id": "prompts/quality/verification-evidence",
+      "kind": "role",
+      "category": "quality",
+      "name": "完成前证据校验",
+      "description": "禁止仅凭改动完成或局部测试就宣称成功",
+      "tags": [
+        "验收",
+        "证据",
+        "测试"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/quality/verification-evidence.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
+    },
+    {
       "id": "vendor/fabric/quality/analyze_threat_report",
       "kind": "role",
       "category": "quality",
@@ -1406,6 +1513,24 @@
       "file": "vendor/fabric/quality/chinese_code_review.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_code_review"
+    },
+    {
+      "id": "prompts/quality/pr-self-review",
+      "kind": "role",
+      "category": "quality",
+      "name": "PR 提交前自审",
+      "description": "对照需求与计划挑错，用验证结果而非描述作结论",
+      "tags": [
+        "PR",
+        "review",
+        "diff"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/quality/pr-self-review.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "prompts/quality/promptfoo-eval",
@@ -1579,6 +1704,24 @@
       "file": "vendor/fabric/general/extract_ideas.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_ideas"
+    },
+    {
+      "id": "prompts/general/agents-md-minimal",
+      "kind": "role",
+      "category": "general",
+      "name": "精简 AGENTS/CLAUDE 指令",
+      "description": "context 文件要短小、只写不可从代码推断的事实",
+      "tags": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "上下文"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/general/agents-md-minimal.md",
+      "license": "MIT",
+      "source": "https://github.com/agentsmd/agents.md"
     },
     {
       "id": "vendor/fabric/general/find_logical_fallacies",

@@ -1,0 +1,15 @@
+{
+  "id": "prompts/fullstack/spec-kit-sdd",
+  "kind": "role",
+  "category": "fullstack",
+  "name": "Spec Kit 规格驱动开发",
+  "description": "需要可追踪规格工件的功能开发",
+  "tags": [
+    "workflow",
+    "sdd"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__fullstack__spec-kit-sdd.json",
+  "body": "按 github/spec-kit 的 Specify → Clarify → Plan → Tasks → Implement → Converge 推进，每阶段产物是下一阶段的输入。"
+}

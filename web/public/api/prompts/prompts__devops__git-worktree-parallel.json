@@ -1,0 +1,16 @@
+{
+  "id": "prompts/devops/git-worktree-parallel",
+  "kind": "role",
+  "category": "devops",
+  "name": "隔离 worktree 并行开发",
+  "description": "独立任务并行而不污染主工作区",
+  "tags": [
+    "worktree",
+    "并行",
+    "subagent"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__devops__git-worktree-parallel.json",
+  "body": "按 obra/superpowers 的 using-git-worktrees：独立任务放隔离 worktree 并行；合并前守住基线与边界。"
+}

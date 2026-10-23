@@ -1,0 +1,16 @@
+{
+  "id": "prompts/ai/subagent-dispatch",
+  "kind": "role",
+  "category": "ai",
+  "name": "Subagent 派发与双重验收",
+  "description": "把多 agent 协作限定为边界清楚可验收的委派",
+  "tags": [
+    "subagent",
+    "委派",
+    "验收"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__ai__subagent-dispatch.json",
+  "body": "按 subagent-driven-development 派发独立可验收任务：要求回报改动与证据，先验规格符合性再验代码质量。"
+}

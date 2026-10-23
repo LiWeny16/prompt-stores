@@ -1,0 +1,115 @@
+{
+  "prompts": [
+    {
+      "id": "spec-kit-sdd",
+      "name": "Spec Kit 规格驱动开发",
+      "category": "fullstack",
+      "tags": [
+        "workflow",
+        "sdd"
+      ],
+      "description": "需要可追踪规格工件的功能开发",
+      "body": "按 github/spec-kit 的 Specify → Clarify → Plan → Tasks → Implement → Converge 推进，每阶段产物是下一阶段的输入。",
+      "source": "https://github.com/github/spec-kit",
+      "license": "MIT"
+    },
+    {
+      "id": "kiro-specs",
+      "name": "Kiro Specs 三件套",
+      "category": "fullstack",
+      "tags": [
+        "workflow",
+        "requirements",
+        "design"
+      ],
+      "description": "用 requirements/design/tasks 组织复杂功能并保留审阅点",
+      "body": "按 Kiro Specs 的 requirements → design → tasks；约束明确走 Design-First，不明确先 Requirements-First，逐阶段审阅。",
+      "source": "https://github.com/kirodotdev/Kiro",
+      "license": "仅指路，未复制内容"
+    },
+    {
+      "id": "git-worktree-parallel",
+      "name": "隔离 worktree 并行开发",
+      "category": "devops",
+      "tags": [
+        "worktree",
+        "并行",
+        "subagent"
+      ],
+      "description": "独立任务并行而不污染主工作区",
+      "body": "按 obra/superpowers 的 using-git-worktrees：独立任务放隔离 worktree 并行；合并前守住基线与边界。",
+      "source": "https://github.com/obra/superpowers",
+      "license": "MIT"
+    },
+    {
+      "id": "verification-evidence",
+      "name": "完成前证据校验",
+      "category": "quality",
+      "tags": [
+        "验收",
+        "证据",
+        "测试"
+      ],
+      "description": "禁止仅凭改动完成或局部测试就宣称成功",
+      "body": "按 verification-before-completion：用实际命令、退出码和完整输出证明验收；没有证据不得宣称完成。",
+      "source": "https://github.com/obra/superpowers",
+      "license": "MIT"
+    },
+    {
+      "id": "agents-md-minimal",
+      "name": "精简 AGENTS/CLAUDE 指令",
+      "category": "general",
+      "tags": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "上下文"
+      ],
+      "description": "context 文件要短小、只写不可从代码推断的事实",
+      "body": "按 agentsmd/agents.md 与 CLAUDE.md 约定：只写不可从代码推断的事实、命令与硬约束；流程和参考资料移到 skills。",
+      "source": "https://github.com/agentsmd/agents.md",
+      "license": "MIT"
+    },
+    {
+      "id": "subagent-dispatch",
+      "name": "Subagent 派发与双重验收",
+      "category": "ai",
+      "tags": [
+        "subagent",
+        "委派",
+        "验收"
+      ],
+      "description": "把多 agent 协作限定为边界清楚可验收的委派",
+      "body": "按 subagent-driven-development 派发独立可验收任务：要求回报改动与证据，先验规格符合性再验代码质量。",
+      "source": "https://github.com/obra/superpowers",
+      "license": "MIT"
+    },
+    {
+      "id": "pr-self-review",
+      "name": "PR 提交前自审",
+      "category": "quality",
+      "tags": [
+        "PR",
+        "review",
+        "diff"
+      ],
+      "description": "对照需求与计划挑错，用验证结果而非描述作结论",
+      "body": "按 requesting-code-review：提交前对照需求、计划、diff、测试与风险逐项挑错；修复后重跑验证再复审。",
+      "source": "https://github.com/obra/superpowers",
+      "license": "MIT"
+    },
+    {
+      "id": "superpowers-approval-gates",
+      "name": "Superpowers 审批门流程",
+      "category": "fullstack",
+      "tags": [
+        "workflow",
+        "审批",
+        "planning"
+      ],
+      "description": "需求澄清→方案对比→设计获批→计划→实施，不许跳门",
+      "body": "按 obra/superpowers 的 brainstorming → writing-plans → executing-plans：先澄清并比较方案，设计获批后写计划再实施，不许跳人工确认。",
+      "source": "https://github.com/obra/superpowers",
+      "license": "MIT"
+    }
+  ]
+}

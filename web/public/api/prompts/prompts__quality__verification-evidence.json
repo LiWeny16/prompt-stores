@@ -1,0 +1,16 @@
+{
+  "id": "prompts/quality/verification-evidence",
+  "kind": "role",
+  "category": "quality",
+  "name": "完成前证据校验",
+  "description": "禁止仅凭改动完成或局部测试就宣称成功",
+  "tags": [
+    "验收",
+    "证据",
+    "测试"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__quality__verification-evidence.json",
+  "body": "按 verification-before-completion：用实际命令、退出码和完整输出证明验收；没有证据不得宣称完成。"
+}

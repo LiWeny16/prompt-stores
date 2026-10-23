@@ -1,0 +1,16 @@
+{
+  "id": "prompts/general/agents-md-minimal",
+  "kind": "role",
+  "category": "general",
+  "name": "精简 AGENTS/CLAUDE 指令",
+  "description": "context 文件要短小、只写不可从代码推断的事实",
+  "tags": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "上下文"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__general__agents-md-minimal.json",
+  "body": "按 agentsmd/agents.md 与 CLAUDE.md 约定：只写不可从代码推断的事实、命令与硬约束；流程和参考资料移到 skills。"
+}
