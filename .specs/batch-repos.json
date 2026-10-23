@@ -1,0 +1,135 @@
+{
+  "prompts": [
+    {
+      "id": "langgpt-structure",
+      "name": "LangGPT 结构化提示",
+      "category": "ai",
+      "tags": [
+        "结构化",
+        "元提示"
+      ],
+      "description": "把长 prompt 压成 角色-目标-规则-流程 结构",
+      "body": "用 LangGPT 范式重构这条 prompt：按 Role/Profile/Goal/Rules/Workflow 组织，只留必要模块并输出短版。",
+      "source": "https://github.com/langgptai/LangGPT",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "react-tool-task",
+      "name": "ReAct 工具任务",
+      "category": "ai",
+      "tags": [
+        "Agent",
+        "工具调用"
+      ],
+      "description": "让工具型任务按观察驱动行动，不臆测答案",
+      "body": "用 ReAct（reasoning-action-observation）处理【任务】：每轮行动由最新观察驱动，最后给可验证结论。",
+      "source": "https://github.com/ysymyth/ReAct",
+      "license": "MIT"
+    },
+    {
+      "id": "tree-of-thoughts",
+      "name": "Tree of Thoughts 方案搜索",
+      "category": "ai",
+      "tags": [
+        "推理",
+        "方案比较"
+      ],
+      "description": "复杂决策中保留候选、评估与回溯",
+      "body": "用 Tree of Thoughts 处理【问题】：生成少量候选路径，按明确标准评估，必要时回溯。",
+      "source": "https://github.com/princeton-nlp/tree-of-thought-llm",
+      "license": "MIT"
+    },
+    {
+      "id": "prompt-chaining",
+      "name": "Prompt Chaining 任务拆解",
+      "category": "ai",
+      "tags": [
+        "任务拆解",
+        "工作流"
+      ],
+      "description": "拆成可单测的 prompt 链，降低错误面",
+      "body": "用 dair-ai 的 Prompt Chaining 把【复杂任务】拆成可独立验收的子 prompt，并传递结构化中间结果。",
+      "source": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "license": "MIT"
+    },
+    {
+      "id": "self-consistency",
+      "name": "Self-Consistency 多路径校验",
+      "category": "quality",
+      "tags": [
+        "可靠性",
+        "自洽"
+      ],
+      "description": "多路径独立求解后按一致性选答案",
+      "body": "对高风险推理用 Self-Consistency：比较多条独立解法，按一致性选答案，并报告不确定性。",
+      "source": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "license": "MIT"
+    },
+    {
+      "id": "reflexion",
+      "name": "Reflexion 失败复盘",
+      "category": "ai",
+      "tags": [
+        "Agent",
+        "复盘"
+      ],
+      "description": "把失败写成可执行复盘并用于下一轮",
+      "body": "用 Reflexion：让 Agent 评估失败、写出可执行文字复盘，并把复盘用于下一轮。",
+      "source": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "license": "MIT"
+    },
+    {
+      "id": "promptfoo-eval",
+      "name": "Promptfoo 评测闭环",
+      "category": "quality",
+      "tags": [
+        "评测",
+        "回归",
+        "红队"
+      ],
+      "description": "为 prompt 建通过标准、反例与回归",
+      "body": "用 promptfoo 为这条 prompt 建最小 eval：通过标准、边界/攻击样例、回归比较；只保留更好的版本。",
+      "source": "https://github.com/promptfoo/promptfoo",
+      "license": "MIT"
+    },
+    {
+      "id": "schema-first",
+      "name": "Schema-first 结构化输出",
+      "category": "ai",
+      "tags": [
+        "结构化",
+        "Schema"
+      ],
+      "description": "先约束字段类型再生成可解析结果",
+      "body": "用 schema-first 思路：先定义字段、类型、缺省与错误语义，再生成可解析结果。",
+      "source": "https://github.com/promptslab/Promptify",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "copilot-prompt-file",
+      "name": "Prompt 文件规范",
+      "category": "ai",
+      "tags": [
+        "prompt 文件",
+        "规范"
+      ],
+      "description": "prompt 文件应有输入、流程、输出、校验",
+      "body": "按 awesome-copilot 的 prompt-file 规范重写：明确输入、workflow、output、validation，最小权限工具。",
+      "source": "https://github.com/github/awesome-copilot",
+      "license": "MIT"
+    },
+    {
+      "id": "prompt-optimizer",
+      "name": "多代理 Prompt 优化",
+      "category": "quality",
+      "tags": [
+        "prompt 优化",
+        "质量"
+      ],
+      "description": "用专门检查器找矛盾与格式缺失",
+      "body": "用 OpenAI Cookbook 的多代理 prompt optimizer 审【原 prompt】：找矛盾、格式缺失、few-shot 不一致，给最小改写。",
+      "source": "https://github.com/openai/openai-cookbook",
+      "license": "MIT"
+    }
+  ]
+}

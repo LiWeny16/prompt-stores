@@ -1,0 +1,15 @@
+{
+  "id": "prompts/quality/systematic-debugging",
+  "kind": "role",
+  "category": "quality",
+  "name": "系统化调试",
+  "description": "先复现和定位根因再修，禁止猜测式补丁",
+  "tags": [
+    "调试",
+    "根因"
+  ],
+  "compose": [],
+  "lines": 3,
+  "url": "prompts/prompts__quality__systematic-debugging.json",
+  "body": "用 obra/superpowers 的 systematic-debugging skill。\n先复现并定位根因，再动手改。\n禁止用猜测式补丁或加大重试掩盖问题。"
+}

@@ -90,6 +90,59 @@
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_coding_feature"
     },
     {
+      "id": "prompts/fullstack/improve-architecture",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "架构改进",
+      "description": "读清现有边界后给最小可落地的架构改动",
+      "tags": [
+        "架构",
+        "重构"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 3,
+      "file": "prompts/fullstack/improve-architecture.md",
+      "license": "MIT",
+      "source": "https://github.com/mattpocock/skills"
+    },
+    {
+      "id": "prompts/fullstack/karpathy-tight-loop",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "卡帕斯小步编码",
+      "description": "把 Karpathy 的 AI 辅助编码节奏压缩为可执行指针。",
+      "tags": [
+        "AI编程",
+        "小步迭代",
+        "验证"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 2,
+      "file": "prompts/fullstack/karpathy-tight-loop.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://x.com/karpathy/status/1915581920022585597"
+    },
+    {
+      "id": "prompts/fullstack/matt-skills-init",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "马特工程技能",
+      "description": "用 Matt Pocock 的可组合 skills 初始化并推进工程任务。",
+      "tags": [
+        "skills",
+        "TypeScript",
+        "工程流程"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 2,
+      "file": "prompts/fullstack/matt-skills-init.md",
+      "license": "MIT",
+      "source": "https://github.com/mattpocock/skills"
+    },
+    {
       "id": "vendor/fabric/fullstack/review_design",
       "kind": "role",
       "category": "fullstack",
@@ -192,6 +245,23 @@
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_user_story"
     },
     {
+      "id": "prompts/fullstack/init-project-with-skills",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "用技能初始化项目",
+      "description": "用 find-skills 找到 matt-skills 并按它初始化项目",
+      "tags": [
+        "初始化",
+        "skill"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 3,
+      "file": "prompts/fullstack/init-project-with-skills.md",
+      "license": "MIT",
+      "source": "https://github.com/vercel-labs/skills"
+    },
+    {
       "id": "vendor/fabric/fullstack/write_pull-request",
       "kind": "role",
       "category": "fullstack",
@@ -226,6 +296,61 @@
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_prd"
     },
     {
+      "id": "prompts/fullstack/tdd-loop",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "TDD 循环",
+      "description": "先写失败测试再最小实现，按 mattpocock 的 tdd skill 推进",
+      "tags": [
+        "TDD",
+        "测试"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 3,
+      "file": "prompts/fullstack/tdd-loop.md",
+      "license": "MIT",
+      "source": "https://github.com/mattpocock/skills"
+    },
+    {
+      "id": "prompts/embedded/bringup-fact-check",
+      "kind": "role",
+      "category": "embedded",
+      "name": "板级 Bring-up 事实核对",
+      "description": "把上板排查从猜测切换为平台文档与波形证据。",
+      "tags": [
+        "bringup",
+        "TRM",
+        "BSP",
+        "示波器"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/embedded/bringup-fact-check.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
+    },
+    {
+      "id": "prompts/embedded/cross-core-ipc-contract",
+      "kind": "role",
+      "category": "embedded",
+      "name": "跨核 IPC 契约",
+      "description": "把 MCU/DSP 多核通信从隐含约定变成可验证协议。",
+      "tags": [
+        "IPC",
+        "多核",
+        "共享内存",
+        "rpmsg"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/embedded/cross-core-ipc-contract.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
+    },
+    {
       "id": "prompts/embedded/firmware-delivery",
       "kind": "role",
       "category": "embedded",
@@ -244,6 +369,121 @@
       "file": "prompts/embedded/firmware-delivery.md"
     },
     {
+      "id": "prompts/embedded/audio-chain-budget",
+      "kind": "role",
+      "category": "embedded",
+      "name": "音频链路格式与抖动预算",
+      "description": "沿 RK 音频数据路径验证格式、缓冲、欠载溢出和时钟预算。",
+      "tags": [
+        "音频",
+        "I2S",
+        "TDM",
+        "DSP",
+        "underrun"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/embedded/audio-chain-budget.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
+    },
+    {
+      "id": "prompts/embedded/dma-cache-consistency",
+      "kind": "role",
+      "category": "embedded",
+      "name": "DMA 与 Cache 一致性定位",
+      "description": "用平台契约和固定模式区分缓存、越界、描述符与带宽问题。",
+      "tags": [
+        "DMA",
+        "Cache",
+        "descriptor",
+        "ARM"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/embedded/dma-cache-consistency.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
+    },
+    {
+      "id": "prompts/embedded/emc-power-debug",
+      "kind": "role",
+      "category": "embedded",
+      "name": "EMC 与功耗相关定位",
+      "description": "用频谱、电流时间窗和单变量对照定位板级异常。",
+      "tags": [
+        "EMC",
+        "功耗",
+        "近场探头",
+        "电源完整性"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/embedded/emc-power-debug.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
+    },
+    {
+      "id": "prompts/embedded/ota-ab-rollback",
+      "kind": "role",
+      "category": "embedded",
+      "name": "OTA A/B 回滚验收",
+      "description": "把升级成功定义为可恢复、可回滚和掉电可验证。",
+      "tags": [
+        "OTA",
+        "A/B",
+        "bootloader",
+        "rollback"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/embedded/ota-ab-rollback.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
+    },
+    {
+      "id": "prompts/embedded/rtos-realtime-budget",
+      "kind": "role",
+      "category": "embedded",
+      "name": "RTOS 实时性与资源预算",
+      "description": "用运行证据审查调度、抖动、栈和 CPU 预算。",
+      "tags": [
+        "RT-Thread",
+        "RTOS",
+        "WCET",
+        "trace"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/embedded/rtos-realtime-budget.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
+    },
+    {
+      "id": "prompts/embedded/rtt-jtag-debug",
+      "kind": "role",
+      "category": "embedded",
+      "name": "RTT/JTAG 低扰动调试",
+      "description": "保留实时行为，用低侵入证据锁定首个异常。",
+      "tags": [
+        "RTT",
+        "JTAG",
+        "fault",
+        "trace"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/embedded/rtt-jtag-debug.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
+    },
+    {
       "id": "vendor/fabric/ai/extract_wisdom_agents",
       "kind": "role",
       "category": "ai",
@@ -259,6 +499,42 @@
       "file": "vendor/fabric/ai/extract_wisdom_agents.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_wisdom_agents"
+    },
+    {
+      "id": "prompts/ai/skill-router",
+      "kind": "role",
+      "category": "ai",
+      "name": "技能路由",
+      "description": "让 ask-matt 只推荐 skill 序列，不展开执行",
+      "tags": [
+        "路由",
+        "规划"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 3,
+      "file": "prompts/ai/skill-router.md",
+      "license": "MIT",
+      "source": "https://github.com/mattpocock/skills"
+    },
+    {
+      "id": "prompts/ai/structured-task-contract",
+      "kind": "role",
+      "category": "ai",
+      "name": "结构化任务契约",
+      "description": "把复杂任务压成可复用、可检查的结构化提示词契约。",
+      "tags": [
+        "LangGPT",
+        "structured-prompt",
+        "变量",
+        "验收"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/ai/structured-task-contract.md",
+      "license": "Apache-2.0",
+      "source": "https://github.com/langgptai/LangGPT"
     },
     {
       "id": "vendor/fabric/ai/analyze_paper",
@@ -293,6 +569,24 @@
       "file": "vendor/fabric/ai/explain_terms.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_terms"
+    },
+    {
+      "id": "prompts/ai/willison-context-first",
+      "kind": "role",
+      "category": "ai",
+      "name": "西蒙上下文编码",
+      "description": "按 Simon Willison 的实践，用上下文、示例和明确任务驾驭 LLM。",
+      "tags": [
+        "LLM",
+        "上下文",
+        "代码生成"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 2,
+      "file": "prompts/ai/willison-context-first.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://simonwillison.net/2025/Mar/11/using-llms-for-code/"
     },
     {
       "id": "prompts/ai/builtin-assistant",
@@ -331,6 +625,23 @@
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_ai_jobs_analysis"
     },
     {
+      "id": "prompts/ai/langgpt-structure",
+      "kind": "role",
+      "category": "ai",
+      "name": "LangGPT 结构化提示",
+      "description": "把长 prompt 压成 角色-目标-规则-流程 结构",
+      "tags": [
+        "结构化",
+        "元提示"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/ai/langgpt-structure.md",
+      "license": "Apache-2.0",
+      "source": "https://github.com/langgptai/LangGPT"
+    },
+    {
       "id": "vendor/fabric/ai/improve_prompt",
       "kind": "role",
       "category": "ai",
@@ -348,6 +659,23 @@
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/improve_prompt"
     },
     {
+      "id": "prompts/ai/copilot-prompt-file",
+      "kind": "role",
+      "category": "ai",
+      "name": "Prompt 文件规范",
+      "description": "prompt 文件应有输入、流程、输出、校验",
+      "tags": [
+        "prompt 文件",
+        "规范"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/ai/copilot-prompt-file.md",
+      "license": "MIT",
+      "source": "https://github.com/github/awesome-copilot"
+    },
+    {
       "id": "vendor/fabric/ai/summarize_prompt",
       "kind": "role",
       "category": "ai",
@@ -363,6 +691,91 @@
       "file": "vendor/fabric/ai/summarize_prompt.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_prompt"
+    },
+    {
+      "id": "prompts/ai/prompt-chaining",
+      "kind": "role",
+      "category": "ai",
+      "name": "Prompt Chaining 任务拆解",
+      "description": "拆成可单测的 prompt 链，降低错误面",
+      "tags": [
+        "任务拆解",
+        "工作流"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/ai/prompt-chaining.md",
+      "license": "MIT",
+      "source": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    },
+    {
+      "id": "prompts/ai/react-tool-task",
+      "kind": "role",
+      "category": "ai",
+      "name": "ReAct 工具任务",
+      "description": "让工具型任务按观察驱动行动，不臆测答案",
+      "tags": [
+        "Agent",
+        "工具调用"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/ai/react-tool-task.md",
+      "license": "MIT",
+      "source": "https://github.com/ysymyth/ReAct"
+    },
+    {
+      "id": "prompts/ai/reflexion",
+      "kind": "role",
+      "category": "ai",
+      "name": "Reflexion 失败复盘",
+      "description": "把失败写成可执行复盘并用于下一轮",
+      "tags": [
+        "Agent",
+        "复盘"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/ai/reflexion.md",
+      "license": "MIT",
+      "source": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+    },
+    {
+      "id": "prompts/ai/schema-first",
+      "kind": "role",
+      "category": "ai",
+      "name": "Schema-first 结构化输出",
+      "description": "先约束字段类型再生成可解析结果",
+      "tags": [
+        "结构化",
+        "Schema"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/ai/schema-first.md",
+      "license": "Apache-2.0",
+      "source": "https://github.com/promptslab/Promptify"
+    },
+    {
+      "id": "prompts/ai/tree-of-thoughts",
+      "kind": "role",
+      "category": "ai",
+      "name": "Tree of Thoughts 方案搜索",
+      "description": "复杂决策中保留候选、评估与回溯",
+      "tags": [
+        "推理",
+        "方案比较"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/ai/tree-of-thoughts.md",
+      "license": "MIT",
+      "source": "https://github.com/princeton-nlp/tree-of-thought-llm"
     },
     {
       "id": "vendor/fabric/writing/fix_typos",
@@ -465,6 +878,23 @@
       "file": "vendor/fabric/writing/clean_text.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/clean_text"
+    },
+    {
+      "id": "prompts/writing/docx-authoring",
+      "kind": "role",
+      "category": "writing",
+      "name": "文档处理（docx）",
+      "description": "按官方 document skill 处理并校验文档文件",
+      "tags": [
+        "docx",
+        "文档"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 3,
+      "file": "prompts/writing/docx-authoring.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "vendor/fabric/writing/create_5_sentence_summary",
@@ -670,6 +1100,23 @@
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_mermaid_visualization"
     },
     {
+      "id": "prompts/data/spreadsheet-analysis",
+      "kind": "role",
+      "category": "data",
+      "name": "表格分析",
+      "description": "先查表结构与数据质量，再安全改表",
+      "tags": [
+        "表格",
+        "数据"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 3,
+      "file": "prompts/data/spreadsheet-analysis.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://github.com/anthropics/skills"
+    },
+    {
       "id": "vendor/fabric/data/export_data_as_csv",
       "kind": "role",
       "category": "data",
@@ -789,6 +1236,58 @@
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/review_code"
     },
     {
+      "id": "prompts/quality/code-review-matt",
+      "kind": "role",
+      "category": "quality",
+      "name": "代码审查（变更向）",
+      "description": "从变更目标与风险面切入，只报可证据化的问题",
+      "tags": [
+        "审查",
+        "风险"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 3,
+      "file": "prompts/quality/code-review-matt.md",
+      "license": "MIT",
+      "source": "https://github.com/mattpocock/skills"
+    },
+    {
+      "id": "prompts/quality/prompt-optimizer",
+      "kind": "role",
+      "category": "quality",
+      "name": "多代理 Prompt 优化",
+      "description": "用专门检查器找矛盾与格式缺失",
+      "tags": [
+        "prompt 优化",
+        "质量"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/quality/prompt-optimizer.md",
+      "license": "MIT",
+      "source": "https://github.com/openai/openai-cookbook"
+    },
+    {
+      "id": "prompts/quality/karpathy-tight-leash",
+      "kind": "role",
+      "category": "quality",
+      "name": "卡帕斯紧绳代理",
+      "description": "正式代码采用 agentic engineering，而不是无审查的 vibe coding。",
+      "tags": [
+        "agentic engineering",
+        "diff审查",
+        "测试"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 2,
+      "file": "prompts/quality/karpathy-tight-leash.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://www.youtube.com/watch?v=96jN2OCOfLs"
+    },
+    {
       "id": "vendor/fabric/quality/analyze_logs",
       "kind": "role",
       "category": "quality",
@@ -857,6 +1356,41 @@
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_threat_report"
     },
     {
+      "id": "prompts/quality/willison-agentic-patterns",
+      "kind": "role",
+      "category": "quality",
+      "name": "西蒙代理验证",
+      "description": "用 Simon Willison 的 Agentic Engineering Patterns 选择真实反馈回路。",
+      "tags": [
+        "coding agent",
+        "TDD",
+        "反馈回路"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 2,
+      "file": "prompts/quality/willison-agentic-patterns.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/"
+    },
+    {
+      "id": "prompts/quality/systematic-debugging",
+      "kind": "role",
+      "category": "quality",
+      "name": "系统化调试",
+      "description": "先复现和定位根因再修，禁止猜测式补丁",
+      "tags": [
+        "调试",
+        "根因"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 3,
+      "file": "prompts/quality/systematic-debugging.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
+    },
+    {
       "id": "vendor/fabric/quality/chinese_code_review",
       "kind": "role",
       "category": "quality",
@@ -872,6 +1406,41 @@
       "file": "vendor/fabric/quality/chinese_code_review.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_code_review"
+    },
+    {
+      "id": "prompts/quality/promptfoo-eval",
+      "kind": "role",
+      "category": "quality",
+      "name": "Promptfoo 评测闭环",
+      "description": "为 prompt 建通过标准、反例与回归",
+      "tags": [
+        "评测",
+        "回归",
+        "红队"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/quality/promptfoo-eval.md",
+      "license": "MIT",
+      "source": "https://github.com/promptfoo/promptfoo"
+    },
+    {
+      "id": "prompts/quality/self-consistency",
+      "kind": "role",
+      "category": "quality",
+      "name": "Self-Consistency 多路径校验",
+      "description": "多路径独立求解后按一致性选答案",
+      "tags": [
+        "可靠性",
+        "自洽"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 1,
+      "file": "prompts/quality/self-consistency.md",
+      "license": "MIT",
+      "source": "https://github.com/dair-ai/Prompt-Engineering-Guide"
     },
     {
       "id": "vendor/fabric/quality/write_semgrep_rule",
@@ -906,6 +1475,25 @@
       "file": "vendor/fabric/quality/create_stride_threat_model.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_stride_threat_model"
+    },
+    {
+      "id": "prompts/quality/superpowers-flow",
+      "kind": "role",
+      "category": "quality",
+      "name": "Superpowers 开发闭环",
+      "description": "用 Superpowers 的阶段化 skills 管理从澄清到验收的开发闭环。",
+      "tags": [
+        "skills",
+        "TDD",
+        "规划",
+        "交付"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 2,
+      "file": "prompts/quality/superpowers-flow.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "vendor/fabric/quality/analyze_terraform_plan",
@@ -957,6 +1545,23 @@
       "file": "vendor/fabric/general/create_quiz.md",
       "license": "MIT",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_quiz"
+    },
+    {
+      "id": "prompts/general/find-and-install-skill",
+      "kind": "role",
+      "category": "general",
+      "name": "定位并安装技能",
+      "description": "按任务关键词用 find-skills 找并装合适的 skill，不复制技能内容",
+      "tags": [
+        "skill",
+        "发现"
+      ],
+      "compose": [],
+      "origin": "builtin",
+      "lines": 3,
+      "file": "prompts/general/find-and-install-skill.md",
+      "license": "MIT",
+      "source": "https://github.com/vercel-labs/skills"
     },
     {
       "id": "vendor/fabric/general/extract_ideas",

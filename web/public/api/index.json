@@ -2,7 +2,7 @@
   "version": 1,
   "generated": "2026-10-23",
   "counts": {
-    "role": 60,
+    "role": 94,
     "module": 2,
     "combo": 2
   },
@@ -93,6 +93,50 @@
       "origin": "vendor",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_coding_feature",
       "license": "MIT"
+    },
+    {
+      "id": "prompts/fullstack/improve-architecture",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "架构改进",
+      "description": "读清现有边界后给最小可落地的架构改动",
+      "tags": [
+        "架构",
+        "重构"
+      ],
+      "compose": [],
+      "lines": 3,
+      "url": "prompts/prompts__fullstack__improve-architecture.json"
+    },
+    {
+      "id": "prompts/fullstack/karpathy-tight-loop",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "卡帕斯小步编码",
+      "description": "把 Karpathy 的 AI 辅助编码节奏压缩为可执行指针。",
+      "tags": [
+        "AI编程",
+        "小步迭代",
+        "验证"
+      ],
+      "compose": [],
+      "lines": 2,
+      "url": "prompts/prompts__fullstack__karpathy-tight-loop.json"
+    },
+    {
+      "id": "prompts/fullstack/matt-skills-init",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "马特工程技能",
+      "description": "用 Matt Pocock 的可组合 skills 初始化并推进工程任务。",
+      "tags": [
+        "skills",
+        "TypeScript",
+        "工程流程"
+      ],
+      "compose": [],
+      "lines": 2,
+      "url": "prompts/prompts__fullstack__matt-skills-init.json"
     },
     {
       "id": "vendor/fabric/fullstack/review_design",
@@ -197,6 +241,20 @@
       "license": "MIT"
     },
     {
+      "id": "prompts/fullstack/init-project-with-skills",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "用技能初始化项目",
+      "description": "用 find-skills 找到 matt-skills 并按它初始化项目",
+      "tags": [
+        "初始化",
+        "skill"
+      ],
+      "compose": [],
+      "lines": 3,
+      "url": "prompts/prompts__fullstack__init-project-with-skills.json"
+    },
+    {
       "id": "vendor/fabric/fullstack/write_pull-request",
       "kind": "role",
       "category": "fullstack",
@@ -231,6 +289,52 @@
       "license": "MIT"
     },
     {
+      "id": "prompts/fullstack/tdd-loop",
+      "kind": "role",
+      "category": "fullstack",
+      "name": "TDD 循环",
+      "description": "先写失败测试再最小实现，按 mattpocock 的 tdd skill 推进",
+      "tags": [
+        "TDD",
+        "测试"
+      ],
+      "compose": [],
+      "lines": 3,
+      "url": "prompts/prompts__fullstack__tdd-loop.json"
+    },
+    {
+      "id": "prompts/embedded/bringup-fact-check",
+      "kind": "role",
+      "category": "embedded",
+      "name": "板级 Bring-up 事实核对",
+      "description": "把上板排查从猜测切换为平台文档与波形证据。",
+      "tags": [
+        "bringup",
+        "TRM",
+        "BSP",
+        "示波器"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__embedded__bringup-fact-check.json"
+    },
+    {
+      "id": "prompts/embedded/cross-core-ipc-contract",
+      "kind": "role",
+      "category": "embedded",
+      "name": "跨核 IPC 契约",
+      "description": "把 MCU/DSP 多核通信从隐含约定变成可验证协议。",
+      "tags": [
+        "IPC",
+        "多核",
+        "共享内存",
+        "rpmsg"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__embedded__cross-core-ipc-contract.json"
+    },
+    {
       "id": "prompts/embedded/firmware-delivery",
       "kind": "role",
       "category": "embedded",
@@ -248,6 +352,103 @@
       "url": "prompts/prompts__embedded__firmware-delivery.json"
     },
     {
+      "id": "prompts/embedded/audio-chain-budget",
+      "kind": "role",
+      "category": "embedded",
+      "name": "音频链路格式与抖动预算",
+      "description": "沿 RK 音频数据路径验证格式、缓冲、欠载溢出和时钟预算。",
+      "tags": [
+        "音频",
+        "I2S",
+        "TDM",
+        "DSP",
+        "underrun"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__embedded__audio-chain-budget.json"
+    },
+    {
+      "id": "prompts/embedded/dma-cache-consistency",
+      "kind": "role",
+      "category": "embedded",
+      "name": "DMA 与 Cache 一致性定位",
+      "description": "用平台契约和固定模式区分缓存、越界、描述符与带宽问题。",
+      "tags": [
+        "DMA",
+        "Cache",
+        "descriptor",
+        "ARM"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__embedded__dma-cache-consistency.json"
+    },
+    {
+      "id": "prompts/embedded/emc-power-debug",
+      "kind": "role",
+      "category": "embedded",
+      "name": "EMC 与功耗相关定位",
+      "description": "用频谱、电流时间窗和单变量对照定位板级异常。",
+      "tags": [
+        "EMC",
+        "功耗",
+        "近场探头",
+        "电源完整性"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__embedded__emc-power-debug.json"
+    },
+    {
+      "id": "prompts/embedded/ota-ab-rollback",
+      "kind": "role",
+      "category": "embedded",
+      "name": "OTA A/B 回滚验收",
+      "description": "把升级成功定义为可恢复、可回滚和掉电可验证。",
+      "tags": [
+        "OTA",
+        "A/B",
+        "bootloader",
+        "rollback"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__embedded__ota-ab-rollback.json"
+    },
+    {
+      "id": "prompts/embedded/rtos-realtime-budget",
+      "kind": "role",
+      "category": "embedded",
+      "name": "RTOS 实时性与资源预算",
+      "description": "用运行证据审查调度、抖动、栈和 CPU 预算。",
+      "tags": [
+        "RT-Thread",
+        "RTOS",
+        "WCET",
+        "trace"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__embedded__rtos-realtime-budget.json"
+    },
+    {
+      "id": "prompts/embedded/rtt-jtag-debug",
+      "kind": "role",
+      "category": "embedded",
+      "name": "RTT/JTAG 低扰动调试",
+      "description": "保留实时行为，用低侵入证据锁定首个异常。",
+      "tags": [
+        "RTT",
+        "JTAG",
+        "fault",
+        "trace"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__embedded__rtt-jtag-debug.json"
+    },
+    {
       "id": "vendor/fabric/ai/extract_wisdom_agents",
       "kind": "role",
       "category": "ai",
@@ -263,6 +464,36 @@
       "origin": "vendor",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_wisdom_agents",
       "license": "MIT"
+    },
+    {
+      "id": "prompts/ai/skill-router",
+      "kind": "role",
+      "category": "ai",
+      "name": "技能路由",
+      "description": "让 ask-matt 只推荐 skill 序列，不展开执行",
+      "tags": [
+        "路由",
+        "规划"
+      ],
+      "compose": [],
+      "lines": 3,
+      "url": "prompts/prompts__ai__skill-router.json"
+    },
+    {
+      "id": "prompts/ai/structured-task-contract",
+      "kind": "role",
+      "category": "ai",
+      "name": "结构化任务契约",
+      "description": "把复杂任务压成可复用、可检查的结构化提示词契约。",
+      "tags": [
+        "LangGPT",
+        "structured-prompt",
+        "变量",
+        "验收"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__ai__structured-task-contract.json"
     },
     {
       "id": "vendor/fabric/ai/analyze_paper",
@@ -297,6 +528,21 @@
       "origin": "vendor",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_terms",
       "license": "MIT"
+    },
+    {
+      "id": "prompts/ai/willison-context-first",
+      "kind": "role",
+      "category": "ai",
+      "name": "西蒙上下文编码",
+      "description": "按 Simon Willison 的实践，用上下文、示例和明确任务驾驭 LLM。",
+      "tags": [
+        "LLM",
+        "上下文",
+        "代码生成"
+      ],
+      "compose": [],
+      "lines": 2,
+      "url": "prompts/prompts__ai__willison-context-first.json"
     },
     {
       "id": "prompts/ai/builtin-assistant",
@@ -334,6 +580,20 @@
       "license": "MIT"
     },
     {
+      "id": "prompts/ai/langgpt-structure",
+      "kind": "role",
+      "category": "ai",
+      "name": "LangGPT 结构化提示",
+      "description": "把长 prompt 压成 角色-目标-规则-流程 结构",
+      "tags": [
+        "结构化",
+        "元提示"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__ai__langgpt-structure.json"
+    },
+    {
       "id": "vendor/fabric/ai/improve_prompt",
       "kind": "role",
       "category": "ai",
@@ -351,6 +611,20 @@
       "license": "MIT"
     },
     {
+      "id": "prompts/ai/copilot-prompt-file",
+      "kind": "role",
+      "category": "ai",
+      "name": "Prompt 文件规范",
+      "description": "prompt 文件应有输入、流程、输出、校验",
+      "tags": [
+        "prompt 文件",
+        "规范"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__ai__copilot-prompt-file.json"
+    },
+    {
       "id": "vendor/fabric/ai/summarize_prompt",
       "kind": "role",
       "category": "ai",
@@ -366,6 +640,76 @@
       "origin": "vendor",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_prompt",
       "license": "MIT"
+    },
+    {
+      "id": "prompts/ai/prompt-chaining",
+      "kind": "role",
+      "category": "ai",
+      "name": "Prompt Chaining 任务拆解",
+      "description": "拆成可单测的 prompt 链，降低错误面",
+      "tags": [
+        "任务拆解",
+        "工作流"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__ai__prompt-chaining.json"
+    },
+    {
+      "id": "prompts/ai/react-tool-task",
+      "kind": "role",
+      "category": "ai",
+      "name": "ReAct 工具任务",
+      "description": "让工具型任务按观察驱动行动，不臆测答案",
+      "tags": [
+        "Agent",
+        "工具调用"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__ai__react-tool-task.json"
+    },
+    {
+      "id": "prompts/ai/reflexion",
+      "kind": "role",
+      "category": "ai",
+      "name": "Reflexion 失败复盘",
+      "description": "把失败写成可执行复盘并用于下一轮",
+      "tags": [
+        "Agent",
+        "复盘"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__ai__reflexion.json"
+    },
+    {
+      "id": "prompts/ai/schema-first",
+      "kind": "role",
+      "category": "ai",
+      "name": "Schema-first 结构化输出",
+      "description": "先约束字段类型再生成可解析结果",
+      "tags": [
+        "结构化",
+        "Schema"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__ai__schema-first.json"
+    },
+    {
+      "id": "prompts/ai/tree-of-thoughts",
+      "kind": "role",
+      "category": "ai",
+      "name": "Tree of Thoughts 方案搜索",
+      "description": "复杂决策中保留候选、评估与回溯",
+      "tags": [
+        "推理",
+        "方案比较"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__ai__tree-of-thoughts.json"
     },
     {
       "id": "vendor/fabric/writing/fix_typos",
@@ -468,6 +812,20 @@
       "origin": "vendor",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/clean_text",
       "license": "MIT"
+    },
+    {
+      "id": "prompts/writing/docx-authoring",
+      "kind": "role",
+      "category": "writing",
+      "name": "文档处理（docx）",
+      "description": "按官方 document skill 处理并校验文档文件",
+      "tags": [
+        "docx",
+        "文档"
+      ],
+      "compose": [],
+      "lines": 3,
+      "url": "prompts/prompts__writing__docx-authoring.json"
     },
     {
       "id": "vendor/fabric/writing/create_5_sentence_summary",
@@ -672,6 +1030,20 @@
       "license": "MIT"
     },
     {
+      "id": "prompts/data/spreadsheet-analysis",
+      "kind": "role",
+      "category": "data",
+      "name": "表格分析",
+      "description": "先查表结构与数据质量，再安全改表",
+      "tags": [
+        "表格",
+        "数据"
+      ],
+      "compose": [],
+      "lines": 3,
+      "url": "prompts/prompts__data__spreadsheet-analysis.json"
+    },
+    {
       "id": "vendor/fabric/data/export_data_as_csv",
       "kind": "role",
       "category": "data",
@@ -791,6 +1163,49 @@
       "license": "MIT"
     },
     {
+      "id": "prompts/quality/code-review-matt",
+      "kind": "role",
+      "category": "quality",
+      "name": "代码审查（变更向）",
+      "description": "从变更目标与风险面切入，只报可证据化的问题",
+      "tags": [
+        "审查",
+        "风险"
+      ],
+      "compose": [],
+      "lines": 3,
+      "url": "prompts/prompts__quality__code-review-matt.json"
+    },
+    {
+      "id": "prompts/quality/prompt-optimizer",
+      "kind": "role",
+      "category": "quality",
+      "name": "多代理 Prompt 优化",
+      "description": "用专门检查器找矛盾与格式缺失",
+      "tags": [
+        "prompt 优化",
+        "质量"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__quality__prompt-optimizer.json"
+    },
+    {
+      "id": "prompts/quality/karpathy-tight-leash",
+      "kind": "role",
+      "category": "quality",
+      "name": "卡帕斯紧绳代理",
+      "description": "正式代码采用 agentic engineering，而不是无审查的 vibe coding。",
+      "tags": [
+        "agentic engineering",
+        "diff审查",
+        "测试"
+      ],
+      "compose": [],
+      "lines": 2,
+      "url": "prompts/prompts__quality__karpathy-tight-leash.json"
+    },
+    {
       "id": "vendor/fabric/quality/analyze_logs",
       "kind": "role",
       "category": "quality",
@@ -859,6 +1274,35 @@
       "license": "MIT"
     },
     {
+      "id": "prompts/quality/willison-agentic-patterns",
+      "kind": "role",
+      "category": "quality",
+      "name": "西蒙代理验证",
+      "description": "用 Simon Willison 的 Agentic Engineering Patterns 选择真实反馈回路。",
+      "tags": [
+        "coding agent",
+        "TDD",
+        "反馈回路"
+      ],
+      "compose": [],
+      "lines": 2,
+      "url": "prompts/prompts__quality__willison-agentic-patterns.json"
+    },
+    {
+      "id": "prompts/quality/systematic-debugging",
+      "kind": "role",
+      "category": "quality",
+      "name": "系统化调试",
+      "description": "先复现和定位根因再修，禁止猜测式补丁",
+      "tags": [
+        "调试",
+        "根因"
+      ],
+      "compose": [],
+      "lines": 3,
+      "url": "prompts/prompts__quality__systematic-debugging.json"
+    },
+    {
       "id": "vendor/fabric/quality/chinese_code_review",
       "kind": "role",
       "category": "quality",
@@ -874,6 +1318,35 @@
       "origin": "vendor",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_code_review",
       "license": "MIT"
+    },
+    {
+      "id": "prompts/quality/promptfoo-eval",
+      "kind": "role",
+      "category": "quality",
+      "name": "Promptfoo 评测闭环",
+      "description": "为 prompt 建通过标准、反例与回归",
+      "tags": [
+        "评测",
+        "回归",
+        "红队"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__quality__promptfoo-eval.json"
+    },
+    {
+      "id": "prompts/quality/self-consistency",
+      "kind": "role",
+      "category": "quality",
+      "name": "Self-Consistency 多路径校验",
+      "description": "多路径独立求解后按一致性选答案",
+      "tags": [
+        "可靠性",
+        "自洽"
+      ],
+      "compose": [],
+      "lines": 1,
+      "url": "prompts/prompts__quality__self-consistency.json"
     },
     {
       "id": "vendor/fabric/quality/write_semgrep_rule",
@@ -908,6 +1381,22 @@
       "origin": "vendor",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_stride_threat_model",
       "license": "MIT"
+    },
+    {
+      "id": "prompts/quality/superpowers-flow",
+      "kind": "role",
+      "category": "quality",
+      "name": "Superpowers 开发闭环",
+      "description": "用 Superpowers 的阶段化 skills 管理从澄清到验收的开发闭环。",
+      "tags": [
+        "skills",
+        "TDD",
+        "规划",
+        "交付"
+      ],
+      "compose": [],
+      "lines": 2,
+      "url": "prompts/prompts__quality__superpowers-flow.json"
     },
     {
       "id": "vendor/fabric/quality/analyze_terraform_plan",
@@ -959,6 +1448,20 @@
       "origin": "vendor",
       "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_quiz",
       "license": "MIT"
+    },
+    {
+      "id": "prompts/general/find-and-install-skill",
+      "kind": "role",
+      "category": "general",
+      "name": "定位并安装技能",
+      "description": "按任务关键词用 find-skills 找并装合适的 skill，不复制技能内容",
+      "tags": [
+        "skill",
+        "发现"
+      ],
+      "compose": [],
+      "lines": 3,
+      "url": "prompts/prompts__general__find-and-install-skill.json"
     },
     {
       "id": "vendor/fabric/general/extract_ideas",

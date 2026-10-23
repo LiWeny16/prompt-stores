@@ -1,0 +1,16 @@
+{
+  "id": "prompts/quality/karpathy-tight-leash",
+  "kind": "role",
+  "category": "quality",
+  "name": "卡帕斯紧绳代理",
+  "description": "正式代码采用 agentic engineering，而不是无审查的 vibe coding。",
+  "tags": [
+    "agentic engineering",
+    "diff审查",
+    "测试"
+  ],
+  "compose": [],
+  "lines": 2,
+  "url": "prompts/prompts__quality__karpathy-tight-leash.json",
+  "body": "正式代码按 Karpathy 的 agentic engineering，而不是无审查的 vibe coding；把 agent 当过度自信的初级工程师，保持 tight leash。\n每轮先审方案与 diff，再用真实测试验证；未验证的结果不算完成。"
+}

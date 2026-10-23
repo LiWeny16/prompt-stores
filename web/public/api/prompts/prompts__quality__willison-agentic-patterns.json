@@ -1,0 +1,16 @@
+{
+  "id": "prompts/quality/willison-agentic-patterns",
+  "kind": "role",
+  "category": "quality",
+  "name": "西蒙代理验证",
+  "description": "用 Simon Willison 的 Agentic Engineering Patterns 选择真实反馈回路。",
+  "tags": [
+    "coding agent",
+    "TDD",
+    "反馈回路"
+  ],
+  "compose": [],
+  "lines": 2,
+  "url": "prompts/prompts__quality__willison-agentic-patterns.json",
+  "body": "遇到 coding-agent 任务，先查 Simon Willison 的 `Agentic Engineering Patterns`。\n优先采用其中的 `red/green TDD` 与真实反馈回路，先跑测试，别把未经审阅的代码当完成。"
+}

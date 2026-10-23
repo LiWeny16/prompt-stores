@@ -1,0 +1,15 @@
+{
+  "id": "prompts/fullstack/tdd-loop",
+  "kind": "role",
+  "category": "fullstack",
+  "name": "TDD 循环",
+  "description": "先写失败测试再最小实现，按 mattpocock 的 tdd skill 推进",
+  "tags": [
+    "TDD",
+    "测试"
+  ],
+  "compose": [],
+  "lines": 3,
+  "url": "prompts/prompts__fullstack__tdd-loop.json",
+  "body": "用 mattpocock/skills 的 tdd skill。\n先写失败测试，再写最小实现。\n报告测试结果，不许跳过失败用例。"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "prompts/ai/copilot-prompt-file",
+  "kind": "role",
+  "category": "ai",
+  "name": "Prompt 文件规范",
+  "description": "prompt 文件应有输入、流程、输出、校验",
+  "tags": [
+    "prompt 文件",
+    "规范"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__ai__copilot-prompt-file.json",
+  "body": "按 awesome-copilot 的 prompt-file 规范重写：明确输入、workflow、output、validation，最小权限工具。"
+}

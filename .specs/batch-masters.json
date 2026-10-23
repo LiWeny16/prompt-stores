@@ -1,0 +1,89 @@
+{
+  "prompts": [
+    {
+      "id": "karpathy-tight-loop",
+      "name": "卡帕斯小步编码",
+      "category": "fullstack",
+      "tags": [
+        "AI编程",
+        "小步迭代",
+        "验证"
+      ],
+      "description": "把 Karpathy 的 AI 辅助编码节奏压缩为可执行指针。",
+      "body": "用 Karpathy 的 AI 辅助编码节奏：先用 `files-to-prompt` 补齐项目上下文，再让 agent 给出方案取舍。\n一次只做一个可审查的小改动；查文档、跑测试、提交后再进入下一轮。",
+      "source": "https://x.com/karpathy/status/1915581920022585597",
+      "license": "仅指路，未复制内容"
+    },
+    {
+      "id": "karpathy-tight-leash",
+      "name": "卡帕斯紧绳代理",
+      "category": "quality",
+      "tags": [
+        "agentic engineering",
+        "diff审查",
+        "测试"
+      ],
+      "description": "正式代码采用 agentic engineering，而不是无审查的 vibe coding。",
+      "body": "正式代码按 Karpathy 的 agentic engineering，而不是无审查的 vibe coding；把 agent 当过度自信的初级工程师，保持 tight leash。\n每轮先审方案与 diff，再用真实测试验证；未验证的结果不算完成。",
+      "source": "https://www.youtube.com/watch?v=96jN2OCOfLs",
+      "license": "仅指路，未复制内容"
+    },
+    {
+      "id": "matt-skills-init",
+      "name": "马特工程技能",
+      "category": "fullstack",
+      "tags": [
+        "skills",
+        "TypeScript",
+        "工程流程"
+      ],
+      "description": "用 Matt Pocock 的可组合 skills 初始化并推进工程任务。",
+      "body": "用 `find-skills` 定位 `mattpocock/skills`，先调用 `setup-matt-pocock-skills` 初始化项目。\n再按任务调用 `ask-matt`、`grill-with-docs`、`tdd`、`implement` 或 `code-review`，不要抄 skill 正文。",
+      "source": "https://github.com/mattpocock/skills",
+      "license": "MIT"
+    },
+    {
+      "id": "willison-context-first",
+      "name": "西蒙上下文编码",
+      "category": "ai",
+      "tags": [
+        "LLM",
+        "上下文",
+        "代码生成"
+      ],
+      "description": "按 Simon Willison 的实践，用上下文、示例和明确任务驾驭 LLM。",
+      "body": "按 Simon Willison 的 `using-llms-for-code`：先提供足够上下文与完整示例，再让 LLM 给选项并下达精确任务。\n把它当会犯错的 pair programmer；运行代码、测试结果，难点由人接管。",
+      "source": "https://simonwillison.net/2025/Mar/11/using-llms-for-code/",
+      "license": "仅指路，未复制内容"
+    },
+    {
+      "id": "willison-agentic-patterns",
+      "name": "西蒙代理验证",
+      "category": "quality",
+      "tags": [
+        "coding agent",
+        "TDD",
+        "反馈回路"
+      ],
+      "description": "用 Simon Willison 的 Agentic Engineering Patterns 选择真实反馈回路。",
+      "body": "遇到 coding-agent 任务，先查 Simon Willison 的 `Agentic Engineering Patterns`。\n优先采用其中的 `red/green TDD` 与真实反馈回路，先跑测试，别把未经审阅的代码当完成。",
+      "source": "https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/",
+      "license": "仅指路，未复制内容"
+    },
+    {
+      "id": "superpowers-flow",
+      "name": "Superpowers 开发闭环",
+      "category": "quality",
+      "tags": [
+        "skills",
+        "TDD",
+        "规划",
+        "交付"
+      ],
+      "description": "用 Superpowers 的阶段化 skills 管理从澄清到验收的开发闭环。",
+      "body": "用 `obra/superpowers` 的 skills 按阶段推进：`brainstorming` → `writing-plans` → `test-driven-development` → `verification-before-completion`。\n只加载当前阶段的 skill，按其入口调用，不把流程全文塞进 prompt。",
+      "source": "https://github.com/obra/superpowers",
+      "license": "MIT"
+    }
+  ]
+}

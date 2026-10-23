@@ -1,0 +1,15 @@
+{
+  "id": "prompts/ai/langgpt-structure",
+  "kind": "role",
+  "category": "ai",
+  "name": "LangGPT 结构化提示",
+  "description": "把长 prompt 压成 角色-目标-规则-流程 结构",
+  "tags": [
+    "结构化",
+    "元提示"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__ai__langgpt-structure.json",
+  "body": "用 LangGPT 范式重构这条 prompt：按 Role/Profile/Goal/Rules/Workflow 组织，只留必要模块并输出短版。"
+}

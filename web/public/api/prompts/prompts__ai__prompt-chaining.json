@@ -1,0 +1,15 @@
+{
+  "id": "prompts/ai/prompt-chaining",
+  "kind": "role",
+  "category": "ai",
+  "name": "Prompt Chaining 任务拆解",
+  "description": "拆成可单测的 prompt 链，降低错误面",
+  "tags": [
+    "任务拆解",
+    "工作流"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__ai__prompt-chaining.json",
+  "body": "用 dair-ai 的 Prompt Chaining 把【复杂任务】拆成可独立验收的子 prompt，并传递结构化中间结果。"
+}

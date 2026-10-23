@@ -1,0 +1,15 @@
+{
+  "id": "prompts/fullstack/init-project-with-skills",
+  "kind": "role",
+  "category": "fullstack",
+  "name": "用技能初始化项目",
+  "description": "用 find-skills 找到 matt-skills 并按它初始化项目",
+  "tags": [
+    "初始化",
+    "skill"
+  ],
+  "compose": [],
+  "lines": 3,
+  "url": "prompts/prompts__fullstack__init-project-with-skills.json",
+  "body": "用 find-skills 定位 matt-skills，用它初始化项目。\n按 skill 自带的验收标准自查，未过不许交付。\n不要复制技能内容，只按它执行。"
+}

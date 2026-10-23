@@ -1,0 +1,140 @@
+{
+  "prompts": [
+    {
+      "id": "bringup-fact-check",
+      "name": "板级 Bring-up 事实核对",
+      "category": "embedded",
+      "tags": [
+        "bringup",
+        "TRM",
+        "BSP",
+        "示波器"
+      ],
+      "description": "把上板排查从猜测切换为平台文档与波形证据。",
+      "body": "上板前按 SoC TRM、勘误、原理图、BSP/HAL 与启动日志建立事实表；再用示波器/逻辑分析仪核对时钟、复位、pinmux、供电和启动链，未知项标为假设并安排下一次实测。",
+      "source": "原创",
+      "license": "原创（未引用第三方正文）"
+    },
+    {
+      "id": "rtos-realtime-budget",
+      "name": "RTOS 实时性与资源预算",
+      "category": "embedded",
+      "tags": [
+        "RT-Thread",
+        "RTOS",
+        "WCET",
+        "trace"
+      ],
+      "description": "用运行证据审查调度、抖动、栈和 CPU 预算。",
+      "body": "实时性问题先查 RT-Thread/RTOS 调度与中断上下文文档，再用 trace、WCET/响应时间分析、栈/队列水位和 CPU 统计核对 deadline、抖动与优先级反转；禁止用加延时、加栈掩盖超预算。",
+      "source": "原创",
+      "license": "原创（未引用第三方正文）"
+    },
+    {
+      "id": "cross-core-ipc-contract",
+      "name": "跨核 IPC 契约",
+      "category": "embedded",
+      "tags": [
+        "IPC",
+        "多核",
+        "共享内存",
+        "rpmsg"
+      ],
+      "description": "把 MCU/DSP 多核通信从隐含约定变成可验证协议。",
+      "body": "跨核 IPC 先按 SoC TRM、mailbox/rpmsg/remoteproc 文档和协议 schema 固化版本、布局、长度、对齐、字节序、地址视图与 ownership；用序号/epoch 处理迟到重复消息，并按平台 cache/屏障 API 验证共享内存。",
+      "source": "原创",
+      "license": "原创（未引用第三方正文）"
+    },
+    {
+      "id": "dma-cache-consistency",
+      "name": "DMA 与 Cache 一致性定位",
+      "category": "embedded",
+      "tags": [
+        "DMA",
+        "Cache",
+        "descriptor",
+        "ARM"
+      ],
+      "description": "用平台契约和固定模式区分缓存、越界、描述符与带宽问题。",
+      "body": "DMA 异常按 ARM ARM、SoC TRM、BSP cache-maintenance API 与 descriptor 文档核对可达地址、cache-line 对齐、clean/invalidate 顺序、屏障和 buffer ownership；用固定模式、校验和与总线/带宽观测区分 cache、越界、descriptor 和饥饿。",
+      "source": "原创",
+      "license": "原创（未引用第三方正文）"
+    },
+    {
+      "id": "ota-ab-rollback",
+      "name": "OTA A/B 回滚验收",
+      "category": "embedded",
+      "tags": [
+        "OTA",
+        "A/B",
+        "bootloader",
+        "rollback"
+      ],
+      "description": "把升级成功定义为可恢复、可回滚和掉电可验证。",
+      "body": "OTA 先查 bootloader A/B、签名、单调版本与看门狗文档，画出 boot 状态机、确认点、失败计数和不可启动恢复路径；用掉电注入、断网、校验失败、降级与连续重启测试回滚证据。",
+      "source": "原创",
+      "license": "原创（未引用第三方正文）"
+    },
+    {
+      "id": "rtt-jtag-debug",
+      "name": "RTT/JTAG 低扰动调试",
+      "category": "embedded",
+      "tags": [
+        "RTT",
+        "JTAG",
+        "fault",
+        "trace"
+      ],
+      "description": "保留实时行为，用低侵入证据锁定首个异常。",
+      "body": "RTT/JTAG 调试按芯片 fault handler、JTAG/RTT、ETM/trace 文档保留可复现镜像与触发条件；用时间戳、硬件 watchpoint、故障寄存器和最小侵入 trace 锁定首个异常，不以单步通过替代实时复现。",
+      "source": "原创",
+      "license": "原创（未引用第三方正文）"
+    },
+    {
+      "id": "emc-power-debug",
+      "name": "EMC 与功耗相关定位",
+      "category": "embedded",
+      "tags": [
+        "EMC",
+        "功耗",
+        "近场探头",
+        "电源完整性"
+      ],
+      "description": "用频谱、电流时间窗和单变量对照定位板级异常。",
+      "body": "EMC/功耗异常按预一致性测试方法、近场探头、电源分析仪与示波器做频谱/电流时间相关；分别对照时钟边沿、回流/地弹、DC-DC、睡眠唤醒与负载切换，每次只改一项并保留波形。",
+      "source": "原创",
+      "license": "原创（未引用第三方正文）"
+    },
+    {
+      "id": "audio-chain-budget",
+      "name": "音频链路格式与抖动预算",
+      "category": "embedded",
+      "tags": [
+        "音频",
+        "I2S",
+        "TDM",
+        "DSP",
+        "underrun"
+      ],
+      "description": "沿 RK 音频数据路径验证格式、缓冲、欠载溢出和时钟预算。",
+      "body": "音频链路按 SoC I2S/TDM/PCM TRM、ALSA/ASoC、DSP pipeline 文档逐段核对采样率、有效/容器位宽、slot 映射、stride、交织与帧周期；用测试音、FIFO 水位、underrun/overrun、端到端延迟和最坏抖动预算验证 source→DSP→IPC→buffer→DMA→codec，不能以 RPC/DMA 成功代替出声。",
+      "source": "原创",
+      "license": "原创（未引用第三方正文）"
+    },
+    {
+      "id": "structured-task-contract",
+      "name": "结构化任务契约",
+      "category": "ai",
+      "tags": [
+        "LangGPT",
+        "structured-prompt",
+        "变量",
+        "验收"
+      ],
+      "description": "把复杂任务压成可复用、可检查的结构化提示词契约。",
+      "body": "用 LangGPT 的结构化/元提示词方法，把任务落到角色、目标、输入变量、约束、输出 schema 与验收条件；复杂流程再拆成可复用模块，先检查缺失变量与契约冲突再执行。",
+      "source": "https://github.com/langgptai/LangGPT",
+      "license": "Apache-2.0"
+    }
+  ]
+}

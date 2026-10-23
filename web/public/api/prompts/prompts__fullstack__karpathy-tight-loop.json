@@ -1,0 +1,16 @@
+{
+  "id": "prompts/fullstack/karpathy-tight-loop",
+  "kind": "role",
+  "category": "fullstack",
+  "name": "卡帕斯小步编码",
+  "description": "把 Karpathy 的 AI 辅助编码节奏压缩为可执行指针。",
+  "tags": [
+    "AI编程",
+    "小步迭代",
+    "验证"
+  ],
+  "compose": [],
+  "lines": 2,
+  "url": "prompts/prompts__fullstack__karpathy-tight-loop.json",
+  "body": "用 Karpathy 的 AI 辅助编码节奏：先用 `files-to-prompt` 补齐项目上下文，再让 agent 给出方案取舍。\n一次只做一个可审查的小改动；查文档、跑测试、提交后再进入下一轮。"
+}

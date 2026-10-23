@@ -1,0 +1,15 @@
+{
+  "id": "prompts/data/spreadsheet-analysis",
+  "kind": "role",
+  "category": "data",
+  "name": "表格分析",
+  "description": "先查表结构与数据质量，再安全改表",
+  "tags": [
+    "表格",
+    "数据"
+  ],
+  "compose": [],
+  "lines": 3,
+  "url": "prompts/prompts__data__spreadsheet-analysis.json",
+  "body": "用 anthropics/skills 的 spreadsheet skill。\n先检查表结构、公式与数据质量。\n按 skill 修改后复核关键单元格。"
+}

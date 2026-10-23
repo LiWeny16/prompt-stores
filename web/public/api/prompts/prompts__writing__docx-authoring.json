@@ -1,0 +1,15 @@
+{
+  "id": "prompts/writing/docx-authoring",
+  "kind": "role",
+  "category": "writing",
+  "name": "文档处理（docx）",
+  "description": "按官方 document skill 处理并校验文档文件",
+  "tags": [
+    "docx",
+    "文档"
+  ],
+  "compose": [],
+  "lines": 3,
+  "url": "prompts/prompts__writing__docx-authoring.json",
+  "body": "用 anthropics/skills 的 document skill 处理目标文档。\n先判定文档类型与目标格式，再按该 skill 生成。\n产出后按 skill 的校验步骤复核。"
+}

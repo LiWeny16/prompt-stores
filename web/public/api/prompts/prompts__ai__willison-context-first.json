@@ -1,0 +1,16 @@
+{
+  "id": "prompts/ai/willison-context-first",
+  "kind": "role",
+  "category": "ai",
+  "name": "西蒙上下文编码",
+  "description": "按 Simon Willison 的实践，用上下文、示例和明确任务驾驭 LLM。",
+  "tags": [
+    "LLM",
+    "上下文",
+    "代码生成"
+  ],
+  "compose": [],
+  "lines": 2,
+  "url": "prompts/prompts__ai__willison-context-first.json",
+  "body": "按 Simon Willison 的 `using-llms-for-code`：先提供足够上下文与完整示例，再让 LLM 给选项并下达精确任务。\n把它当会犯错的 pair programmer；运行代码、测试结果，难点由人接管。"
+}

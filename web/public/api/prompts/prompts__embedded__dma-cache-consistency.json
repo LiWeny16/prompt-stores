@@ -1,0 +1,17 @@
+{
+  "id": "prompts/embedded/dma-cache-consistency",
+  "kind": "role",
+  "category": "embedded",
+  "name": "DMA 与 Cache 一致性定位",
+  "description": "用平台契约和固定模式区分缓存、越界、描述符与带宽问题。",
+  "tags": [
+    "DMA",
+    "Cache",
+    "descriptor",
+    "ARM"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__embedded__dma-cache-consistency.json",
+  "body": "DMA 异常按 ARM ARM、SoC TRM、BSP cache-maintenance API 与 descriptor 文档核对可达地址、cache-line 对齐、clean/invalidate 顺序、屏障和 buffer ownership；用固定模式、校验和与总线/带宽观测区分 cache、越界、descriptor 和饥饿。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "prompts/quality/superpowers-flow",
+  "kind": "role",
+  "category": "quality",
+  "name": "Superpowers 开发闭环",
+  "description": "用 Superpowers 的阶段化 skills 管理从澄清到验收的开发闭环。",
+  "tags": [
+    "skills",
+    "TDD",
+    "规划",
+    "交付"
+  ],
+  "compose": [],
+  "lines": 2,
+  "url": "prompts/prompts__quality__superpowers-flow.json",
+  "body": "用 `obra/superpowers` 的 skills 按阶段推进：`brainstorming` → `writing-plans` → `test-driven-development` → `verification-before-completion`。\n只加载当前阶段的 skill，按其入口调用，不把流程全文塞进 prompt。"
+}

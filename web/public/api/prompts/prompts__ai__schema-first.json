@@ -1,0 +1,15 @@
+{
+  "id": "prompts/ai/schema-first",
+  "kind": "role",
+  "category": "ai",
+  "name": "Schema-first 结构化输出",
+  "description": "先约束字段类型再生成可解析结果",
+  "tags": [
+    "结构化",
+    "Schema"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__ai__schema-first.json",
+  "body": "用 schema-first 思路：先定义字段、类型、缺省与错误语义，再生成可解析结果。"
+}

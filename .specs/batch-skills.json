@@ -1,0 +1,121 @@
+{
+  "prompts": [
+    {
+      "id": "init-project-with-skills",
+      "name": "用技能初始化项目",
+      "category": "fullstack",
+      "tags": [
+        "初始化",
+        "skill"
+      ],
+      "description": "用 find-skills 找到 matt-skills 并按它初始化项目",
+      "body": "用 find-skills 定位 matt-skills，用它初始化项目。\n按 skill 自带的验收标准自查，未过不许交付。\n不要复制技能内容，只按它执行。",
+      "source": "https://github.com/vercel-labs/skills",
+      "license": "MIT"
+    },
+    {
+      "id": "find-and-install-skill",
+      "name": "定位并安装技能",
+      "category": "general",
+      "tags": [
+        "skill",
+        "发现"
+      ],
+      "description": "按任务关键词用 find-skills 找并装合适的 skill，不复制技能内容",
+      "body": "用 vercel-labs/skills 的 find-skills 按任务关键词找 skill。\n选可信来源，npx skills add 安装后按它执行。\n不要复制或展开技能内容。",
+      "source": "https://github.com/vercel-labs/skills",
+      "license": "MIT"
+    },
+    {
+      "id": "tdd-loop",
+      "name": "TDD 循环",
+      "category": "fullstack",
+      "tags": [
+        "TDD",
+        "测试"
+      ],
+      "description": "先写失败测试再最小实现，按 mattpocock 的 tdd skill 推进",
+      "body": "用 mattpocock/skills 的 tdd skill。\n先写失败测试，再写最小实现。\n报告测试结果，不许跳过失败用例。",
+      "source": "https://github.com/mattpocock/skills",
+      "license": "MIT"
+    },
+    {
+      "id": "systematic-debugging",
+      "name": "系统化调试",
+      "category": "quality",
+      "tags": [
+        "调试",
+        "根因"
+      ],
+      "description": "先复现和定位根因再修，禁止猜测式补丁",
+      "body": "用 obra/superpowers 的 systematic-debugging skill。\n先复现并定位根因，再动手改。\n禁止用猜测式补丁或加大重试掩盖问题。",
+      "source": "https://github.com/obra/superpowers",
+      "license": "MIT"
+    },
+    {
+      "id": "improve-architecture",
+      "name": "架构改进",
+      "category": "fullstack",
+      "tags": [
+        "架构",
+        "重构"
+      ],
+      "description": "读清现有边界后给最小可落地的架构改动",
+      "body": "用 mattpocock/skills 的 improve-codebase-architecture skill。\n先读现有约束、边界与调用链。\n只输出最小、可回退的改动方案。",
+      "source": "https://github.com/mattpocock/skills",
+      "license": "MIT"
+    },
+    {
+      "id": "docx-authoring",
+      "name": "文档处理（docx）",
+      "category": "writing",
+      "tags": [
+        "docx",
+        "文档"
+      ],
+      "description": "按官方 document skill 处理并校验文档文件",
+      "body": "用 anthropics/skills 的 document skill 处理目标文档。\n先判定文档类型与目标格式，再按该 skill 生成。\n产出后按 skill 的校验步骤复核。",
+      "source": "https://github.com/anthropics/skills",
+      "license": "仅指路，未复制内容"
+    },
+    {
+      "id": "spreadsheet-analysis",
+      "name": "表格分析",
+      "category": "data",
+      "tags": [
+        "表格",
+        "数据"
+      ],
+      "description": "先查表结构与数据质量，再安全改表",
+      "body": "用 anthropics/skills 的 spreadsheet skill。\n先检查表结构、公式与数据质量。\n按 skill 修改后复核关键单元格。",
+      "source": "https://github.com/anthropics/skills",
+      "license": "仅指路，未复制内容"
+    },
+    {
+      "id": "skill-router",
+      "name": "技能路由",
+      "category": "ai",
+      "tags": [
+        "路由",
+        "规划"
+      ],
+      "description": "让 ask-matt 只推荐 skill 序列，不展开执行",
+      "body": "用 mattpocock/skills 的 ask-matt skill 做路由。\n给出处境、目标与限制，只要 skill 或 skill 序列建议。\n不要让它展开执行细节。",
+      "source": "https://github.com/mattpocock/skills",
+      "license": "MIT"
+    },
+    {
+      "id": "code-review-matt",
+      "name": "代码审查（变更向）",
+      "category": "quality",
+      "tags": [
+        "审查",
+        "风险"
+      ],
+      "description": "从变更目标与风险面切入，只报可证据化的问题",
+      "body": "用 mattpocock/skills 的 code-review skill。\n从变更目标与风险面切入，不要逐行复述代码。\n只报能举证的缺陷，并标严重度。",
+      "source": "https://github.com/mattpocock/skills",
+      "license": "MIT"
+    }
+  ]
+}

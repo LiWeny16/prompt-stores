@@ -1,0 +1,16 @@
+{
+  "id": "prompts/quality/promptfoo-eval",
+  "kind": "role",
+  "category": "quality",
+  "name": "Promptfoo 评测闭环",
+  "description": "为 prompt 建通过标准、反例与回归",
+  "tags": [
+    "评测",
+    "回归",
+    "红队"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__quality__promptfoo-eval.json",
+  "body": "用 promptfoo 为这条 prompt 建最小 eval：通过标准、边界/攻击样例、回归比较；只保留更好的版本。"
+}

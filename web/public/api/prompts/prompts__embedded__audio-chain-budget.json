@@ -1,0 +1,18 @@
+{
+  "id": "prompts/embedded/audio-chain-budget",
+  "kind": "role",
+  "category": "embedded",
+  "name": "音频链路格式与抖动预算",
+  "description": "沿 RK 音频数据路径验证格式、缓冲、欠载溢出和时钟预算。",
+  "tags": [
+    "音频",
+    "I2S",
+    "TDM",
+    "DSP",
+    "underrun"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__embedded__audio-chain-budget.json",
+  "body": "音频链路按 SoC I2S/TDM/PCM TRM、ALSA/ASoC、DSP pipeline 文档逐段核对采样率、有效/容器位宽、slot 映射、stride、交织与帧周期；用测试音、FIFO 水位、underrun/overrun、端到端延迟和最坏抖动预算验证 source→DSP→IPC→buffer→DMA→codec，不能以 RPC/DMA 成功代替出声。"
+}

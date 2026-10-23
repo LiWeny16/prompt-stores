@@ -1,0 +1,15 @@
+{
+  "id": "prompts/quality/self-consistency",
+  "kind": "role",
+  "category": "quality",
+  "name": "Self-Consistency 多路径校验",
+  "description": "多路径独立求解后按一致性选答案",
+  "tags": [
+    "可靠性",
+    "自洽"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__quality__self-consistency.json",
+  "body": "对高风险推理用 Self-Consistency：比较多条独立解法，按一致性选答案，并报告不确定性。"
+}

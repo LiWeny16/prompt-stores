@@ -1,0 +1,15 @@
+{
+  "id": "prompts/ai/tree-of-thoughts",
+  "kind": "role",
+  "category": "ai",
+  "name": "Tree of Thoughts 方案搜索",
+  "description": "复杂决策中保留候选、评估与回溯",
+  "tags": [
+    "推理",
+    "方案比较"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__ai__tree-of-thoughts.json",
+  "body": "用 Tree of Thoughts 处理【问题】：生成少量候选路径，按明确标准评估，必要时回溯。"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "prompts/embedded/emc-power-debug",
+  "kind": "role",
+  "category": "embedded",
+  "name": "EMC 与功耗相关定位",
+  "description": "用频谱、电流时间窗和单变量对照定位板级异常。",
+  "tags": [
+    "EMC",
+    "功耗",
+    "近场探头",
+    "电源完整性"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__embedded__emc-power-debug.json",
+  "body": "EMC/功耗异常按预一致性测试方法、近场探头、电源分析仪与示波器做频谱/电流时间相关；分别对照时钟边沿、回流/地弹、DC-DC、睡眠唤醒与负载切换，每次只改一项并保留波形。"
+}

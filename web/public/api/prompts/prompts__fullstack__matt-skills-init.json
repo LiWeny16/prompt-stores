@@ -1,0 +1,16 @@
+{
+  "id": "prompts/fullstack/matt-skills-init",
+  "kind": "role",
+  "category": "fullstack",
+  "name": "马特工程技能",
+  "description": "用 Matt Pocock 的可组合 skills 初始化并推进工程任务。",
+  "tags": [
+    "skills",
+    "TypeScript",
+    "工程流程"
+  ],
+  "compose": [],
+  "lines": 2,
+  "url": "prompts/prompts__fullstack__matt-skills-init.json",
+  "body": "用 `find-skills` 定位 `mattpocock/skills`，先调用 `setup-matt-pocock-skills` 初始化项目。\n再按任务调用 `ask-matt`、`grill-with-docs`、`tdd`、`implement` 或 `code-review`，不要抄 skill 正文。"
+}

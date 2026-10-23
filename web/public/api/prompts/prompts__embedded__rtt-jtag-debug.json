@@ -1,0 +1,17 @@
+{
+  "id": "prompts/embedded/rtt-jtag-debug",
+  "kind": "role",
+  "category": "embedded",
+  "name": "RTT/JTAG 低扰动调试",
+  "description": "保留实时行为，用低侵入证据锁定首个异常。",
+  "tags": [
+    "RTT",
+    "JTAG",
+    "fault",
+    "trace"
+  ],
+  "compose": [],
+  "lines": 1,
+  "url": "prompts/prompts__embedded__rtt-jtag-debug.json",
+  "body": "RTT/JTAG 调试按芯片 fault handler、JTAG/RTT、ETM/trace 文档保留可复现镜像与触发条件；用时间戳、硬件 watchpoint、故障寄存器和最小侵入 trace 锁定首个异常，不以单步通过替代实时复现。"
+}
