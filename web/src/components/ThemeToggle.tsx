@@ -1,10 +1,22 @@
-import { useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 
 /** 明暗切换：index.html 已在首帧前定好初始值，这里只做切换与持久化 */
 export function ThemeToggle() {
   const [dark, setDark] = useState(() => document.documentElement.classList.contains('dark'));
+
+  // 其他标签页切换主题时保持同步
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      if (e.key !== 'ps-theme') return;
+      const next = e.newValue === 'dark';
+      setDark(next);
+      document.documentElement.classList.toggle('dark', next);
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
 
   const toggle = () => {
     const next = !dark;

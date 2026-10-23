@@ -48,7 +48,3 @@ export function isCatId(id: string | undefined): id is string {
 export function catLabel(id: string): string {
   return CATS.find((c) => c.id === id)?.label ?? id;
 }
-
-export function catHref(id: string): string {
-  return id === 'all' ? '/' : `/c/${id}`;
-}

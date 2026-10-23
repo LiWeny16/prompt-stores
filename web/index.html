@@ -6,7 +6,7 @@
     <meta name="description" content="个人提示词仓库：角色 × 模块组合，分类浏览、搜索、一键复制。" />
     <title>Prompt Stores</title>
     <script>
-      // 主题在首帧前确定，避免闪白（localStorage 优先，其次跟随系统）
+      // 主题在首帧前确定，避免闪白
       (function () {
         try {
           var t = localStorage.getItem('ps-theme');
@@ -15,9 +15,61 @@
         } catch (e) {}
       })();
     </script>
+    <style>
+      /* 首屏关键样式：让骨架屏在 JS 到达前就能正确绘制（避免白屏与样式跳动） */
+      :root { --bg: #fff; --fg: #18181b; --muted: #f4f4f5; --line: #e4e4e7; --mfg: #71717a; }
+      html.dark { --bg: #0a0a0a; --fg: #fafafa; --muted: #18181b; --line: #27272a; --mfg: #a1a1aa; }
+      html { color-scheme: light; background: var(--bg); scrollbar-gutter: stable; }
+      html.dark { color-scheme: dark; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+          'Microsoft YaHei', Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      #boot { max-width: 1152px; margin: 0 auto; padding: 0 16px; }
+      #boot .b-hd { display: flex; align-items: center; gap: 10px; height: 56px; border-bottom: 1px solid var(--line); }
+      #boot .b-logo { width: 20px; height: 20px; border-radius: 6px; background: var(--fg); }
+      #boot .b-bar { flex: 1; max-width: 420px; height: 34px; margin: 0 auto; border-radius: 8px; background: var(--muted); }
+      #boot .b-row { display: flex; gap: 10px; padding-top: 16px; }
+      #boot .b-chip { height: 30px; border-radius: 999px; background: var(--muted); }
+      #boot .b-grid { display: grid; gap: 12px; padding-top: 18px; grid-template-columns: 1fr; }
+      #boot .b-card { height: 144px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); }
+      @media (min-width: 640px) { #boot .b-grid { grid-template-columns: 1fr 1fr; } }
+      @media (min-width: 1280px) { #boot .b-grid { grid-template-columns: 1fr 1fr 1fr; } }
+      @media (prefers-reduced-motion: no-preference) {
+        #boot .b-card { animation: b-pulse 1.4s ease-in-out infinite; }
+        @keyframes b-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- 骨架屏：React 挂载后会被整体替换，仅在 JS 下载/解析期间占位 -->
+      <div id="boot" aria-hidden="true">
+        <div class="b-hd">
+          <div class="b-logo"></div>
+          <div class="b-bar"></div>
+          <div class="b-logo" style="opacity: 0.3"></div>
+        </div>
+        <div class="b-row">
+          <div class="b-chip" style="width: 62px"></div>
+          <div class="b-chip" style="width: 96px"></div>
+          <div class="b-chip" style="width: 78px"></div>
+          <div class="b-chip" style="width: 56px"></div>
+        </div>
+        <div class="b-grid">
+          <div class="b-card"></div>
+          <div class="b-card"></div>
+          <div class="b-card"></div>
+          <div class="b-card"></div>
+          <div class="b-card"></div>
+          <div class="b-card"></div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

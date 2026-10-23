@@ -7,6 +7,13 @@ export default defineConfig({
   base: '/prompt-stores/',
   plugins: [react(), tailwindcss()],
   resolve: {
-    alias: { '@': '/src' },
+    alias: {
+      // Preact 作为 React 兼容运行时：代码零改动，包体从 ~60KB gzip 降到 ~12KB
+      react: 'preact/compat',
+      'react-dom': 'preact/compat',
+      'react-dom/client': 'preact/compat/client',
+      'react/jsx-runtime': 'preact/jsx-runtime',
+      '@': '/src',
+    },
   },
 });
