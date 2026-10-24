@@ -90,6 +90,33 @@ function extractBody(text, file) {
   return m[2].replace(/\r\n/g, '\n').trimEnd();
 }
 
+/**
+ * 已知技能包：正文提到即视为依赖，并给出可复制的安装命令。
+ * 只收录核实过的仓库，避免误判。
+ */
+const SKILL_PACKS = [
+  { key: 'mattpocock/skills', bin: 'matt-skills', install: 'npx skills add mattpocock/skills', skills: ['tdd', 'code-review', 'ask-matt', 'grill-with-docs', 'improve-codebase-architecture', 'implement', 'setup-matt-pocock-skills'] },
+  { key: 'obra/superpowers', bin: 'superpowers', install: 'npx skills add obra/superpowers', skills: ['brainstorming', 'writing-plans', 'executing-plans', 'test-driven-development', 'verification-before-completion', 'systematic-debugging', 'subagent-driven-development', 'requesting-code-review', 'using-git-worktrees'] },
+  { key: 'vercel-labs/skills', bin: 'find-skills', install: 'npx skills add vercel-labs/skills', skills: ['find-skills'] },
+  { key: 'anthropics/skills', bin: 'document', install: 'npx skills add anthropics/skills', skills: ['document', 'spreadsheet'] },
+  { key: 'github/spec-kit', bin: 'spec-kit', install: 'npx skills add github/spec-kit', skills: [] },
+];
+
+/** 找出正文依赖的技能包（只认白名单，避免把普通代码标记误判为依赖） */
+function extractRequires(body) {
+  const hit = [];
+  for (const pack of SKILL_PACKS) {
+    const refs = new Set();
+    if (body.includes(pack.key)) refs.add(pack.bin);
+    for (const sk of pack.skills) {
+      const bt = String.fromCharCode(96); // 反引号（避开转义问题）
+      if (body.includes(bt + sk + bt) || body.includes(sk + ' skill')) refs.add(sk);
+    }
+    if (refs.size) hit.push({ pack: pack.key, install: pack.install, skills: [...refs] });
+  }
+  return hit;
+}
+
 /** 抽取正文里需要用户填写的占位符：【xxx】 与 {{xxx}} */
 function extractVars(body) {
   const out = new Set();
@@ -266,6 +293,7 @@ const metaOf = (it) => ({
   lines: it.body.split('\n').length,
   updated: it.kind === 'combo' ? TODAY : dayOf(GIT_DATES.get(it.file)),
   vars: extractVars(it.body),
+  requires: extractRequires(it.body),
   ...(it.file ? { file: it.file } : {}),
   ...(it.roleId ? { roleId: it.roleId } : {}),
   ...(it.graph ? { graph: it.graph } : {}),
@@ -283,18 +311,7 @@ if (existsSync(P.api)) rmSync(P.api, { recursive: true, force: true });
 mkdirSync(join(P.api, 'prompts'), { recursive: true });
 
 const slug = (id) => id.replace(/\//g, '__');
-const meta = (it) => ({
-  id: it.id,
-  kind: it.kind,
-  category: it.category,
-  name: it.name,
-  description: it.description,
-  tags: it.tags,
-  compose: it.compose,
-  lines: it.body.split('\n').length,
-  url: `prompts/${slug(it.id)}.json`,
-  ...(it.origin === 'vendor' ? { origin: 'vendor', source: it.source, license: it.license } : {}),
-});
+const meta = metaOf;
 
 writeFileSync(
   join(P.api, 'index.json'),

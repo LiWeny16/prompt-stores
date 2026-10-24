@@ -12,4 +12,5 @@ license: 仅指路，未复制内容
 ````text
 按 Simon Willison 的 `using-llms-for-code`：先提供足够上下文与完整示例，再让 LLM 给选项并下达精确任务。
 把它当会犯错的 pair programmer；运行代码、测试结果，难点由人接管。
+完成后说明依据来源与不确定处，不许把推测当结论。
 ````

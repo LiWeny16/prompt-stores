@@ -10,7 +10,13 @@
     "验收"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 1,
-  "url": "prompts/prompts__ai__subagent-dispatch.json",
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/ai/subagent-dispatch.md",
+  "license": "MIT",
+  "source": "https://github.com/obra/superpowers",
   "body": "按 subagent-driven-development 派发独立可验收任务：要求回报改动与证据，先验规格符合性再验代码质量。"
 }

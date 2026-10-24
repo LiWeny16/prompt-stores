@@ -11,7 +11,13 @@
     "rollback"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 1,
-  "url": "prompts/prompts__embedded__ota-ab-rollback.json",
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/embedded/ota-ab-rollback.md",
+  "license": "原创（未引用第三方正文）",
+  "source": "原创",
   "body": "OTA 先查 bootloader A/B、签名、单调版本与看门狗文档，画出 boot 状态机、确认点、失败计数和不可启动恢复路径；用掉电注入、断网、校验失败、降级与连续重启测试回滚证据。"
 }

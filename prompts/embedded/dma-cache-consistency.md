@@ -11,4 +11,5 @@ license: 原创（未引用第三方正文）
 
 ````text
 DMA 异常按 ARM ARM、SoC TRM、BSP cache-maintenance API 与 descriptor 文档核对可达地址、cache-line 对齐、clean/invalidate 顺序、屏障和 buffer ownership；用固定模式、校验和与总线/带宽观测区分 cache、越界、descriptor 和饥饿。
+完成后附实测证据（日志、计数器、波形或读数），只有文档推导不算通过。
 ````

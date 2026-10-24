@@ -11,4 +11,5 @@ license: Apache-2.0
 
 ````text
 用 LangGPT 范式重构这条 prompt：按 Role/Profile/Goal/Rules/Workflow 组织，只留必要模块并输出短版。
+完成后说明依据来源与不确定处，不许把推测当结论。
 ````

@@ -49,6 +49,9 @@ const resolveModule = (id) => byId.get(id) ?? byId.get(`modules/${id}`);
 
 /* ---------------- 工具实现 ---------------- */
 
+/** 工具执行失败：以 isError 返回，而不是伪装成成功 */
+class ToolError extends Error {}
+
 const TOOLS = [
   {
     name: 'search_prompts',
@@ -132,25 +135,27 @@ function search({ query = '', kind, category, limit = 20 }) {
 
 function get(ref) {
   const item = pick(ref);
-  if (!item) return { error: `未找到：${ref}` };
+  if (!item) throw new ToolError(`未找到：${ref}`);
   return { ...meta(item), body: loadBody(item), ...(item.mermaid ? { mermaid: item.mermaid } : {}) };
 }
 
 function compose({ role, modules = [] }) {
   const r = pick(role);
-  if (!r) return { error: `未找到角色：${role}` };
+  if (!r) throw new ToolError(`未找到角色：${role}`);
+  if (r.kind !== 'role') throw new ToolError(`"${r.name}" 不是角色（kind=${r.kind}），不能作为组合主体`);
   const mods = [];
   const missing = [];
   for (const ref of modules) {
     const m = pick(ref);
-    if (m) mods.push(m);
-    else missing.push(ref);
+    if (!m) missing.push(ref);
+    else if (m.kind !== 'module') throw new ToolError(`"${m.name}" 不是模块（kind=${m.kind}）`);
+    else mods.push(m);
   }
+  if (missing.length) throw new ToolError(`模块不存在：${missing.join(', ')}`);
   const parts = [loadBody(r), ...mods.map(loadBody)].filter(Boolean);
   return {
     role: meta(r),
     modules: mods.map(meta),
-    ...(missing.length ? { missing } : {}),
     lines: parts.join('\n\n').split('\n').length,
     prompt: parts.join('\n\n'),
   };
@@ -175,12 +180,17 @@ function handle(msg) {
   const fail = (code, message) => ({ jsonrpc: '2.0', id, error: { code, message } });
 
   switch (method) {
-    case 'initialize':
+    case 'initialize': {
+      // 只在双方交集里选版本；客户端版本不被支持时回落到我们支持的最新版
+      const SUPPORTED = ['2025-06-18', '2025-03-26', '2024-11-05'];
+      const asked = params?.protocolVersion;
+      const version = SUPPORTED.includes(asked) ? asked : SUPPORTED[0];
       return ok({
-        protocolVersion: params?.protocolVersion ?? '2024-11-05',
+        protocolVersion: version,
         capabilities: { tools: {} },
         serverInfo: { name: 'prompt-stores', version: '1.0.0' },
       });
+    }
     case 'notifications/initialized':
       return null;
     case 'ping':
@@ -197,7 +207,8 @@ function handle(msg) {
         if (name === 'list_categories') return ok(text(categories()));
         return fail(-32601, `未知工具：${name}`);
       } catch (e) {
-        return ok({ content: [{ type: 'text', text: `执行失败：${e instanceof Error ? e.message : String(e)}` }], isError: true });
+        const msg = e instanceof ToolError ? e.message : `执行失败：${e instanceof Error ? e.message : String(e)}`;
+        return ok({ content: [{ type: 'text', text: msg }], isError: true });
       }
     }
     default:

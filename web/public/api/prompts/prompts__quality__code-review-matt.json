@@ -9,7 +9,22 @@
     "风险"
   ],
   "compose": [],
-  "lines": 3,
-  "url": "prompts/prompts__quality__code-review-matt.json",
-  "body": "用 mattpocock/skills 的 code-review skill。\n从变更目标与风险面切入，不要逐行复述代码。\n只报能举证的缺陷，并标严重度。"
+  "origin": "builtin",
+  "lines": 4,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [
+    {
+      "pack": "mattpocock/skills",
+      "install": "npx skills add mattpocock/skills",
+      "skills": [
+        "matt-skills",
+        "code-review"
+      ]
+    }
+  ],
+  "file": "prompts/quality/code-review-matt.md",
+  "license": "MIT",
+  "source": "https://github.com/mattpocock/skills",
+  "body": "用 mattpocock/skills 的 code-review skill。\n从变更目标与风险面切入，不要逐行复述代码。\n只报能举证的缺陷，并标严重度。\n完成后给出实际证据（命令、测试输出或日志），未验证的问题不许当作已修复。"
 }

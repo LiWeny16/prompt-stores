@@ -9,7 +9,13 @@
     "元提示"
   ],
   "compose": [],
-  "lines": 1,
-  "url": "prompts/prompts__ai__langgpt-structure.json",
-  "body": "用 LangGPT 范式重构这条 prompt：按 Role/Profile/Goal/Rules/Workflow 组织，只留必要模块并输出短版。"
+  "origin": "builtin",
+  "lines": 2,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/ai/langgpt-structure.md",
+  "license": "Apache-2.0",
+  "source": "https://github.com/langgptai/LangGPT",
+  "body": "用 LangGPT 范式重构这条 prompt：按 Role/Profile/Goal/Rules/Workflow 组织，只留必要模块并输出短版。\n完成后说明依据来源与不确定处，不许把推测当结论。"
 }

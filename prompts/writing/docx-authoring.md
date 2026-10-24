@@ -13,4 +13,5 @@ license: 仅指路，未复制内容
 用 anthropics/skills 的 document skill 处理目标文档。
 先判定文档类型与目标格式，再按该 skill 生成。
 产出后按 skill 的校验步骤复核。
+完成后给出改动清单与原意不变的自检结论。
 ````

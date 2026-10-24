@@ -11,7 +11,13 @@
     "电源完整性"
   ],
   "compose": [],
-  "lines": 1,
-  "url": "prompts/prompts__embedded__emc-power-debug.json",
-  "body": "EMC/功耗异常按预一致性测试方法、近场探头、电源分析仪与示波器做频谱/电流时间相关；分别对照时钟边沿、回流/地弹、DC-DC、睡眠唤醒与负载切换，每次只改一项并保留波形。"
+  "origin": "builtin",
+  "lines": 2,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/embedded/emc-power-debug.md",
+  "license": "原创（未引用第三方正文）",
+  "source": "原创",
+  "body": "EMC/功耗异常按预一致性测试方法、近场探头、电源分析仪与示波器做频谱/电流时间相关；分别对照时钟边沿、回流/地弹、DC-DC、睡眠唤醒与负载切换，每次只改一项并保留波形。\n完成后附实测证据（日志、计数器、波形或读数），只有文档推导不算通过。"
 }

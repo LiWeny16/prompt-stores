@@ -11,4 +11,5 @@ license: MIT
 
 ````text
 按 github/spec-kit 的 Specify → Clarify → Plan → Tasks → Implement → Converge 推进，每阶段产物是下一阶段的输入。
+完成后报告改了什么、怎么验证的（命令与结果），未跑通不算完成。
 ````

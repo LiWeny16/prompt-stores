@@ -9,7 +9,13 @@
     "复盘"
   ],
   "compose": [],
-  "lines": 1,
-  "url": "prompts/prompts__ai__reflexion.json",
-  "body": "用 Reflexion：让 Agent 评估失败、写出可执行文字复盘，并把复盘用于下一轮。"
+  "origin": "builtin",
+  "lines": 2,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/ai/reflexion.md",
+  "license": "MIT",
+  "source": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+  "body": "用 Reflexion：让 Agent 评估失败、写出可执行文字复盘，并把复盘用于下一轮。\n完成后说明依据来源与不确定处，不许把推测当结论。"
 }

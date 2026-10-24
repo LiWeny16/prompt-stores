@@ -9,7 +9,15 @@
     "工具调用"
   ],
   "compose": [],
-  "lines": 1,
-  "url": "prompts/prompts__ai__react-tool-task.json",
-  "body": "用 ReAct（reasoning-action-observation）处理【任务】：每轮行动由最新观察驱动，最后给可验证结论。"
+  "origin": "builtin",
+  "lines": 2,
+  "updated": "2026-10-23",
+  "vars": [
+    "任务"
+  ],
+  "requires": [],
+  "file": "prompts/ai/react-tool-task.md",
+  "license": "MIT",
+  "source": "https://github.com/ysymyth/ReAct",
+  "body": "用 ReAct（reasoning-action-observation）处理【任务】：每轮行动由最新观察驱动，最后给可验证结论。\n完成后说明依据来源与不确定处，不许把推测当结论。"
 }

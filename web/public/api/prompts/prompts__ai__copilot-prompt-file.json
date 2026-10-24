@@ -9,7 +9,13 @@
     "规范"
   ],
   "compose": [],
-  "lines": 1,
-  "url": "prompts/prompts__ai__copilot-prompt-file.json",
-  "body": "按 awesome-copilot 的 prompt-file 规范重写：明确输入、workflow、output、validation，最小权限工具。"
+  "origin": "builtin",
+  "lines": 2,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/ai/copilot-prompt-file.md",
+  "license": "MIT",
+  "source": "https://github.com/github/awesome-copilot",
+  "body": "按 awesome-copilot 的 prompt-file 规范重写：明确输入、workflow、output、validation，最小权限工具。\n完成后说明依据来源与不确定处，不许把推测当结论。"
 }

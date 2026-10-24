@@ -13,4 +13,5 @@ license: MIT
 用 mattpocock/skills 的 improve-codebase-architecture skill。
 先读现有约束、边界与调用链。
 只输出最小、可回退的改动方案。
+完成后报告改了什么、怎么验证的（命令与结果），未跑通不算完成。
 ````

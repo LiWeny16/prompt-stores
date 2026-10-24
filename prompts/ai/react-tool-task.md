@@ -11,4 +11,5 @@ license: MIT
 
 ````text
 用 ReAct（reasoning-action-observation）处理【任务】：每轮行动由最新观察驱动，最后给可验证结论。
+完成后说明依据来源与不确定处，不许把推测当结论。
 ````

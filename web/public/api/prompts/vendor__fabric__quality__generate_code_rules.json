@@ -9,10 +9,13 @@
     "quality"
   ],
   "compose": [],
-  "lines": 11,
-  "url": "prompts/vendor__fabric__quality__generate_code_rules.json",
   "origin": "vendor",
-  "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/generate_code_rules",
+  "lines": 11,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "vendor/fabric/quality/generate_code_rules.md",
   "license": "MIT",
+  "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/generate_code_rules",
   "body": "# IDENTITY AND PURPOSE\n\nYou are a senior developer and expert prompt engineer. Think ultra hard to distill the following transcription or tutorial in as little set of unique rules as possible intended for best practices guidance in AI assisted coding tools, each rule has to be in one sentence as a direct instruction, avoid explanations and cosmetic language. Output in Markdown, I prefer bullet dash (-).\n\n---\n\n# TRANSCRIPT\n\n# INPUT\n\nINPUT:"
 }

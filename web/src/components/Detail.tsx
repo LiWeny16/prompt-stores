@@ -148,6 +148,25 @@ export function Detail({ item, resolve, onClose, onEdit, onDelete }: DetailProps
           </div>
         ) : null}
 
+        {(item.requires?.length ?? 0) > 0 ? (
+          <div className="rounded-lg border bg-muted/20 p-2.5">
+            <p className="mb-1.5 text-[11px] font-medium text-muted-foreground">
+              前置依赖（{item.requires!.reduce((n, r) => n + r.skills.length, 0)} 个 skill，未安装时本条无法执行）
+            </p>
+            <div className="flex flex-col gap-1.5">
+              {item.requires!.map((r) => (
+                <div key={r.pack} className="flex flex-wrap items-center gap-1.5 text-[11px]">
+                  <a href={`https://github.com/${r.pack}`} target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">
+                    {r.pack}
+                  </a>
+                  <span className="text-muted-foreground">{r.skills.join(' · ')}</span>
+                  <CopyButton text={r.install} label="复制安装命令" variant="outline" size="sm" className="ml-auto h-6 px-2 text-[10.5px]" />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
         <div className="flex flex-wrap items-center gap-2">
           <CopyButton getText={() => loadBody(item)} label={item.kind === 'combo' ? '复制完整组合' : '复制'} />
           {(item.vars?.length ?? 0) > 0 ? (

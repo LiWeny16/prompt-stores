@@ -13,4 +13,5 @@ license: 仅指路，未复制内容
 用 anthropics/skills 的 spreadsheet skill。
 先检查表结构、公式与数据质量。
 按 skill 修改后复核关键单元格。
+完成后附校验结果（行数、字段、抽样比对），对不上不算完成。
 ````

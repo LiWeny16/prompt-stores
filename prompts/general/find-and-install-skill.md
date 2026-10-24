@@ -13,4 +13,5 @@ license: MIT
 用 vercel-labs/skills 的 find-skills 按任务关键词找 skill。
 选可信来源，npx skills add 安装后按它执行。
 不要复制或展开技能内容。
+完成后给出实际证据与仍未解决的部分。
 ````

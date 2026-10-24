@@ -11,4 +11,5 @@ license: 原创（未引用第三方正文）
 
 ````text
 跨核 IPC 先按 SoC TRM、mailbox/rpmsg/remoteproc 文档和协议 schema 固化版本、布局、长度、对齐、字节序、地址视图与 ownership；用序号/epoch 处理迟到重复消息，并按平台 cache/屏障 API 验证共享内存。
+完成后附实测证据（日志、计数器、波形或读数），只有文档推导不算通过。
 ````

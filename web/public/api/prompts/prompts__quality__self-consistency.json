@@ -9,7 +9,13 @@
     "自洽"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 1,
-  "url": "prompts/prompts__quality__self-consistency.json",
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/quality/self-consistency.md",
+  "license": "MIT",
+  "source": "https://github.com/dair-ai/Prompt-Engineering-Guide",
   "body": "对高风险推理用 Self-Consistency：比较多条独立解法，按一致性选答案，并报告不确定性。"
 }

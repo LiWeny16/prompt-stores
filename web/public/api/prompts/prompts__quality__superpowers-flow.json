@@ -11,7 +11,25 @@
     "交付"
   ],
   "compose": [],
-  "lines": 2,
-  "url": "prompts/prompts__quality__superpowers-flow.json",
-  "body": "用 `obra/superpowers` 的 skills 按阶段推进：`brainstorming` → `writing-plans` → `test-driven-development` → `verification-before-completion`。\n只加载当前阶段的 skill，按其入口调用，不把流程全文塞进 prompt。"
+  "origin": "builtin",
+  "lines": 3,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [
+    {
+      "pack": "obra/superpowers",
+      "install": "npx skills add obra/superpowers",
+      "skills": [
+        "superpowers",
+        "brainstorming",
+        "writing-plans",
+        "test-driven-development",
+        "verification-before-completion"
+      ]
+    }
+  ],
+  "file": "prompts/quality/superpowers-flow.md",
+  "license": "MIT",
+  "source": "https://github.com/obra/superpowers",
+  "body": "用 `obra/superpowers` 的 skills 按阶段推进：`brainstorming` → `writing-plans` → `test-driven-development` → `verification-before-completion`。\n只加载当前阶段的 skill，按其入口调用，不把流程全文塞进 prompt。\n完成后给出实际证据（命令、测试输出或日志），未验证的问题不许当作已修复。"
 }

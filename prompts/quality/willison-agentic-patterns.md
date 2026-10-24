@@ -12,4 +12,5 @@ license: 仅指路，未复制内容
 ````text
 遇到 coding-agent 任务，先查 Simon Willison 的 `Agentic Engineering Patterns`。
 优先采用其中的 `red/green TDD` 与真实反馈回路，先跑测试，别把未经审阅的代码当完成。
+完成后给出实际证据（命令、测试输出或日志），未验证的问题不许当作已修复。
 ````

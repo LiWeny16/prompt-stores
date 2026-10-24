@@ -11,7 +11,13 @@
     "trace"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 1,
-  "url": "prompts/prompts__embedded__rtos-realtime-budget.json",
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/embedded/rtos-realtime-budget.md",
+  "license": "原创（未引用第三方正文）",
+  "source": "原创",
   "body": "实时性问题先查 RT-Thread/RTOS 调度与中断上下文文档，再用 trace、WCET/响应时间分析、栈/队列水位和 CPU 统计核对 deadline、抖动与优先级反转；禁止用加延时、加栈掩盖超预算。"
 }

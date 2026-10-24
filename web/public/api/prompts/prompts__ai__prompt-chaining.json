@@ -9,7 +9,15 @@
     "工作流"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 1,
-  "url": "prompts/prompts__ai__prompt-chaining.json",
+  "updated": "2026-10-23",
+  "vars": [
+    "复杂任务"
+  ],
+  "requires": [],
+  "file": "prompts/ai/prompt-chaining.md",
+  "license": "MIT",
+  "source": "https://github.com/dair-ai/Prompt-Engineering-Guide",
   "body": "用 dair-ai 的 Prompt Chaining 把【复杂任务】拆成可独立验收的子 prompt，并传递结构化中间结果。"
 }

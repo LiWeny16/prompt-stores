@@ -11,4 +11,5 @@ license: MIT
 
 ````text
 按 agentsmd/agents.md 与 CLAUDE.md 约定：只写不可从代码推断的事实、命令与硬约束；流程和参考资料移到 skills。
+完成后给出实际证据与仍未解决的部分。
 ````

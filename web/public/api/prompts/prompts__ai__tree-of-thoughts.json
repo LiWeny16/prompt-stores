@@ -9,7 +9,15 @@
     "方案比较"
   ],
   "compose": [],
-  "lines": 1,
-  "url": "prompts/prompts__ai__tree-of-thoughts.json",
-  "body": "用 Tree of Thoughts 处理【问题】：生成少量候选路径，按明确标准评估，必要时回溯。"
+  "origin": "builtin",
+  "lines": 2,
+  "updated": "2026-10-23",
+  "vars": [
+    "问题"
+  ],
+  "requires": [],
+  "file": "prompts/ai/tree-of-thoughts.md",
+  "license": "MIT",
+  "source": "https://github.com/princeton-nlp/tree-of-thought-llm",
+  "body": "用 Tree of Thoughts 处理【问题】：生成少量候选路径，按明确标准评估，必要时回溯。\n完成后说明依据来源与不确定处，不许把推测当结论。"
 }

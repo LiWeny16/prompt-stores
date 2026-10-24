@@ -9,7 +9,22 @@
     "数据"
   ],
   "compose": [],
-  "lines": 3,
-  "url": "prompts/prompts__data__spreadsheet-analysis.json",
-  "body": "用 anthropics/skills 的 spreadsheet skill。\n先检查表结构、公式与数据质量。\n按 skill 修改后复核关键单元格。"
+  "origin": "builtin",
+  "lines": 4,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [
+    {
+      "pack": "anthropics/skills",
+      "install": "npx skills add anthropics/skills",
+      "skills": [
+        "document",
+        "spreadsheet"
+      ]
+    }
+  ],
+  "file": "prompts/data/spreadsheet-analysis.md",
+  "license": "仅指路，未复制内容",
+  "source": "https://github.com/anthropics/skills",
+  "body": "用 anthropics/skills 的 spreadsheet skill。\n先检查表结构、公式与数据质量。\n按 skill 修改后复核关键单元格。\n完成后附校验结果（行数、字段、抽样比对），对不上不算完成。"
 }

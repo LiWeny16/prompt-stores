@@ -11,7 +11,13 @@
     "示波器"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 1,
-  "url": "prompts/prompts__embedded__bringup-fact-check.json",
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/embedded/bringup-fact-check.md",
+  "license": "原创（未引用第三方正文）",
+  "source": "原创",
   "body": "上板前按 SoC TRM、勘误、原理图、BSP/HAL 与启动日志建立事实表；再用示波器/逻辑分析仪核对时钟、复位、pinmux、供电和启动链，未知项标为假设并安排下一次实测。"
 }

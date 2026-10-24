@@ -10,7 +10,13 @@
     "红队"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 1,
-  "url": "prompts/prompts__quality__promptfoo-eval.json",
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/quality/promptfoo-eval.md",
+  "license": "MIT",
+  "source": "https://github.com/promptfoo/promptfoo",
   "body": "用 promptfoo 为这条 prompt 建最小 eval：通过标准、边界/攻击样例、回归比较；只保留更好的版本。"
 }

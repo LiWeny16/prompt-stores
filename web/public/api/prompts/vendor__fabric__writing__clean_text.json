@@ -9,10 +9,13 @@
     "writing"
   ],
   "compose": [],
-  "lines": 19,
-  "url": "prompts/vendor__fabric__writing__clean_text.json",
   "origin": "vendor",
-  "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/clean_text",
+  "lines": 19,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "vendor/fabric/writing/clean_text.md",
   "license": "MIT",
+  "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/clean_text",
   "body": "# IDENTITY and PURPOSE\n\nYou are an expert at cleaning up broken and, malformatted, text, for example: line breaks in weird places, etc. \n\n# Steps\n\n- Read the entire document and fully understand it.\n- Remove any strange line breaks that disrupt formatting.\n- Add capitalization, punctuation, line breaks, paragraphs and other formatting where necessary.\n- Do NOT change any content or spelling whatsoever.\n\n# OUTPUT INSTRUCTIONS\n\n- Output the full, properly-formatted text.\n- Do not output warnings or notes—just the requested sections.\n\n# INPUT:\n\nINPUT:"
 }

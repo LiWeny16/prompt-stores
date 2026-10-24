@@ -11,7 +11,13 @@
     "验收"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 1,
-  "url": "prompts/prompts__ai__structured-task-contract.json",
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/ai/structured-task-contract.md",
+  "license": "Apache-2.0",
+  "source": "https://github.com/langgptai/LangGPT",
   "body": "用 LangGPT 的结构化/元提示词方法，把任务落到角色、目标、输入变量、约束、输出 schema 与验收条件；复杂流程再拆成可复用模块，先检查缺失变量与契约冲突再执行。"
 }

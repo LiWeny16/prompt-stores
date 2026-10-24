@@ -10,7 +10,13 @@
     "diff"
   ],
   "compose": [],
-  "lines": 1,
-  "url": "prompts/prompts__quality__pr-self-review.json",
-  "body": "按 requesting-code-review：提交前对照需求、计划、diff、测试与风险逐项挑错；修复后重跑验证再复审。"
+  "origin": "builtin",
+  "lines": 2,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/quality/pr-self-review.md",
+  "license": "MIT",
+  "source": "https://github.com/obra/superpowers",
+  "body": "按 requesting-code-review：提交前对照需求、计划、diff、测试与风险逐项挑错；修复后重跑验证再复审。\n完成后给出实际证据（命令、测试输出或日志），未验证的问题不许当作已修复。"
 }

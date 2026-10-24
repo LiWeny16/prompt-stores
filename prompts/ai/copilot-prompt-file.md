@@ -11,4 +11,5 @@ license: MIT
 
 ````text
 按 awesome-copilot 的 prompt-file 规范重写：明确输入、workflow、output、validation，最小权限工具。
+完成后说明依据来源与不确定处，不许把推测当结论。
 ````

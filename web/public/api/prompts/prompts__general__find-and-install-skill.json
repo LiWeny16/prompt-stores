@@ -9,7 +9,21 @@
     "发现"
   ],
   "compose": [],
-  "lines": 3,
-  "url": "prompts/prompts__general__find-and-install-skill.json",
-  "body": "用 vercel-labs/skills 的 find-skills 按任务关键词找 skill。\n选可信来源，npx skills add 安装后按它执行。\n不要复制或展开技能内容。"
+  "origin": "builtin",
+  "lines": 4,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [
+    {
+      "pack": "vercel-labs/skills",
+      "install": "npx skills add vercel-labs/skills",
+      "skills": [
+        "find-skills"
+      ]
+    }
+  ],
+  "file": "prompts/general/find-and-install-skill.md",
+  "license": "MIT",
+  "source": "https://github.com/vercel-labs/skills",
+  "body": "用 vercel-labs/skills 的 find-skills 按任务关键词找 skill。\n选可信来源，npx skills add 安装后按它执行。\n不要复制或展开技能内容。\n完成后给出实际证据与仍未解决的部分。"
 }

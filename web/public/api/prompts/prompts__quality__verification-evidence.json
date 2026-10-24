@@ -10,7 +10,13 @@
     "测试"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 1,
-  "url": "prompts/prompts__quality__verification-evidence.json",
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/quality/verification-evidence.md",
+  "license": "MIT",
+  "source": "https://github.com/obra/superpowers",
   "body": "按 verification-before-completion：用实际命令、退出码和完整输出证明验收；没有证据不得宣称完成。"
 }

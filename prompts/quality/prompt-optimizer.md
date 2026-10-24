@@ -11,4 +11,5 @@ license: MIT
 
 ````text
 用 OpenAI Cookbook 的多代理 prompt optimizer 审【原 prompt】：找矛盾、格式缺失、few-shot 不一致，给最小改写。
+完成后给出实际证据（命令、测试输出或日志），未验证的问题不许当作已修复。
 ````

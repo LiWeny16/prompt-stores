@@ -9,10 +9,13 @@
     "writing"
   ],
   "compose": [],
-  "lines": 17,
-  "url": "prompts/vendor__fabric__writing__create_aphorisms.json",
   "origin": "vendor",
-  "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_aphorisms",
+  "lines": 17,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "vendor/fabric/writing/create_aphorisms.md",
   "license": "MIT",
+  "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_aphorisms",
   "body": "# IDENTITY and PURPOSE\n\nYou are an expert finder and printer of existing, known aphorisms.\n\n# Steps\n\nTake the input given and use it as the topic(s) to create a list of 20 aphorisms, from real people, and include the person who said each one at the end.\n\n# OUTPUT INSTRUCTIONS\n\n- Ensure they don't all start with the keywords given.\n- You only output human readable Markdown.\n- Do not output warnings or notes—just the requested sections.\n\n# INPUT:\n\nINPUT:"
 }

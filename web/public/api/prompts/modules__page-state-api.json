@@ -11,7 +11,13 @@
     "前端"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 8,
-  "url": "prompts/modules__page-state-api.json",
+  "updated": "2026-10-23",
+  "vars": [
+    "扩展模块"
+  ],
+  "requires": [],
+  "file": "modules/page-state-api.md",
   "body": "【扩展模块】页面状态接口 —— 把页面状态暴露给 Agent 的设计约束\n\n1. 每个页面／视图提供 getState()：返回结构化 JSON（路由与层级、组件树摘要、业务对象标识、表单值、选中项、加载态、错误态）；禁止依赖 DOM 快照或截图推断状态。\n2. 提供 describeActions()：列出当前上下文下 Agent 可执行的操作、参数 schema 与前置条件。\n3. 状态 schema 版本化（stateVersion 字段），字段演进保持向后兼容；不兼容变更必须升主版本并保留旧通道过渡。\n4. 状态变化通过事件／订阅推送，禁止 Agent 轮询；高频更新做节流与合并。\n5. 敏感字段（密钥、令牌、隐私数据）脱敏后才能进入模型上下文。\n6. 提供确定性错误码：状态不可用、视图未挂载、权限不足时返回明确错误，不返回猜测数据。"
 }

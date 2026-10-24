@@ -18,11 +18,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 21,
-      "url": "prompts/vendor__fabric__fullstack__summarize_git_changes.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_git_changes",
-      "license": "MIT"
+      "lines": 21,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/summarize_git_changes.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_git_changes"
     },
     {
       "id": "prompts/fullstack/product-delivery",
@@ -40,8 +43,14 @@
         "agentic-ui",
         "page-state-api"
       ],
+      "origin": "builtin",
       "lines": 98,
-      "url": "prompts/prompts__fullstack__product-delivery.json"
+      "updated": "2026-10-23",
+      "vars": [
+        "填写产品目标、目标用户、核心任务、目标平台、必做与不做的内容、已有代码及设计参考"
+      ],
+      "requires": [],
+      "file": "prompts/fullstack/product-delivery.md"
     },
     {
       "id": "vendor/fabric/fullstack/create_coding_project",
@@ -54,11 +63,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 42,
-      "url": "prompts/vendor__fabric__fullstack__create_coding_project.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_coding_project",
-      "license": "MIT"
+      "lines": 42,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/create_coding_project.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_coding_project"
     },
     {
       "id": "vendor/fabric/fullstack/explain_code",
@@ -71,11 +83,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 23,
-      "url": "prompts/vendor__fabric__fullstack__explain_code.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_code",
-      "license": "MIT"
+      "lines": 23,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/explain_code.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_code"
     },
     {
       "id": "vendor/fabric/fullstack/create_coding_feature",
@@ -88,11 +103,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 117,
-      "url": "prompts/vendor__fabric__fullstack__create_coding_feature.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_coding_feature",
-      "license": "MIT"
+      "lines": 117,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/create_coding_feature.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_coding_feature"
     },
     {
       "id": "prompts/fullstack/improve-architecture",
@@ -105,8 +123,23 @@
         "重构"
       ],
       "compose": [],
-      "lines": 3,
-      "url": "prompts/prompts__fullstack__improve-architecture.json"
+      "origin": "builtin",
+      "lines": 4,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "mattpocock/skills",
+          "install": "npx skills add mattpocock/skills",
+          "skills": [
+            "matt-skills",
+            "improve-codebase-architecture"
+          ]
+        }
+      ],
+      "file": "prompts/fullstack/improve-architecture.md",
+      "license": "MIT",
+      "source": "https://github.com/mattpocock/skills"
     },
     {
       "id": "prompts/fullstack/karpathy-tight-loop",
@@ -120,8 +153,14 @@
         "验证"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 2,
-      "url": "prompts/prompts__fullstack__karpathy-tight-loop.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/fullstack/karpathy-tight-loop.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://x.com/karpathy/status/1915581920022585597"
     },
     {
       "id": "prompts/fullstack/matt-skills-init",
@@ -135,8 +174,35 @@
         "工程流程"
       ],
       "compose": [],
-      "lines": 2,
-      "url": "prompts/prompts__fullstack__matt-skills-init.json"
+      "origin": "builtin",
+      "lines": 3,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "mattpocock/skills",
+          "install": "npx skills add mattpocock/skills",
+          "skills": [
+            "matt-skills",
+            "tdd",
+            "code-review",
+            "ask-matt",
+            "grill-with-docs",
+            "implement",
+            "setup-matt-pocock-skills"
+          ]
+        },
+        {
+          "pack": "vercel-labs/skills",
+          "install": "npx skills add vercel-labs/skills",
+          "skills": [
+            "find-skills"
+          ]
+        }
+      ],
+      "file": "prompts/fullstack/matt-skills-init.md",
+      "license": "MIT",
+      "source": "https://github.com/mattpocock/skills"
     },
     {
       "id": "vendor/fabric/fullstack/review_design",
@@ -149,11 +215,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 61,
-      "url": "prompts/vendor__fabric__fullstack__review_design.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/review_design",
-      "license": "MIT"
+      "lines": 61,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/review_design.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/review_design"
     },
     {
       "id": "vendor/fabric/fullstack/create_design_document",
@@ -166,11 +235,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 53,
-      "url": "prompts/vendor__fabric__fullstack__create_design_document.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_design_document",
-      "license": "MIT"
+      "lines": 53,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/create_design_document.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_design_document"
     },
     {
       "id": "vendor/fabric/fullstack/refine_design_document",
@@ -183,11 +255,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 25,
-      "url": "prompts/vendor__fabric__fullstack__refine_design_document.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/refine_design_document",
-      "license": "MIT"
+      "lines": 25,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/refine_design_document.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/refine_design_document"
     },
     {
       "id": "vendor/fabric/fullstack/create_git_diff_commit",
@@ -200,11 +275,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 35,
-      "url": "prompts/vendor__fabric__fullstack__create_git_diff_commit.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_git_diff_commit",
-      "license": "MIT"
+      "lines": 35,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/create_git_diff_commit.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_git_diff_commit"
     },
     {
       "id": "vendor/fabric/fullstack/explain_project",
@@ -217,11 +295,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 37,
-      "url": "prompts/vendor__fabric__fullstack__explain_project.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_project",
-      "license": "MIT"
+      "lines": 37,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/explain_project.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_project"
     },
     {
       "id": "vendor/fabric/fullstack/create_user_story",
@@ -234,11 +315,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 49,
-      "url": "prompts/vendor__fabric__fullstack__create_user_story.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_user_story",
-      "license": "MIT"
+      "lines": 49,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/create_user_story.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_user_story"
     },
     {
       "id": "prompts/fullstack/init-project-with-skills",
@@ -251,8 +335,14 @@
         "skill"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 3,
-      "url": "prompts/prompts__fullstack__init-project-with-skills.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/fullstack/init-project-with-skills.md",
+      "license": "MIT",
+      "source": "https://github.com/vercel-labs/skills"
     },
     {
       "id": "prompts/fullstack/kiro-specs",
@@ -266,8 +356,14 @@
         "design"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__fullstack__kiro-specs.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/fullstack/kiro-specs.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://github.com/kirodotdev/Kiro"
     },
     {
       "id": "vendor/fabric/fullstack/write_pull-request",
@@ -280,11 +376,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 98,
-      "url": "prompts/vendor__fabric__fullstack__write_pull-request.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_pull-request",
-      "license": "MIT"
+      "lines": 98,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/write_pull-request.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_pull-request"
     },
     {
       "id": "vendor/fabric/fullstack/create_prd",
@@ -297,11 +396,14 @@
         "fullstack"
       ],
       "compose": [],
-      "lines": 41,
-      "url": "prompts/vendor__fabric__fullstack__create_prd.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_prd",
-      "license": "MIT"
+      "lines": 41,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/fullstack/create_prd.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_prd"
     },
     {
       "id": "prompts/fullstack/spec-kit-sdd",
@@ -314,8 +416,22 @@
         "sdd"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__fullstack__spec-kit-sdd.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "github/spec-kit",
+          "install": "npx skills add github/spec-kit",
+          "skills": [
+            "spec-kit"
+          ]
+        }
+      ],
+      "file": "prompts/fullstack/spec-kit-sdd.md",
+      "license": "MIT",
+      "source": "https://github.com/github/spec-kit"
     },
     {
       "id": "prompts/fullstack/superpowers-approval-gates",
@@ -329,8 +445,22 @@
         "planning"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 1,
-      "url": "prompts/prompts__fullstack__superpowers-approval-gates.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "obra/superpowers",
+          "install": "npx skills add obra/superpowers",
+          "skills": [
+            "superpowers"
+          ]
+        }
+      ],
+      "file": "prompts/fullstack/superpowers-approval-gates.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "prompts/fullstack/tdd-loop",
@@ -343,8 +473,23 @@
         "测试"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 3,
-      "url": "prompts/prompts__fullstack__tdd-loop.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "mattpocock/skills",
+          "install": "npx skills add mattpocock/skills",
+          "skills": [
+            "matt-skills",
+            "tdd"
+          ]
+        }
+      ],
+      "file": "prompts/fullstack/tdd-loop.md",
+      "license": "MIT",
+      "source": "https://github.com/mattpocock/skills"
     },
     {
       "id": "prompts/embedded/bringup-fact-check",
@@ -359,8 +504,14 @@
         "示波器"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 1,
-      "url": "prompts/prompts__embedded__bringup-fact-check.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/embedded/bringup-fact-check.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
     },
     {
       "id": "prompts/embedded/cross-core-ipc-contract",
@@ -375,8 +526,14 @@
         "rpmsg"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__embedded__cross-core-ipc-contract.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/embedded/cross-core-ipc-contract.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
     },
     {
       "id": "prompts/embedded/firmware-delivery",
@@ -392,8 +549,12 @@
         "硬件"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 118,
-      "url": "prompts/prompts__embedded__firmware-delivery.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/embedded/firmware-delivery.md"
     },
     {
       "id": "prompts/embedded/audio-chain-budget",
@@ -409,8 +570,14 @@
         "underrun"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__embedded__audio-chain-budget.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/embedded/audio-chain-budget.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
     },
     {
       "id": "prompts/embedded/dma-cache-consistency",
@@ -425,8 +592,14 @@
         "ARM"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__embedded__dma-cache-consistency.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/embedded/dma-cache-consistency.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
     },
     {
       "id": "prompts/embedded/emc-power-debug",
@@ -441,8 +614,14 @@
         "电源完整性"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__embedded__emc-power-debug.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/embedded/emc-power-debug.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
     },
     {
       "id": "prompts/embedded/ota-ab-rollback",
@@ -457,8 +636,14 @@
         "rollback"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 1,
-      "url": "prompts/prompts__embedded__ota-ab-rollback.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/embedded/ota-ab-rollback.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
     },
     {
       "id": "prompts/embedded/rtos-realtime-budget",
@@ -473,8 +658,14 @@
         "trace"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 1,
-      "url": "prompts/prompts__embedded__rtos-realtime-budget.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/embedded/rtos-realtime-budget.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
     },
     {
       "id": "prompts/embedded/rtt-jtag-debug",
@@ -489,8 +680,14 @@
         "trace"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__embedded__rtt-jtag-debug.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/embedded/rtt-jtag-debug.md",
+      "license": "原创（未引用第三方正文）",
+      "source": "原创"
     },
     {
       "id": "vendor/fabric/ai/extract_wisdom_agents",
@@ -503,11 +700,14 @@
         "ai"
       ],
       "compose": [],
-      "lines": 53,
-      "url": "prompts/vendor__fabric__ai__extract_wisdom_agents.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_wisdom_agents",
-      "license": "MIT"
+      "lines": 53,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/ai/extract_wisdom_agents.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_wisdom_agents"
     },
     {
       "id": "prompts/ai/skill-router",
@@ -520,8 +720,23 @@
         "规划"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 3,
-      "url": "prompts/prompts__ai__skill-router.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "mattpocock/skills",
+          "install": "npx skills add mattpocock/skills",
+          "skills": [
+            "matt-skills",
+            "ask-matt"
+          ]
+        }
+      ],
+      "file": "prompts/ai/skill-router.md",
+      "license": "MIT",
+      "source": "https://github.com/mattpocock/skills"
     },
     {
       "id": "prompts/ai/structured-task-contract",
@@ -536,8 +751,14 @@
         "验收"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 1,
-      "url": "prompts/prompts__ai__structured-task-contract.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/ai/structured-task-contract.md",
+      "license": "Apache-2.0",
+      "source": "https://github.com/langgptai/LangGPT"
     },
     {
       "id": "vendor/fabric/ai/analyze_paper",
@@ -550,11 +771,14 @@
         "ai"
       ],
       "compose": [],
-      "lines": 125,
-      "url": "prompts/vendor__fabric__ai__analyze_paper.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_paper",
-      "license": "MIT"
+      "lines": 125,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/ai/analyze_paper.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_paper"
     },
     {
       "id": "vendor/fabric/ai/explain_terms",
@@ -567,11 +791,14 @@
         "ai"
       ],
       "compose": [],
-      "lines": 41,
-      "url": "prompts/vendor__fabric__ai__explain_terms.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_terms",
-      "license": "MIT"
+      "lines": 41,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/ai/explain_terms.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/explain_terms"
     },
     {
       "id": "prompts/ai/willison-context-first",
@@ -585,8 +812,14 @@
         "代码生成"
       ],
       "compose": [],
-      "lines": 2,
-      "url": "prompts/prompts__ai__willison-context-first.json"
+      "origin": "builtin",
+      "lines": 3,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/ai/willison-context-first.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://simonwillison.net/2025/Mar/11/using-llms-for-code/"
     },
     {
       "id": "prompts/ai/builtin-assistant",
@@ -603,8 +836,12 @@
       "compose": [
         "page-state-api"
       ],
+      "origin": "builtin",
       "lines": 75,
-      "url": "prompts/prompts__ai__builtin-assistant.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/ai/builtin-assistant.md"
     },
     {
       "id": "vendor/fabric/ai/create_ai_jobs_analysis",
@@ -617,11 +854,14 @@
         "ai"
       ],
       "compose": [],
-      "lines": 31,
-      "url": "prompts/vendor__fabric__ai__create_ai_jobs_analysis.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_ai_jobs_analysis",
-      "license": "MIT"
+      "lines": 31,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/ai/create_ai_jobs_analysis.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_ai_jobs_analysis"
     },
     {
       "id": "prompts/ai/langgpt-structure",
@@ -634,8 +874,14 @@
         "元提示"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__ai__langgpt-structure.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/ai/langgpt-structure.md",
+      "license": "Apache-2.0",
+      "source": "https://github.com/langgptai/LangGPT"
     },
     {
       "id": "vendor/fabric/ai/improve_prompt",
@@ -648,11 +894,14 @@
         "ai"
       ],
       "compose": [],
-      "lines": 518,
-      "url": "prompts/vendor__fabric__ai__improve_prompt.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/improve_prompt",
-      "license": "MIT"
+      "lines": 518,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/ai/improve_prompt.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/improve_prompt"
     },
     {
       "id": "prompts/ai/copilot-prompt-file",
@@ -665,8 +914,14 @@
         "规范"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__ai__copilot-prompt-file.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/ai/copilot-prompt-file.md",
+      "license": "MIT",
+      "source": "https://github.com/github/awesome-copilot"
     },
     {
       "id": "vendor/fabric/ai/summarize_prompt",
@@ -679,11 +934,14 @@
         "ai"
       ],
       "compose": [],
-      "lines": 29,
-      "url": "prompts/vendor__fabric__ai__summarize_prompt.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_prompt",
-      "license": "MIT"
+      "lines": 29,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/ai/summarize_prompt.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_prompt"
     },
     {
       "id": "prompts/ai/prompt-chaining",
@@ -696,8 +954,16 @@
         "工作流"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 1,
-      "url": "prompts/prompts__ai__prompt-chaining.json"
+      "updated": "2026-10-23",
+      "vars": [
+        "复杂任务"
+      ],
+      "requires": [],
+      "file": "prompts/ai/prompt-chaining.md",
+      "license": "MIT",
+      "source": "https://github.com/dair-ai/Prompt-Engineering-Guide"
     },
     {
       "id": "prompts/ai/react-tool-task",
@@ -710,8 +976,16 @@
         "工具调用"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__ai__react-tool-task.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [
+        "任务"
+      ],
+      "requires": [],
+      "file": "prompts/ai/react-tool-task.md",
+      "license": "MIT",
+      "source": "https://github.com/ysymyth/ReAct"
     },
     {
       "id": "prompts/ai/reflexion",
@@ -724,8 +998,14 @@
         "复盘"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__ai__reflexion.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/ai/reflexion.md",
+      "license": "MIT",
+      "source": "https://github.com/dair-ai/Prompt-Engineering-Guide"
     },
     {
       "id": "prompts/ai/schema-first",
@@ -738,8 +1018,14 @@
         "Schema"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__ai__schema-first.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/ai/schema-first.md",
+      "license": "Apache-2.0",
+      "source": "https://github.com/promptslab/Promptify"
     },
     {
       "id": "prompts/ai/subagent-dispatch",
@@ -753,8 +1039,14 @@
         "验收"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 1,
-      "url": "prompts/prompts__ai__subagent-dispatch.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/ai/subagent-dispatch.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "prompts/ai/tree-of-thoughts",
@@ -767,8 +1059,16 @@
         "方案比较"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__ai__tree-of-thoughts.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [
+        "问题"
+      ],
+      "requires": [],
+      "file": "prompts/ai/tree-of-thoughts.md",
+      "license": "MIT",
+      "source": "https://github.com/princeton-nlp/tree-of-thought-llm"
     },
     {
       "id": "vendor/fabric/writing/fix_typos",
@@ -781,11 +1081,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 25,
-      "url": "prompts/vendor__fabric__writing__fix_typos.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/fix_typos",
-      "license": "MIT"
+      "lines": 25,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/fix_typos.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/fix_typos"
     },
     {
       "id": "vendor/fabric/writing/extract_wisdom",
@@ -798,11 +1101,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 59,
-      "url": "prompts/vendor__fabric__writing__extract_wisdom.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_wisdom",
-      "license": "MIT"
+      "lines": 59,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/extract_wisdom.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_wisdom"
     },
     {
       "id": "vendor/fabric/writing/translate",
@@ -815,11 +1121,16 @@
         "writing"
       ],
       "compose": [],
-      "lines": 26,
-      "url": "prompts/vendor__fabric__writing__translate.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/translate",
-      "license": "MIT"
+      "lines": 26,
+      "updated": "2026-10-23",
+      "vars": [
+        "lang_code"
+      ],
+      "requires": [],
+      "file": "vendor/fabric/writing/translate.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/translate"
     },
     {
       "id": "vendor/fabric/writing/create_aphorisms",
@@ -832,11 +1143,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 17,
-      "url": "prompts/vendor__fabric__writing__create_aphorisms.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_aphorisms",
-      "license": "MIT"
+      "lines": 17,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/create_aphorisms.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_aphorisms"
     },
     {
       "id": "vendor/fabric/writing/humanize",
@@ -849,11 +1163,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 132,
-      "url": "prompts/vendor__fabric__writing__humanize.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/humanize",
-      "license": "MIT"
+      "lines": 132,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/humanize.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/humanize"
     },
     {
       "id": "vendor/fabric/writing/clean_text",
@@ -866,11 +1183,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 19,
-      "url": "prompts/vendor__fabric__writing__clean_text.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/clean_text",
-      "license": "MIT"
+      "lines": 19,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/clean_text.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/clean_text"
     },
     {
       "id": "prompts/writing/docx-authoring",
@@ -883,8 +1203,22 @@
         "文档"
       ],
       "compose": [],
-      "lines": 3,
-      "url": "prompts/prompts__writing__docx-authoring.json"
+      "origin": "builtin",
+      "lines": 4,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "anthropics/skills",
+          "install": "npx skills add anthropics/skills",
+          "skills": [
+            "document"
+          ]
+        }
+      ],
+      "file": "prompts/writing/docx-authoring.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "vendor/fabric/writing/create_5_sentence_summary",
@@ -897,11 +1231,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 39,
-      "url": "prompts/vendor__fabric__writing__create_5_sentence_summary.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_5_sentence_summary",
-      "license": "MIT"
+      "lines": 39,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/create_5_sentence_summary.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_5_sentence_summary"
     },
     {
       "id": "vendor/fabric/writing/improve_writing",
@@ -914,11 +1251,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 19,
-      "url": "prompts/vendor__fabric__writing__improve_writing.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/improve_writing",
-      "license": "MIT"
+      "lines": 19,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/improve_writing.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/improve_writing"
     },
     {
       "id": "vendor/fabric/writing/create_summary",
@@ -931,11 +1271,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 26,
-      "url": "prompts/vendor__fabric__writing__create_summary.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_summary",
-      "license": "MIT"
+      "lines": 26,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/create_summary.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_summary"
     },
     {
       "id": "vendor/fabric/writing/write_essay",
@@ -948,11 +1291,16 @@
         "writing"
       ],
       "compose": [],
-      "lines": 33,
-      "url": "prompts/vendor__fabric__writing__write_essay.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_essay",
-      "license": "MIT"
+      "lines": 33,
+      "updated": "2026-10-23",
+      "vars": [
+        "author_name"
+      ],
+      "requires": [],
+      "file": "vendor/fabric/writing/write_essay.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_essay"
     },
     {
       "id": "prompts/writing/de-ai-flavor",
@@ -966,8 +1314,17 @@
         "写作"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 15,
-      "url": "prompts/prompts__writing__de-ai-flavor.json"
+      "updated": "2026-10-23",
+      "vars": [
+        "原文",
+        "读者与场景",
+        "如：技术博客读者／公众号订阅者／同事邮件",
+        "粘贴待改写文本"
+      ],
+      "requires": [],
+      "file": "prompts/writing/de-ai-flavor.md"
     },
     {
       "id": "vendor/fabric/writing/chinese_poetry_analysis",
@@ -980,11 +1337,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 26,
-      "url": "prompts/vendor__fabric__writing__chinese_poetry_analysis.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_poetry_analysis",
-      "license": "MIT"
+      "lines": 26,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/chinese_poetry_analysis.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_poetry_analysis"
     },
     {
       "id": "vendor/fabric/writing/chinese_article_summary",
@@ -997,11 +1357,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 21,
-      "url": "prompts/vendor__fabric__writing__chinese_article_summary.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_article_summary",
-      "license": "MIT"
+      "lines": 21,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/chinese_article_summary.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_article_summary"
     },
     {
       "id": "vendor/fabric/writing/chinese_news_translate",
@@ -1014,11 +1377,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 28,
-      "url": "prompts/vendor__fabric__writing__chinese_news_translate.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_news_translate",
-      "license": "MIT"
+      "lines": 28,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/chinese_news_translate.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_news_translate"
     },
     {
       "id": "vendor/fabric/writing/convert_to_markdown",
@@ -1031,11 +1397,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 42,
-      "url": "prompts/vendor__fabric__writing__convert_to_markdown.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/convert_to_markdown",
-      "license": "MIT"
+      "lines": 42,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/convert_to_markdown.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/convert_to_markdown"
     },
     {
       "id": "vendor/fabric/writing/create_excalidraw_visualization",
@@ -1048,11 +1417,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 135,
-      "url": "prompts/vendor__fabric__writing__create_excalidraw_visualization.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_excalidraw_visualization",
-      "license": "MIT"
+      "lines": 135,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/create_excalidraw_visualization.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_excalidraw_visualization"
     },
     {
       "id": "vendor/fabric/writing/create_mermaid_visualization_for_github",
@@ -1065,11 +1437,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 47,
-      "url": "prompts/vendor__fabric__writing__create_mermaid_visualization_for_github.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_mermaid_visualization_for_github",
-      "license": "MIT"
+      "lines": 47,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/create_mermaid_visualization_for_github.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_mermaid_visualization_for_github"
     },
     {
       "id": "vendor/fabric/writing/create_mermaid_visualization",
@@ -1082,11 +1457,14 @@
         "writing"
       ],
       "compose": [],
-      "lines": 39,
-      "url": "prompts/vendor__fabric__writing__create_mermaid_visualization.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_mermaid_visualization",
-      "license": "MIT"
+      "lines": 39,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/writing/create_mermaid_visualization.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_mermaid_visualization"
     },
     {
       "id": "prompts/devops/git-worktree-parallel",
@@ -1100,8 +1478,22 @@
         "subagent"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__devops__git-worktree-parallel.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "obra/superpowers",
+          "install": "npx skills add obra/superpowers",
+          "skills": [
+            "superpowers"
+          ]
+        }
+      ],
+      "file": "prompts/devops/git-worktree-parallel.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "prompts/data/spreadsheet-analysis",
@@ -1114,8 +1506,23 @@
         "数据"
       ],
       "compose": [],
-      "lines": 3,
-      "url": "prompts/prompts__data__spreadsheet-analysis.json"
+      "origin": "builtin",
+      "lines": 4,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "anthropics/skills",
+          "install": "npx skills add anthropics/skills",
+          "skills": [
+            "document",
+            "spreadsheet"
+          ]
+        }
+      ],
+      "file": "prompts/data/spreadsheet-analysis.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://github.com/anthropics/skills"
     },
     {
       "id": "vendor/fabric/data/export_data_as_csv",
@@ -1128,11 +1535,14 @@
         "data"
       ],
       "compose": [],
-      "lines": 21,
-      "url": "prompts/vendor__fabric__data__export_data_as_csv.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/export_data_as_csv",
-      "license": "MIT"
+      "lines": 21,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/data/export_data_as_csv.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/export_data_as_csv"
     },
     {
       "id": "vendor/fabric/data/create_conceptmap",
@@ -1145,11 +1555,14 @@
         "data"
       ],
       "compose": [],
-      "lines": 155,
-      "url": "prompts/vendor__fabric__data__create_conceptmap.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_conceptmap",
-      "license": "MIT"
+      "lines": 155,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/data/create_conceptmap.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_conceptmap"
     },
     {
       "id": "vendor/fabric/data/create_graph_from_input",
@@ -1162,11 +1575,14 @@
         "data"
       ],
       "compose": [],
-      "lines": 38,
-      "url": "prompts/vendor__fabric__data__create_graph_from_input.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_graph_from_input",
-      "license": "MIT"
+      "lines": 38,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/data/create_graph_from_input.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_graph_from_input"
     },
     {
       "id": "vendor/fabric/data/summarize_git_diff",
@@ -1179,11 +1595,14 @@
         "data"
       ],
       "compose": [],
-      "lines": 31,
-      "url": "prompts/vendor__fabric__data__summarize_git_diff.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_git_diff",
-      "license": "MIT"
+      "lines": 31,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/data/summarize_git_diff.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/summarize_git_diff"
     },
     {
       "id": "vendor/fabric/quality/analyze_mistakes",
@@ -1196,11 +1615,14 @@
         "quality"
       ],
       "compose": [],
-      "lines": 32,
-      "url": "prompts/vendor__fabric__quality__analyze_mistakes.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_mistakes",
-      "license": "MIT"
+      "lines": 32,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/quality/analyze_mistakes.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_mistakes"
     },
     {
       "id": "vendor/fabric/quality/generate_code_rules",
@@ -1213,11 +1635,14 @@
         "quality"
       ],
       "compose": [],
-      "lines": 11,
-      "url": "prompts/vendor__fabric__quality__generate_code_rules.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/generate_code_rules",
-      "license": "MIT"
+      "lines": 11,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/quality/generate_code_rules.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/generate_code_rules"
     },
     {
       "id": "vendor/fabric/quality/review_code",
@@ -1230,11 +1655,14 @@
         "quality"
       ],
       "compose": [],
-      "lines": 140,
-      "url": "prompts/vendor__fabric__quality__review_code.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/review_code",
-      "license": "MIT"
+      "lines": 140,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/quality/review_code.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/review_code"
     },
     {
       "id": "prompts/quality/code-review-matt",
@@ -1247,8 +1675,23 @@
         "风险"
       ],
       "compose": [],
-      "lines": 3,
-      "url": "prompts/prompts__quality__code-review-matt.json"
+      "origin": "builtin",
+      "lines": 4,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "mattpocock/skills",
+          "install": "npx skills add mattpocock/skills",
+          "skills": [
+            "matt-skills",
+            "code-review"
+          ]
+        }
+      ],
+      "file": "prompts/quality/code-review-matt.md",
+      "license": "MIT",
+      "source": "https://github.com/mattpocock/skills"
     },
     {
       "id": "prompts/quality/prompt-optimizer",
@@ -1261,8 +1704,16 @@
         "质量"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__quality__prompt-optimizer.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [
+        "原 prompt"
+      ],
+      "requires": [],
+      "file": "prompts/quality/prompt-optimizer.md",
+      "license": "MIT",
+      "source": "https://github.com/openai/openai-cookbook"
     },
     {
       "id": "prompts/quality/karpathy-tight-leash",
@@ -1276,8 +1727,14 @@
         "测试"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 2,
-      "url": "prompts/prompts__quality__karpathy-tight-leash.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/quality/karpathy-tight-leash.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://www.youtube.com/watch?v=96jN2OCOfLs"
     },
     {
       "id": "vendor/fabric/quality/analyze_logs",
@@ -1290,11 +1747,14 @@
         "quality"
       ],
       "compose": [],
-      "lines": 19,
-      "url": "prompts/vendor__fabric__quality__analyze_logs.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_logs",
-      "license": "MIT"
+      "lines": 19,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/quality/analyze_logs.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_logs"
     },
     {
       "id": "vendor/fabric/quality/analyze_incident",
@@ -1307,11 +1767,14 @@
         "quality"
       ],
       "compose": [],
-      "lines": 38,
-      "url": "prompts/vendor__fabric__quality__analyze_incident.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_incident",
-      "license": "MIT"
+      "lines": 38,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/quality/analyze_incident.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_incident"
     },
     {
       "id": "vendor/fabric/quality/judge_output",
@@ -1324,11 +1787,19 @@
         "quality"
       ],
       "compose": [],
-      "lines": 93,
-      "url": "prompts/vendor__fabric__quality__judge_output.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/judge_output",
-      "license": "MIT"
+      "lines": 93,
+      "updated": "2026-10-23",
+      "vars": [
+        "query_language_info",
+        "guidelines",
+        "user_input",
+        "generated_query"
+      ],
+      "requires": [],
+      "file": "vendor/fabric/quality/judge_output.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/judge_output"
     },
     {
       "id": "prompts/quality/verification-evidence",
@@ -1342,8 +1813,14 @@
         "测试"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 1,
-      "url": "prompts/prompts__quality__verification-evidence.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/quality/verification-evidence.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "vendor/fabric/quality/analyze_threat_report",
@@ -1356,11 +1833,14 @@
         "quality"
       ],
       "compose": [],
-      "lines": 38,
-      "url": "prompts/vendor__fabric__quality__analyze_threat_report.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_threat_report",
-      "license": "MIT"
+      "lines": 38,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/quality/analyze_threat_report.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_threat_report"
     },
     {
       "id": "prompts/quality/willison-agentic-patterns",
@@ -1374,8 +1854,14 @@
         "反馈回路"
       ],
       "compose": [],
-      "lines": 2,
-      "url": "prompts/prompts__quality__willison-agentic-patterns.json"
+      "origin": "builtin",
+      "lines": 3,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/quality/willison-agentic-patterns.md",
+      "license": "仅指路，未复制内容",
+      "source": "https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/"
     },
     {
       "id": "prompts/quality/systematic-debugging",
@@ -1388,8 +1874,23 @@
         "根因"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 3,
-      "url": "prompts/prompts__quality__systematic-debugging.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "obra/superpowers",
+          "install": "npx skills add obra/superpowers",
+          "skills": [
+            "superpowers",
+            "systematic-debugging"
+          ]
+        }
+      ],
+      "file": "prompts/quality/systematic-debugging.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "vendor/fabric/quality/chinese_code_review",
@@ -1402,11 +1903,14 @@
         "quality"
       ],
       "compose": [],
-      "lines": 42,
-      "url": "prompts/vendor__fabric__quality__chinese_code_review.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_code_review",
-      "license": "MIT"
+      "lines": 42,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/quality/chinese_code_review.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/chinese_code_review"
     },
     {
       "id": "prompts/quality/pr-self-review",
@@ -1420,8 +1924,14 @@
         "diff"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__quality__pr-self-review.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/quality/pr-self-review.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "prompts/quality/promptfoo-eval",
@@ -1435,8 +1945,14 @@
         "红队"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 1,
-      "url": "prompts/prompts__quality__promptfoo-eval.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/quality/promptfoo-eval.md",
+      "license": "MIT",
+      "source": "https://github.com/promptfoo/promptfoo"
     },
     {
       "id": "prompts/quality/self-consistency",
@@ -1449,8 +1965,14 @@
         "自洽"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 1,
-      "url": "prompts/prompts__quality__self-consistency.json"
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/quality/self-consistency.md",
+      "license": "MIT",
+      "source": "https://github.com/dair-ai/Prompt-Engineering-Guide"
     },
     {
       "id": "vendor/fabric/quality/write_semgrep_rule",
@@ -1463,11 +1985,14 @@
         "quality"
       ],
       "compose": [],
-      "lines": 751,
-      "url": "prompts/vendor__fabric__quality__write_semgrep_rule.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_semgrep_rule",
-      "license": "MIT"
+      "lines": 751,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/quality/write_semgrep_rule.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/write_semgrep_rule"
     },
     {
       "id": "vendor/fabric/quality/create_stride_threat_model",
@@ -1480,11 +2005,14 @@
         "quality"
       ],
       "compose": [],
-      "lines": 66,
-      "url": "prompts/vendor__fabric__quality__create_stride_threat_model.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_stride_threat_model",
-      "license": "MIT"
+      "lines": 66,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/quality/create_stride_threat_model.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_stride_threat_model"
     },
     {
       "id": "prompts/quality/superpowers-flow",
@@ -1499,8 +2027,26 @@
         "交付"
       ],
       "compose": [],
-      "lines": 2,
-      "url": "prompts/prompts__quality__superpowers-flow.json"
+      "origin": "builtin",
+      "lines": 3,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "obra/superpowers",
+          "install": "npx skills add obra/superpowers",
+          "skills": [
+            "superpowers",
+            "brainstorming",
+            "writing-plans",
+            "test-driven-development",
+            "verification-before-completion"
+          ]
+        }
+      ],
+      "file": "prompts/quality/superpowers-flow.md",
+      "license": "MIT",
+      "source": "https://github.com/obra/superpowers"
     },
     {
       "id": "vendor/fabric/quality/analyze_terraform_plan",
@@ -1513,11 +2059,14 @@
         "quality"
       ],
       "compose": [],
-      "lines": 24,
-      "url": "prompts/vendor__fabric__quality__analyze_terraform_plan.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_terraform_plan",
-      "license": "MIT"
+      "lines": 24,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/quality/analyze_terraform_plan.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/analyze_terraform_plan"
     },
     {
       "id": "vendor/fabric/general/create_tags",
@@ -1530,11 +2079,14 @@
         "general"
       ],
       "compose": [],
-      "lines": 25,
-      "url": "prompts/vendor__fabric__general__create_tags.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_tags",
-      "license": "MIT"
+      "lines": 25,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/general/create_tags.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_tags"
     },
     {
       "id": "vendor/fabric/general/create_quiz",
@@ -1547,11 +2099,14 @@
         "general"
       ],
       "compose": [],
-      "lines": 47,
-      "url": "prompts/vendor__fabric__general__create_quiz.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_quiz",
-      "license": "MIT"
+      "lines": 47,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/general/create_quiz.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_quiz"
     },
     {
       "id": "prompts/general/find-and-install-skill",
@@ -1564,8 +2119,22 @@
         "发现"
       ],
       "compose": [],
-      "lines": 3,
-      "url": "prompts/prompts__general__find-and-install-skill.json"
+      "origin": "builtin",
+      "lines": 4,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [
+        {
+          "pack": "vercel-labs/skills",
+          "install": "npx skills add vercel-labs/skills",
+          "skills": [
+            "find-skills"
+          ]
+        }
+      ],
+      "file": "prompts/general/find-and-install-skill.md",
+      "license": "MIT",
+      "source": "https://github.com/vercel-labs/skills"
     },
     {
       "id": "vendor/fabric/general/extract_ideas",
@@ -1578,11 +2147,14 @@
         "general"
       ],
       "compose": [],
-      "lines": 40,
-      "url": "prompts/vendor__fabric__general__extract_ideas.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_ideas",
-      "license": "MIT"
+      "lines": 40,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/general/extract_ideas.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/extract_ideas"
     },
     {
       "id": "prompts/general/agents-md-minimal",
@@ -1596,8 +2168,14 @@
         "上下文"
       ],
       "compose": [],
-      "lines": 1,
-      "url": "prompts/prompts__general__agents-md-minimal.json"
+      "origin": "builtin",
+      "lines": 2,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "prompts/general/agents-md-minimal.md",
+      "license": "MIT",
+      "source": "https://github.com/agentsmd/agents.md"
     },
     {
       "id": "vendor/fabric/general/find_logical_fallacies",
@@ -1610,11 +2188,14 @@
         "general"
       ],
       "compose": [],
-      "lines": 222,
-      "url": "prompts/vendor__fabric__general__find_logical_fallacies.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/find_logical_fallacies",
-      "license": "MIT"
+      "lines": 222,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/general/find_logical_fallacies.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/find_logical_fallacies"
     },
     {
       "id": "vendor/fabric/general/eisenhower_matrix",
@@ -1627,11 +2208,14 @@
         "general"
       ],
       "compose": [],
-      "lines": 49,
-      "url": "prompts/vendor__fabric__general__eisenhower_matrix.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/eisenhower_matrix",
-      "license": "MIT"
+      "lines": 49,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/general/eisenhower_matrix.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/eisenhower_matrix"
     },
     {
       "id": "vendor/fabric/general/create_reading_plan",
@@ -1644,11 +2228,14 @@
         "general"
       ],
       "compose": [],
-      "lines": 77,
-      "url": "prompts/vendor__fabric__general__create_reading_plan.json",
       "origin": "vendor",
-      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_reading_plan",
-      "license": "MIT"
+      "lines": 77,
+      "updated": "2026-10-23",
+      "vars": [],
+      "requires": [],
+      "file": "vendor/fabric/general/create_reading_plan.md",
+      "license": "MIT",
+      "source": "https://github.com/danielmiessler/fabric/tree/main/data/patterns/create_reading_plan"
     },
     {
       "id": "combos/fullstack-product-delivery",
@@ -1667,8 +2254,36 @@
         "modules/agentic-ui",
         "modules/page-state-api"
       ],
+      "origin": "builtin",
       "lines": 116,
-      "url": "prompts/combos__fullstack-product-delivery.json"
+      "updated": "2026-10-24",
+      "vars": [
+        "填写产品目标、目标用户、核心任务、目标平台、必做与不做的内容、已有代码及设计参考",
+        "扩展模块"
+      ],
+      "requires": [],
+      "file": "combos/fullstack-product-delivery.md",
+      "roleId": "prompts/fullstack/product-delivery",
+      "graph": {
+        "role": {
+          "id": "prompts/fullstack/product-delivery",
+          "name": "产品交付负责人（前后端/桌面）"
+        },
+        "modules": [
+          {
+            "id": "modules/agentic-ui",
+            "name": "Agentic UI（应用内嵌 AI 助手）"
+          },
+          {
+            "id": "modules/page-state-api",
+            "name": "页面状态接口"
+          }
+        ],
+        "combo": {
+          "lines": 114
+        }
+      },
+      "mermaid": "flowchart TD\n  R[\"角色 · 产品交付负责人（前后端/桌面）\"]\n  M1[\"模块 · Agentic UI（应用内嵌 AI 助手）\"]\n  M2[\"模块 · 页面状态接口\"]\n  C([\"组合 Prompt<br/>114 行\"])\n  R --> C\n  M1 --> C\n  M2 --> C\n  classDef role fill:#18181b,stroke:#18181b,color:#fafafa\n  classDef mod fill:#f4f4f5,stroke:#a1a1aa,color:#18181b\n  classDef combo fill:#e4e4e7,stroke:#52525b,color:#18181b\n  class R role\n  class M1 mod\n  class M2 mod\n  class C combo"
     },
     {
       "id": "combos/ai-builtin-assistant",
@@ -1686,8 +2301,31 @@
       "compose": [
         "modules/page-state-api"
       ],
+      "origin": "builtin",
       "lines": 84,
-      "url": "prompts/combos__ai-builtin-assistant.json"
+      "updated": "2026-10-24",
+      "vars": [
+        "扩展模块"
+      ],
+      "requires": [],
+      "file": "combos/ai-builtin-assistant.md",
+      "roleId": "prompts/ai/builtin-assistant",
+      "graph": {
+        "role": {
+          "id": "prompts/ai/builtin-assistant",
+          "name": "AI 内置助手交付（复用成熟引擎）"
+        },
+        "modules": [
+          {
+            "id": "modules/page-state-api",
+            "name": "页面状态接口"
+          }
+        ],
+        "combo": {
+          "lines": 83
+        }
+      },
+      "mermaid": "flowchart TD\n  R[\"角色 · AI 内置助手交付（复用成熟引擎）\"]\n  M1[\"模块 · 页面状态接口\"]\n  C([\"组合 Prompt<br/>83 行\"])\n  R --> C\n  M1 --> C\n  classDef role fill:#18181b,stroke:#18181b,color:#fafafa\n  classDef mod fill:#f4f4f5,stroke:#a1a1aa,color:#18181b\n  classDef combo fill:#e4e4e7,stroke:#52525b,color:#18181b\n  class R role\n  class M1 mod\n  class C combo"
     },
     {
       "id": "modules/agentic-ui",
@@ -1702,8 +2340,14 @@
         "前后端"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 8,
-      "url": "prompts/modules__agentic-ui.json"
+      "updated": "2026-10-23",
+      "vars": [
+        "扩展模块"
+      ],
+      "requires": [],
+      "file": "modules/agentic-ui.md"
     },
     {
       "id": "modules/page-state-api",
@@ -1718,8 +2362,14 @@
         "前端"
       ],
       "compose": [],
+      "origin": "builtin",
       "lines": 8,
-      "url": "prompts/modules__page-state-api.json"
+      "updated": "2026-10-23",
+      "vars": [
+        "扩展模块"
+      ],
+      "requires": [],
+      "file": "modules/page-state-api.md"
     }
   ]
 }

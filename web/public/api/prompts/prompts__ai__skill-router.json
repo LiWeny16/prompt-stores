@@ -9,7 +9,22 @@
     "规划"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 3,
-  "url": "prompts/prompts__ai__skill-router.json",
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [
+    {
+      "pack": "mattpocock/skills",
+      "install": "npx skills add mattpocock/skills",
+      "skills": [
+        "matt-skills",
+        "ask-matt"
+      ]
+    }
+  ],
+  "file": "prompts/ai/skill-router.md",
+  "license": "MIT",
+  "source": "https://github.com/mattpocock/skills",
   "body": "用 mattpocock/skills 的 ask-matt skill 做路由。\n给出处境、目标与限制，只要 skill 或 skill 序列建议。\n不要让它展开执行细节。"
 }

@@ -10,7 +10,34 @@
     "工程流程"
   ],
   "compose": [],
-  "lines": 2,
-  "url": "prompts/prompts__fullstack__matt-skills-init.json",
-  "body": "用 `find-skills` 定位 `mattpocock/skills`，先调用 `setup-matt-pocock-skills` 初始化项目。\n再按任务调用 `ask-matt`、`grill-with-docs`、`tdd`、`implement` 或 `code-review`，不要抄 skill 正文。"
+  "origin": "builtin",
+  "lines": 3,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [
+    {
+      "pack": "mattpocock/skills",
+      "install": "npx skills add mattpocock/skills",
+      "skills": [
+        "matt-skills",
+        "tdd",
+        "code-review",
+        "ask-matt",
+        "grill-with-docs",
+        "implement",
+        "setup-matt-pocock-skills"
+      ]
+    },
+    {
+      "pack": "vercel-labs/skills",
+      "install": "npx skills add vercel-labs/skills",
+      "skills": [
+        "find-skills"
+      ]
+    }
+  ],
+  "file": "prompts/fullstack/matt-skills-init.md",
+  "license": "MIT",
+  "source": "https://github.com/mattpocock/skills",
+  "body": "用 `find-skills` 定位 `mattpocock/skills`，先调用 `setup-matt-pocock-skills` 初始化项目。\n再按任务调用 `ask-matt`、`grill-with-docs`、`tdd`、`implement` 或 `code-review`，不要抄 skill 正文。\n完成后报告改了什么、怎么验证的（命令与结果），未跑通不算完成。"
 }

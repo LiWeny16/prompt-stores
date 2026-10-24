@@ -9,7 +9,13 @@
     "skill"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 3,
-  "url": "prompts/prompts__fullstack__init-project-with-skills.json",
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/fullstack/init-project-with-skills.md",
+  "license": "MIT",
+  "source": "https://github.com/vercel-labs/skills",
   "body": "用 find-skills 定位 matt-skills，用它初始化项目。\n按 skill 自带的验收标准自查，未过不许交付。\n不要复制技能内容，只按它执行。"
 }

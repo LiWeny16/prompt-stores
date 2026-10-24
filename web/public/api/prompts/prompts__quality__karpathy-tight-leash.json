@@ -10,7 +10,13 @@
     "测试"
   ],
   "compose": [],
+  "origin": "builtin",
   "lines": 2,
-  "url": "prompts/prompts__quality__karpathy-tight-leash.json",
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/quality/karpathy-tight-leash.md",
+  "license": "仅指路，未复制内容",
+  "source": "https://www.youtube.com/watch?v=96jN2OCOfLs",
   "body": "正式代码按 Karpathy 的 agentic engineering，而不是无审查的 vibe coding；把 agent 当过度自信的初级工程师，保持 tight leash。\n每轮先审方案与 diff，再用真实测试验证；未验证的结果不算完成。"
 }

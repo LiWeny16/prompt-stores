@@ -11,4 +11,5 @@ license: 原创（未引用第三方正文）
 
 ````text
 RTT/JTAG 调试按芯片 fault handler、JTAG/RTT、ETM/trace 文档保留可复现镜像与触发条件；用时间戳、硬件 watchpoint、故障寄存器和最小侵入 trace 锁定首个异常，不以单步通过替代实时复现。
+完成后附实测证据（日志、计数器、波形或读数），只有文档推导不算通过。
 ````

@@ -9,7 +9,21 @@
     "文档"
   ],
   "compose": [],
-  "lines": 3,
-  "url": "prompts/prompts__writing__docx-authoring.json",
-  "body": "用 anthropics/skills 的 document skill 处理目标文档。\n先判定文档类型与目标格式，再按该 skill 生成。\n产出后按 skill 的校验步骤复核。"
+  "origin": "builtin",
+  "lines": 4,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [
+    {
+      "pack": "anthropics/skills",
+      "install": "npx skills add anthropics/skills",
+      "skills": [
+        "document"
+      ]
+    }
+  ],
+  "file": "prompts/writing/docx-authoring.md",
+  "license": "仅指路，未复制内容",
+  "source": "https://github.com/anthropics/skills",
+  "body": "用 anthropics/skills 的 document skill 处理目标文档。\n先判定文档类型与目标格式，再按该 skill 生成。\n产出后按 skill 的校验步骤复核。\n完成后给出改动清单与原意不变的自检结论。"
 }

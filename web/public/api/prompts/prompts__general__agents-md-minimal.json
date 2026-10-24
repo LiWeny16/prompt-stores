@@ -10,7 +10,13 @@
     "上下文"
   ],
   "compose": [],
-  "lines": 1,
-  "url": "prompts/prompts__general__agents-md-minimal.json",
-  "body": "按 agentsmd/agents.md 与 CLAUDE.md 约定：只写不可从代码推断的事实、命令与硬约束；流程和参考资料移到 skills。"
+  "origin": "builtin",
+  "lines": 2,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/general/agents-md-minimal.md",
+  "license": "MIT",
+  "source": "https://github.com/agentsmd/agents.md",
+  "body": "按 agentsmd/agents.md 与 CLAUDE.md 约定：只写不可从代码推断的事实、命令与硬约束；流程和参考资料移到 skills。\n完成后给出实际证据与仍未解决的部分。"
 }

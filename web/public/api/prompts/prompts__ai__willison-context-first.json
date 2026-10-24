@@ -10,7 +10,13 @@
     "代码生成"
   ],
   "compose": [],
-  "lines": 2,
-  "url": "prompts/prompts__ai__willison-context-first.json",
-  "body": "按 Simon Willison 的 `using-llms-for-code`：先提供足够上下文与完整示例，再让 LLM 给选项并下达精确任务。\n把它当会犯错的 pair programmer；运行代码、测试结果，难点由人接管。"
+  "origin": "builtin",
+  "lines": 3,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/ai/willison-context-first.md",
+  "license": "仅指路，未复制内容",
+  "source": "https://simonwillison.net/2025/Mar/11/using-llms-for-code/",
+  "body": "按 Simon Willison 的 `using-llms-for-code`：先提供足够上下文与完整示例，再让 LLM 给选项并下达精确任务。\n把它当会犯错的 pair programmer；运行代码、测试结果，难点由人接管。\n完成后说明依据来源与不确定处，不许把推测当结论。"
 }

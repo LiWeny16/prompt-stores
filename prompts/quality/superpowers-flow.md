@@ -12,4 +12,5 @@ license: MIT
 ````text
 用 `obra/superpowers` 的 skills 按阶段推进：`brainstorming` → `writing-plans` → `test-driven-development` → `verification-before-completion`。
 只加载当前阶段的 skill，按其入口调用，不把流程全文塞进 prompt。
+完成后给出实际证据（命令、测试输出或日志），未验证的问题不许当作已修复。
 ````

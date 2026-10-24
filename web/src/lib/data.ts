@@ -25,6 +25,8 @@ export interface PromptItem {
   updated?: string;
   /** 正文中需要用户填写的占位符 */
   vars?: string[];
+  /** 正文引用的技能包（指针式 prompt 的前置依赖） */
+  requires?: { pack: string; install: string; skills: string[] }[];
   /** 仓库内路径 */
   file?: string;
   roleId?: string;

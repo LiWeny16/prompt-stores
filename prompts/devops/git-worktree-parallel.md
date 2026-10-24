@@ -11,4 +11,5 @@ license: MIT
 
 ````text
 按 obra/superpowers 的 using-git-worktrees：独立任务放隔离 worktree 并行；合并前守住基线与边界。
+完成后附命令输出与回滚方式，未验证的步骤要标注。
 ````

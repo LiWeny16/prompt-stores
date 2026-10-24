@@ -10,7 +10,13 @@
     "反馈回路"
   ],
   "compose": [],
-  "lines": 2,
-  "url": "prompts/prompts__quality__willison-agentic-patterns.json",
-  "body": "遇到 coding-agent 任务，先查 Simon Willison 的 `Agentic Engineering Patterns`。\n优先采用其中的 `red/green TDD` 与真实反馈回路，先跑测试，别把未经审阅的代码当完成。"
+  "origin": "builtin",
+  "lines": 3,
+  "updated": "2026-10-23",
+  "vars": [],
+  "requires": [],
+  "file": "prompts/quality/willison-agentic-patterns.md",
+  "license": "仅指路，未复制内容",
+  "source": "https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/",
+  "body": "遇到 coding-agent 任务，先查 Simon Willison 的 `Agentic Engineering Patterns`。\n优先采用其中的 `red/green TDD` 与真实反馈回路，先跑测试，别把未经审阅的代码当完成。\n完成后给出实际证据（命令、测试输出或日志），未验证的问题不许当作已修复。"
 }
