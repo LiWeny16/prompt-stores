@@ -23,6 +23,8 @@ export interface PromptItem {
   lines?: number;
   /** 最近更新（取自 git 提交日期） */
   updated?: string;
+  /** 正文中需要用户填写的占位符 */
+  vars?: string[];
   /** 仓库内路径 */
   file?: string;
   roleId?: string;

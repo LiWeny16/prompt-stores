@@ -1,7 +1,7 @@
 # 组合：AI 内置助手交付（复用成熟引擎）
 
 > 角色：`prompts/ai/builtin-assistant.md` ｜ 模块：`modules/page-state-api.md`
-> 由 `node scripts/build-combos.mjs` 生成于 2026-10-23；点下方代码块右上角按钮一键复制。
+> 由 `node scripts/build-combos.mjs` 生成于 2026-10-24；点下方代码块右上角按钮一键复制。
 
 ## 架构
 

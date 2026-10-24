@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-10-23",
+  "generated": "2026-10-24",
   "composeRule": "按顺序拼接：角色正文 → 各模块正文，用空行分隔",
   "recipes": [
     {

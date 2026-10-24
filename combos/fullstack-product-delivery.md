@@ -1,7 +1,7 @@
 # 组合：产品交付负责人（前后端/桌面）
 
 > 角色：`prompts/fullstack/product-delivery.md` ｜ 模块：`modules/agentic-ui.md`、`modules/page-state-api.md`
-> 由 `node scripts/build-combos.mjs` 生成于 2026-10-23；点下方代码块右上角按钮一键复制。
+> 由 `node scripts/build-combos.mjs` 生成于 2026-10-24；点下方代码块右上角按钮一键复制。
 
 ## 架构
 

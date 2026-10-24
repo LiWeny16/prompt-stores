@@ -4,7 +4,7 @@
 
 | 端点 | 用途 |
 |---|---|
-| `index.json` | 全部条目元数据（id / kind / category / tags / compose / lines），不含正文 |
+| `index.json` | 全部条目元数据（id / kind / category / tags / compose / lines / vars），不含正文 |
 | `prompts/<id>.json` | 单条完整正文（`id` 中的 `/` 替换为 `__`） |
 | `recipes.json` | 预设组合清单与模块依赖 |
 

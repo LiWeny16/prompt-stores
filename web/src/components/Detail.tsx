@@ -7,6 +7,7 @@ import { CopyButton } from '@/components/CopyButton';
 import { Diagram } from '@/components/Diagram';
 import { KIND_LABEL, SHAPE_LABEL, lineCount, shapeOf, type PromptItem } from '@/lib/data';
 import { loadBody } from '@/lib/bodies';
+import { bodyForAgent, splitVars } from '@/lib/text';
 
 interface DetailProps {
   item: PromptItem;
@@ -134,8 +135,28 @@ export function Detail({ item, resolve, onClose, onEdit, onDelete }: DetailProps
           </section>
         ) : null}
 
-        <div className="flex items-center gap-2">
+        {(item.vars?.length ?? 0) > 0 ? (
+          <div className="rounded-lg border border-dashed bg-muted/20 p-2.5">
+            <p className="mb-1.5 text-[11px] font-medium text-muted-foreground">复制前需要填写（{item.vars!.length} 项）</p>
+            <div className="flex flex-wrap gap-1">
+              {item.vars!.map((v) => (
+                <span key={v} className="rounded border bg-background px-1.5 py-0.5 text-[10.5px]">
+                  {v}
+                </span>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        <div className="flex flex-wrap items-center gap-2">
           <CopyButton getText={() => loadBody(item)} label={item.kind === 'combo' ? '复制完整组合' : '复制'} />
+          {(item.vars?.length ?? 0) > 0 ? (
+            <CopyButton
+              variant="secondary"
+              getText={async () => bodyForAgent(await loadBody(item), item.vars ?? [])}
+              label="复制给 agent（含填空提示）"
+            />
+          ) : null}
           {item.mermaid ? <CopyButton text={item.mermaid} label="复制 Mermaid" variant="ghost" /> : null}
           {item.source ? (
             <a
@@ -150,7 +171,19 @@ export function Detail({ item, resolve, onClose, onEdit, onDelete }: DetailProps
         </div>
 
         <pre className="min-h-0 flex-1 overflow-auto rounded-lg border bg-muted/40 p-4 font-mono text-[12.5px] leading-relaxed whitespace-pre-wrap">
-          {bodyError ? `加载失败：${bodyError}` : body ?? '加载中…'}
+          {bodyError
+            ? `加载失败：${bodyError}`
+            : body
+              ? splitVars(body).map((seg, i) =>
+                  seg.isVar ? (
+                    <mark key={i} className="rounded bg-primary/15 px-0.5 text-foreground">
+                      {seg.text}
+                    </mark>
+                  ) : (
+                    <span key={i}>{seg.text}</span>
+                  ),
+                )
+              : '加载中…'}
         </pre>
       </div>
     </div>,

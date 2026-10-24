@@ -90,6 +90,14 @@ function extractBody(text, file) {
   return m[2].replace(/\r\n/g, '\n').trimEnd();
 }
 
+/** 抽取正文里需要用户填写的占位符：【xxx】 与 {{xxx}} */
+function extractVars(body) {
+  const out = new Set();
+  for (const m of body.matchAll(/【([^】\n]{1,60})】/g)) out.add(m[1].trim());
+  for (const m of body.matchAll(/\{\{\s*([\w.-]{1,40})\s*\}\}/g)) out.add(m[1].trim());
+  return [...out];
+}
+
 function* walkMd(dir) {
   if (!existsSync(dir)) return;
   for (const e of readdirSync(dir, { withFileTypes: true })) {
@@ -257,6 +265,7 @@ const metaOf = (it) => ({
   origin: it.origin,
   lines: it.body.split('\n').length,
   updated: it.kind === 'combo' ? TODAY : dayOf(GIT_DATES.get(it.file)),
+  vars: extractVars(it.body),
   ...(it.file ? { file: it.file } : {}),
   ...(it.roleId ? { roleId: it.roleId } : {}),
   ...(it.graph ? { graph: it.graph } : {}),
@@ -325,7 +334,7 @@ writeFileSync(
 
 | 端点 | 用途 |
 |---|---|
-| \`index.json\` | 全部条目元数据（id / kind / category / tags / compose / lines），不含正文 |
+| \`index.json\` | 全部条目元数据（id / kind / category / tags / compose / lines / vars），不含正文 |
 | \`prompts/<id>.json\` | 单条完整正文（\`id\` 中的 \`/\` 替换为 \`__\`） |
 | \`recipes.json\` | 预设组合清单与模块依赖 |
 
